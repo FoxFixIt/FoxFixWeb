@@ -1,0 +1,175 @@
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--ff-d);-webkit-font-smoothing:antialiased}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:600 1rem/1 var(--ff-d);letter-spacing:.24em}
+.logo svg{width:28px;height:28px;color:var(--fox)}
+.nav a.back{font-size:.9rem;color:var(--mute);text-decoration:none}
+.intro{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;padding:clamp(40px,7vw,88px) 0 24px}
+.intro h1{margin:0;font-size:clamp(2.4rem,6vw,4.4rem);font-weight:600;letter-spacing:-.045em;line-height:1}
+.intro p{margin:1rem 0 0;max-width:60ch;color:var(--mute)}
+.how{display:grid;gap:.6rem;padding:1.2rem 1.3rem;border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow),0 0 0 1px var(--line);font:400 .8rem/1.6 var(--ff-m);color:var(--mute);max-width:380px}
+.how label{display:flex;align-items:center;gap:.6rem;color:var(--ink);font:500 .85rem var(--ff-d);cursor:pointer}
+.how input{width:18px;height:18px;accent-color:var(--fox-btn)}
+@media (max-width:860px){.intro{grid-template-columns:1fr}}
+.jump{display:flex;gap:.5rem;flex-wrap:wrap;padding:0 0 28px;margin:0;list-style:none}
+.jump a{display:inline-block;padding:.45em .9em;border-radius:999px;box-shadow:0 0 0 1px var(--line-2);font-size:.85rem;text-decoration:none;color:var(--ink)}
+.jump a:hover{background:var(--ink);color:var(--bg)}
+.grp{margin:2.4rem 0 .4rem;font:500 .8rem var(--ff-m);color:var(--fox-d)}
+
+.tpl{padding:28px 0 44px;border-top:1px solid var(--line)}
+.tpl-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.2rem}
+.tpl-h h2{margin:0;font-size:1.6rem;font-weight:600;letter-spacing:-.03em}
+.tpl-h p{margin:.3rem 0 0;font:400 .8rem var(--ff-m);color:var(--mute)}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.tools .btn{min-height:42px;padding:.5em 1em;font-size:.85rem}
+.tools .btn svg{width:17px;height:17px}
+.tools select,.tools input[type=text]{min-height:42px;border:1px solid var(--line-2);border-radius:999px;padding:0 1em;font:500 .85rem var(--ff-d);background:var(--surface);color:var(--ink)}
+.bench{display:flex;flex-wrap:wrap;gap:44px 28px;align-items:flex-start;padding:44px 28px 28px;border-radius:var(--r-lg);overflow:auto;background:radial-gradient(circle,var(--line-2) 1px,transparent 1.4px) 0 0/18px 18px,var(--surface-2)}
+.frame{position:relative;flex:none;zoom:var(--z,1);box-shadow:0 14px 30px -14px rgba(20,20,22,.35)}
+.frame>.lbl{position:absolute;top:-20px;left:0;font:500 10px var(--ff-m);color:var(--mute);white-space:nowrap;zoom:calc(1 / var(--z,1))}
+[contenteditable]{outline:none;cursor:text}
+[contenteditable]:hover{box-shadow:0 0 0 1px rgba(43,123,228,.55)}
+.tip{margin-top:.8rem;font:400 .78rem var(--ff-m);color:var(--mute)}
+.guides .safe{display:block}
+.safe{display:none;position:absolute;border:3px dashed #2B7BE4;pointer-events:none;z-index:5}
+.safe span{position:absolute;top:6px;left:8px;font:500 20px var(--ff-m);color:#2B7BE4}
+.toast{position:fixed;left:50%;bottom:24px;translate:-50% 20px;padding:.6em 1.1em;border-radius:999px;background:var(--ink);color:var(--bg);font:500 .85rem var(--ff-m);opacity:0;transition:opacity .25s,translate .25s;pointer-events:none;z-index:99}
+.toast.on{opacity:1;translate:-50% 0}
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--mute)}
+
+/* =================== PROJEKTY (stałe kolory, niezależne od trybu ciemnego) =================== */
+.art{--o:#E2531E;--od:#BF410E;--k:#141416;--p:#F7F7F6;--g:#5E5E66;position:relative;overflow:hidden;background:var(--p);color:var(--k);font-family:"Geist",sans-serif;line-height:1.15;-webkit-font-smoothing:antialiased}
+.art .m{font-family:"Geist Mono",monospace}
+.art .fx{color:var(--o)}
+.art.v-ink{background:var(--k);color:#F2F2F3}.art.v-ink .mu{color:#9B9BA4}
+.art.v-fox{background:var(--od);color:#fff}.art.v-fox .fx{color:#fff}.art.v-fox .mu{color:rgba(255,255,255,.82)}
+.art.v-white{background:#fff}
+.mu{color:var(--g)}
+.wm{display:flex;align-items:center;gap:.32em;font-weight:600;letter-spacing:.24em}
+.wm svg{width:1.35em;height:1.35em;flex:none}
+
+/* wizytówka 90×50 */
+.bc{width:90mm;height:50mm;padding:5.5mm 6mm;display:flex;flex-direction:column;justify-content:space-between}
+.bc .wm{font-size:3.6mm}
+.bc h3{margin:0;font-size:6.2mm;font-weight:600;letter-spacing:-.04em;line-height:1}
+.bc h3 em{font-style:normal;color:var(--o)}
+.bc.v-ink h3 em{color:#F07443}
+.bc .ln{display:flex;justify-content:space-between;align-items:flex-end;gap:3mm;font-size:2.5mm}
+.bc-b{display:grid;grid-template-columns:1fr 20mm;gap:4mm;align-items:center}
+.bc-b .big{font-size:6mm;font-weight:600;letter-spacing:-.03em}
+.bc-b p{margin:1.2mm 0 0;font-size:2.4mm;line-height:1.45}
+.bc .bfox{position:absolute;right:-9mm;bottom:-12mm;width:42mm;height:42mm;opacity:.14}
+.qr{width:20mm;height:20mm;padding:1.6mm;background:#fff;border-radius:2.4mm;display:grid;place-items:center;position:relative;z-index:1}
+.qr svg{width:100%;height:100%}
+
+/* naklejka okrągła Ø60 */
+.rs{width:60mm;height:60mm;border-radius:50%;display:grid;place-items:center}
+.rs .ring{position:absolute;inset:0;width:100%;height:100%}
+.rs .ring text{font:500 34px "Geist Mono",monospace;letter-spacing:5px;fill:currentColor}
+.rs .c{width:24mm;height:24mm;color:var(--o)}
+.rs.v-fox .c,.rs.v-ink .c{color:#fff}.rs.v-ink .c{color:var(--o)}
+
+/* naklejka prostokątna 70×40 */
+.rc{width:70mm;height:40mm;display:grid;grid-template-columns:26mm 1fr}
+.rc .side{background:var(--od);display:grid;place-items:center;color:#fff}
+.rc .side svg{width:15mm;height:15mm}
+.rc .body{padding:4.5mm 5mm;display:flex;flex-direction:column;justify-content:space-between}
+.rc small{font-size:2.5mm}
+.rc b{display:block;font-size:7.4mm;font-weight:600;letter-spacing:-.04em;line-height:1;margin-top:.8mm}
+.rc .ln{font-size:2.5mm}
+.rc.v-ink .side{background:#2a2a2e}.rc.v-ink .side svg{color:var(--o)}
+
+/* plomba 40×15 */
+.seal{width:40mm;height:15mm;background:#fff;border:.45mm solid var(--k);border-radius:1.6mm;display:flex;align-items:center;gap:1.8mm;padding:0 2mm}
+.seal svg{width:7mm;height:7mm;color:var(--o);flex:none}
+.seal div{display:grid;gap:.4mm;flex:1}
+.seal b{font:500 2mm "Geist Mono",monospace;letter-spacing:.3mm}
+.seal span{font:400 1.75mm "Geist Mono",monospace;color:var(--g);white-space:nowrap}
+
+/* etykieta zlecenia 62×29 (drukarka etykiet) */
+.ord{width:62mm;height:29mm;background:#fff;color:#000;padding:2.4mm 3mm;display:grid;grid-template-rows:auto 1fr;gap:1.6mm}
+.ord .hd{display:flex;justify-content:space-between;align-items:center;font-size:2.6mm}
+.ord .hd .wm svg{color:#000}
+.ord .no{font:500 2.4mm "Geist Mono",monospace}
+.ord .no i{display:inline-block;width:16mm;border-bottom:.25mm solid #000;margin-left:1mm}
+.ord .f{display:grid;grid-template-columns:auto 1fr;gap:1.2mm 1.6mm;align-content:start;font:400 2.2mm "Geist Mono",monospace}
+.ord .f i{border-bottom:.2mm solid #000;height:3mm}
+
+/* wywieszka z godzinami A5 */
+.hrs{width:148mm;height:210mm;padding:14mm 13mm 12mm;display:flex;flex-direction:column}
+.hrs .wm{font-size:5mm}
+.hrs h3{margin:16mm 0 0;font-size:15mm;font-weight:600;letter-spacing:-.05em;line-height:.95}
+.hrs h3 em{font-style:normal;color:var(--o)}
+.hrs dl{margin:10mm 0 0;display:grid;grid-template-columns:1fr auto;font-size:5.6mm}
+.hrs dt,.hrs dd{margin:0;padding:3.4mm 0;border-bottom:.3mm solid rgba(20,20,22,.14)}
+.hrs dd{font-family:"Geist Mono",monospace;font-weight:500;text-align:right}
+.hrs dd.x{color:var(--g)}
+.hrs .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:6mm}
+.hrs .ft b{display:block;font-size:10mm;font-weight:600;letter-spacing:-.04em;line-height:1}
+.hrs .ft p{margin:2mm 0 0;font-size:3.6mm}
+.hrs .qr{width:30mm;height:30mm;padding:2.4mm;box-shadow:0 0 0 .3mm rgba(20,20,22,.14)}
+.hrs .qr small{position:absolute;bottom:-5mm;left:0;right:0;text-align:center;font:400 2.4mm "Geist Mono",monospace;color:var(--g)}
+.hrs.v-ink dt,.hrs.v-ink dd{border-color:rgba(242,242,243,.16)}.hrs.v-ink h3 em{color:#F07443}
+
+/* ulotka A5 */
+.fly{width:148mm;height:210mm;display:grid;grid-template-rows:118mm 1fr}
+.fly .hero{position:relative;background:var(--k);color:#F2F2F3;padding:12mm 12mm 0;overflow:hidden}
+.fly .hero .wm{font-size:4.4mm}
+.fly .hero h3{position:relative;z-index:1;margin:12mm 0 0;font-size:13.4mm;font-weight:600;letter-spacing:-.05em;line-height:.95}
+.fly .hero h3 em{font-style:normal;color:#F07443}
+.fly .disc{position:absolute;right:-16mm;bottom:-30mm;width:92mm;height:92mm;border-radius:50%;background:var(--o)}
+.fly .ph{position:absolute;right:12mm;bottom:-22mm;width:46mm;height:auto;filter:drop-shadow(0 4mm 6mm rgba(0,0,0,.4))}
+.fly .bd{padding:9mm 12mm 10mm;display:flex;flex-direction:column}
+.fly ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:5mm 6mm;font-size:5mm;font-weight:500}
+.fly li{display:flex;align-items:center;gap:2.4mm}
+.fly li svg{width:6.6mm;height:6.6mm;color:var(--od);flex:none}
+.fly .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:5mm;padding-top:5mm;border-top:.3mm solid rgba(20,20,22,.14)}
+.fly .ft b{display:block;font-size:9mm;font-weight:600;letter-spacing:-.04em;line-height:1}
+.fly .ft p{margin:1.6mm 0 0;font-size:3.2mm}
+.fly .qr{width:24mm;height:24mm;padding:2mm;box-shadow:0 0 0 .3mm rgba(20,20,22,.14)}
+
+/* okładka FB 1640×624 */
+.cover{width:1640px;height:624px;padding:0 120px 0 420px;display:flex;align-items:center}
+.cover h3{margin:0;font-size:92px;font-weight:600;letter-spacing:-.05em;line-height:.95}
+.cover h3 em{font-style:normal;color:var(--o)}
+.cover p{margin:26px 0 0;font:400 30px "Geist Mono",monospace}
+.cover .disc{position:absolute;right:-60px;top:50%;translate:0 -50%;width:560px;height:560px;border-radius:50%;background:var(--o)}
+.cover .i1{position:absolute;right:225px;top:150px;width:360px}
+.cover .i2{position:absolute;right:50px;top:80px;width:190px}
+.cover.v-ink h3 em{color:#F07443}
+.cover .safe.pr{left:60px;bottom:60px;width:340px;height:340px;border-radius:50%}
+.cover .safe.mb{left:330px;right:330px;top:0;bottom:0;border-width:0 4px}
+
+/* post 1080×1080 */
+.post{width:1080px;height:1080px;padding:90px;display:flex;flex-direction:column}
+.post .wm{font-size:40px}
+.post h3{margin:auto 0 0;font-size:118px;font-weight:600;letter-spacing:-.05em;line-height:.95;max-width:880px}
+.post h3 em{font-style:normal;color:var(--o)}
+.post.v-fox h3 em{color:#FFD9C7}.post.v-ink h3 em{color:#F07443}
+.post p{margin:34px 0 0;font-size:40px;line-height:1.3;max-width:760px}
+.post .ft{margin-top:60px;display:flex;justify-content:space-between;font:500 34px "Geist Mono",monospace}
+.post .disc{position:absolute;right:-180px;top:-180px;width:560px;height:560px;border-radius:50%;background:var(--o);opacity:.95}
+.post.v-fox .disc{background:#fff;opacity:.12}
+
+/* story 1080×1920 */
+.story{width:1080px;height:1920px;padding:320px 90px 360px;display:flex;flex-direction:column}
+.story .wm{font-size:42px}
+.story h3{margin:90px 0 0;font-size:150px;font-weight:600;letter-spacing:-.055em;line-height:.92}
+.story h3 em{font-style:normal;color:var(--o)}
+.story.v-ink h3 em{color:#F07443}
+.story p{margin:50px 0 0;font-size:46px;line-height:1.3;max-width:820px}
+.story .disc{position:absolute;left:50%;bottom:-420px;translate:-50% 0;width:1000px;height:1000px;border-radius:50%;background:var(--o)}
+.story .ph{position:absolute;left:50%;bottom:-300px;translate:-50% 0;width:470px}
+.story .tel{position:relative;z-index:1;margin-top:70px;align-self:flex-start;padding:26px 46px;border-radius:999px;background:var(--k);color:#fff;font-size:54px;font-weight:600;letter-spacing:-.02em}
+.story .safe{left:0;right:0;top:0;height:250px;border-width:0 0 4px}
+.story .safe.b{top:auto;bottom:0;height:300px;border-width:4px 0 0}
+
+@media print{
+ body>*:not(#print-slot){display:none!important}
+ #print-slot{display:block!important}
+ #print-slot .frame{zoom:1!important;box-shadow:none;page-break-after:always;margin:0}
+ #print-slot .lbl,#print-slot .safe{display:none!important}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+#print-slot{display:none}
