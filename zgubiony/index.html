@@ -68,7 +68,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 
 /* Kroki glowne */
 .krok{padding:clamp(56px,8vw,96px) 0 0;scroll-margin-top:72px}
-.krok-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:26px}
+.krok-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.krok-head h2{padding-top:4px}
 .krok-num{flex:0 0 auto;width:58px;height:58px;border-radius:50%;background:var(--fox-btn);color:var(--on-fox);display:grid;place-items:center;font-size:1.6rem;font-weight:600}
 .krok-head small{display:block;font:500 .85rem/1 var(--ff-m);color:var(--fox-d);margin:4px 0 8px}
 .krok-head h2{font-size:clamp(2rem,4.4vw,3.2rem)}
@@ -89,17 +90,20 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 
 /* Krok 2: wybor telefonu */
 .picker{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.pick{appearance:none;border:2px solid var(--line-2);background:var(--surface);border-radius:var(--r);padding:22px;cursor:pointer;text-align:left;display:flex;align-items:center;gap:16px;transition:border-color .2s,background .2s,transform .15s}
+.pick{position:relative;appearance:none;border:2px solid var(--line);background:var(--surface);border-radius:var(--r-lg);padding:24px;cursor:pointer;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:190px;transition:border-color .2s,background .2s,transform .15s,box-shadow .2s}
+.pick .ico-box{width:64px;height:64px;border-radius:18px;background:var(--surface-2);display:grid;place-items:center;transition:background .2s,color .2s}
+.pick .sel{position:absolute;top:18px;right:18px;background:var(--fox-btn);color:var(--on-fox);border-radius:999px;padding:5px 12px;font-size:.85rem;font-weight:600;opacity:0;transform:scale(.8);transition:.25s var(--ease)}
+.pick .go{margin-top:auto;color:var(--fox-d);font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:6px}
 .pick:hover{border-color:var(--fox)}
 .pick:active{transform:scale(.98)}
-.pick i{font-size:42px}
+.pick .ico-box i{font-size:36px}
 .pick b{display:block;font-size:1.3rem;font-weight:600}
 .pick span{color:var(--mute);font-size:.95rem}
-.pick[aria-checked="true"]{border-color:var(--fox);background:color-mix(in srgb,var(--fox) 9%,var(--surface))}
-.pick[aria-checked="true"] i{color:var(--fox)}
-.pick .tick{margin-left:auto;width:28px;height:28px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;font-size:16px;color:transparent;flex:0 0 auto}
-.pick[aria-checked="true"] .tick{background:var(--fox-btn);border-color:var(--fox-btn);color:#fff}
-@media (max-width:760px){.picker{grid-template-columns:1fr}.pick{padding:16px 18px}}
+.pick[aria-checked="true"]{border-color:var(--fox);box-shadow:var(--shadow)}
+.pick[aria-checked="true"] .ico-box{background:var(--fox-btn);color:var(--on-fox)}
+.pick[aria-checked="true"] .sel{opacity:1;transform:none}
+.pick[aria-checked="true"] .go{visibility:hidden}
+@media (max-width:760px){.picker{grid-template-columns:1fr}.pick{min-height:0;flex-direction:row;align-items:center;padding:16px 18px}.pick .go{display:none}.pick .sel{position:static;margin-left:auto}}
 
 /* Krok 3: checklista */
 .k3-empty{background:var(--surface);border:2px dashed var(--line-2);border-radius:var(--r);padding:28px;text-align:center;color:var(--mute);font-size:1.1rem}
@@ -114,7 +118,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .note button{all:unset;color:var(--fox-d);font-weight:600;text-decoration:underline;cursor:pointer}
 .items{display:grid;gap:14px}
 .item{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"txt scene" "row scene";gap:18px 26px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;transition:opacity .3s,border-color .3s}
-.item h3{font-size:clamp(1.35rem,2.4vw,1.75rem);margin:10px 0 0}
+.item h3{font-size:clamp(1.35rem,2.4vw,1.75rem);margin:0;display:flex;gap:12px;align-items:flex-start}
+.pn{flex:0 0 34px;height:34px;border-radius:50%;border:2px solid var(--fox-btn);color:var(--fox-d);display:grid;place-items:center;font-size:1rem;font-weight:600;letter-spacing:0;margin-top:-1px;transition:.2s}
+.item.is-done .pn{background:var(--ok);border-color:var(--ok);color:#fff}
+.k4 .item h3{margin-top:10px}
 .item p{color:var(--ink-2);margin-top:8px;font-size:1.05rem;max-width:46ch}
 .item p b{color:var(--ink)}
 .item .letter{font:500 .85rem/1 var(--ff-m);color:var(--fox-d)}
@@ -343,6 +350,44 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .alert .scene{background:rgba(255,255,255,.05)}
 .alert .cap{color:#B9B9C0}
 
+
+.quick{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px;background:var(--surface);border:2px solid color-mix(in srgb,var(--fox) 40%,var(--line));border-radius:var(--r);padding:16px 18px}
+.quick .q-t{font-weight:600;display:inline-flex;align-items:center;gap:8px;margin-right:6px}
+.quick .q-t i{color:var(--fox-d);font-size:20px}
+@media (max-width:560px){.quick .btn{width:100%;white-space:normal}}
+/* Generator SMS do lombardow */
+.sms-gen{display:grid;gap:14px;margin-top:18px;max-width:480px}
+.sms-gen .f{display:grid;gap:6px}
+.sms-gen label{font-weight:600;font-size:.95rem}
+.sms-gen input,.sms-gen textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-sm);padding:12px 14px;width:100%}
+.sms-gen input::placeholder{color:var(--mute)}
+.sms-gen input:focus,.sms-gen textarea:focus{outline:none;border-color:var(--fox)}
+.sms-gen textarea{resize:vertical;line-height:1.45;background:var(--surface-2)}
+.sg-btns{display:flex;flex-wrap:wrap;gap:10px}
+.maplink{display:inline-flex;align-items:center;gap:8px;color:var(--fox-d);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* zrzut ekranu */
+.shot-wrap{position:relative;width:min(100%,380px)}
+.shot-flash{position:absolute;inset:0;border-radius:16px;background:#fff;opacity:0;pointer-events:none}
+.s-flash .shot-flash{animation:flash .5s ease-out}
+@keyframes flash{0%{opacity:0}20%{opacity:.95}100%{opacity:0}}
+.shot-thumb{position:absolute;right:-6px;bottom:-14px;width:96px;border-radius:10px;border:3px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.3);overflow:hidden;transform:scale(0);transform-origin:bottom right;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.shot-thumb .map{width:100%;border-radius:0}
+.shot-thumb .m-pin{font-size:18px;opacity:1;transform:translate(-50%,-100%)}
+.shot-thumb .m-card,.shot-thumb .m-acc{display:none}
+.s-saved .shot-thumb{transform:scale(1)}
+.shot-ok{position:absolute;left:12px;top:12px;background:#188038;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(-8px);transition:.35s}
+.s-saved .shot-ok{opacity:1;transform:none}
+.keys{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:.88rem;color:var(--mute)}
+.keys kbd{font:600 .8rem var(--ff-d);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:2px 7px;color:var(--ink)}
+
+/* SMS */
+.sms-bub{background:#e9e9eb;color:#1f1f1f;border-radius:16px 16px 16px 4px;padding:9px 11px;font-size:11.5px;line-height:1.35;text-align:left;min-height:40px;align-self:stretch}
+.sms-to{font-size:11px;color:#5f6368;align-self:stretch;text-align:left;border-bottom:1px solid #eee;padding-bottom:6px}
+.sms-sent{font-size:11px;color:#188038;font-weight:600;opacity:0;transition:opacity .3s}
+.s-sent .sms-sent{opacity:1}
+.s-sent .sms-bub{background:#0b57d0;color:#fff;border-radius:16px 16px 4px 16px}
+
 /* ===== FoxFix CTA z animowanym logo ===== */
 .fox{margin-top:clamp(64px,9vw,110px);background:var(--tile-dark);color:#F2F2F3;border-radius:var(--r-lg);padding:clamp(26px,5vw,56px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center;position:relative;overflow:hidden}
 .fox::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 15% 50%,rgba(226,83,30,.28),transparent 70%);pointer-events:none}
@@ -440,7 +485,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     <div class="wrap">
       <div class="krok-head rv">
         <div class="krok-num">1</div>
-        <div><small>Krok 1 z 4</small><h2>Spokojnie. Nie rób jeszcze duplikatu karty SIM.</h2></div>
+        <div><h2>Spokojnie. Nie rób jeszcze duplikatu karty SIM.</h2></div>
       </div>
       <div class="alert rv">
         <div>
@@ -463,12 +508,12 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     <div class="wrap">
       <div class="krok-head rv">
         <div class="krok-num">2</div>
-        <div><small>Krok 2 z 4</small><h2>Jaki masz telefon?</h2><p>Kliknij swój. Instrukcja w kroku 3 dopasuje się do Twojego telefonu.</p></div>
+        <div><h2>Jaki masz telefon?</h2><p>Kliknij swój. Instrukcja w kroku 3 dopasuje się do Twojego telefonu.</p></div>
       </div>
       <div class="picker rv" role="radiogroup" aria-label="Wybierz swój telefon">
-        <button class="pick" role="radio" aria-checked="false" data-dev="apple"><i class="ph-fill ph-apple-logo"></i><div><b>iPhone</b><span>Apple</span></div><span class="tick"><i class="ph-bold ph-check"></i></span></button>
-        <button class="pick" role="radio" aria-checked="false" data-dev="samsung"><i class="ph-fill ph-device-mobile-camera"></i><div><b>Samsung</b><span>Galaxy</span></div><span class="tick"><i class="ph-bold ph-check"></i></span></button>
-        <button class="pick" role="radio" aria-checked="false" data-dev="android"><i class="ph-fill ph-android-logo"></i><div><b>Inny Android</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel</span></div><span class="tick"><i class="ph-bold ph-check"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="apple"><span class="ico-box"><i class="ph-fill ph-apple-logo"></i></span><div><b>iPhone</b><span>Apple</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="samsung"><span class="ico-box"><i class="ph-fill ph-device-mobile-camera"></i></span><div><b>Samsung</b><span>Galaxy</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="android"><span class="ico-box"><i class="ph-fill ph-android-logo"></i></span><div><b>Inny Android</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
       </div>
     </div>
   </section>
@@ -478,7 +523,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     <div class="wrap">
       <div class="krok-head rv">
         <div class="krok-num">3</div>
-        <div><small>Krok 3 z 4</small><h2>Szukamy. Odhaczaj po kolei.</h2><p>Nie potrzebujesz drugiego takiego samego telefonu. Wystarczy komputer, tablet albo telefon kogoś bliskiego.</p></div>
+        <div><h2>Szukamy. Odhaczaj po kolei.</h2><p>Nie potrzebujesz drugiego takiego samego telefonu. Wystarczy komputer, tablet albo telefon kogoś bliskiego.</p></div>
       </div>
 
       <div class="k3-empty" id="k3-empty"><i class="ph ph-hand-pointing"></i>Najpierw wybierz swój telefon w kroku 2.<br><a class="btn btn--fox" href="#krok-2" style="margin-top:16px">Wybierz telefon</a></div>
@@ -486,29 +531,34 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       <!-- ===== iPhone ===== -->
       <div class="list" id="list-apple" data-list="apple">
         <div class="progress"><span class="pr-txt">Zrobione 0 z 6</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Kliknij, nie musisz nic wpisywać:</span><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz iCloud Znajdź <i class="ph-bold ph-arrow-up-right"></i></a></div>
         <div class="items">
           <article class="item" data-id="a1">
-            <div><span class="letter">Punkt 1</span><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go pod kanapą, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
+            <div><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go pod kanapą, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
             <div class="scene" data-scene="dial"></div>
           </article>
           <article class="item" data-id="a2">
-            <div><span class="letter">Punkt 2</span><h3>Masz iPada albo Maca? Albo ktoś z rodziny ma iPhone?</h3><p>Otwórz na nim aplikację <b>Znajdź</b>. Jeśli to Twoje konto Apple albo macie „Chmurę rodzinną”, telefon będzie na liście od razu. Bez logowania.</p><div class="row"></div></div>
+            <div><h3>Masz iPada albo Maca? Albo ktoś z rodziny ma iPhone?</h3><p>Otwórz na nim aplikację <b>Znajdź</b>. Jeśli to Twoje konto Apple albo macie „Chmurę rodzinną”, telefon będzie na liście od razu. Bez logowania.</p><div class="row"></div></div>
             <div class="scene" data-scene="devices" data-devs="laptop,device-tablet,device-mobile" data-names="Mac,iPad,iPhone mamy"></div>
           </article>
           <article class="item" data-id="a3">
-            <div><span class="letter">Punkt 3</span><h3>Nie masz? Otwórz icloud.com/find</h3><p>Na dowolnym komputerze lub telefonie, nawet z Androidem. Wpisz adres w przeglądarce albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz icloud.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
+            <div><h3>Nie masz? Otwórz icloud.com/find</h3><p>Na dowolnym komputerze lub telefonie, nawet z Androidem. Wpisz adres w przeglądarce albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz icloud.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="url" data-url="icloud.com/find" data-title="Znajdź urządzenia" data-icon="apple-logo"></div>
           </article>
           <article class="item" data-id="a4">
-            <div><span class="letter">Punkt 4</span><h3>Zaloguj się. Kodu nie trzeba!</h3><p>Wpisz e-mail lub numer telefonu i hasło do konta Apple. Gdy strona poprosi o kod, <b>kliknij „Znajdź urządzenia” na dole</b>. Kod i tak przyszedłby na zgubiony telefon.</p><div class="row"></div></div>
+            <div><h3>Zaloguj się. Kodu nie trzeba!</h3><p>Wpisz e-mail lub numer telefonu i hasło do konta Apple. Gdy strona poprosi o kod, <b>kliknij „Znajdź urządzenia” na dole</b>. Kod i tak przyszedłby na zgubiony telefon.</p><div class="row"><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz iCloud Znajdź <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="login" data-style="apple" data-user="anna.nowak@icloud.com" data-phone="+48 600 123 456"></div>
           </article>
           <article class="item" data-id="a5">
-            <div><span class="letter">Punkt 5</span><h3>Zobacz telefon na mapie i włącz dźwięk</h3><p>Wybierz iPhone'a z listy. Jest blisko? Kliknij <b>Odtwórz dźwięk</b>, zapiszczy nawet wyciszony.</p><div class="row"></div></div>
+            <div><h3>Zobacz mapę i szukaj w tym miejscu</h3><p>Wybierz iPhone'a z listy. Sklep, autobus, praca? Idź tam albo zadzwoń. Na miejscu kliknij <b>Odtwórz dźwięk</b>, zapiszczy nawet wyciszony.</p><div class="row"></div></div>
             <div class="scene" data-scene="map" data-name="iPhone"></div>
           </article>
+          <article class="item" data-id="a5s">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To ważne! Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zostanie Ci na zawsze. Przyda się też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
           <article class="item" data-id="a6">
-            <div><span class="letter">Punkt 6</span><h3>Kliknij „Oznacz jako zaginione”</h3><p>Telefon się zablokuje, a na ekranie pojawi się Twoja wiadomość i numer do kontaktu. Płatności zostaną wyłączone.</p><div class="row"></div></div>
+            <div><h3>Kliknij „Oznacz jako zaginione”</h3><p>Telefon się zablokuje, a na ekranie pojawi się Twoja wiadomość i numer do kontaktu. Płatności zostaną wyłączone.</p><div class="row"></div></div>
             <div class="scene" data-scene="lock" data-msg="Ten iPhone zaginął. Proszę o kontakt."></div>
           </article>
         </div>
@@ -517,30 +567,35 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       <!-- ===== Samsung ===== -->
       <div class="list" id="list-samsung" data-list="samsung">
         <div class="progress"><span class="pr-txt">Zrobione 0 z 6</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Kliknij, nie musisz nic wpisywać:</span><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz Samsung SmartThings Find <i class="ph-bold ph-arrow-up-right"></i></a><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz Google Find Hub <i class="ph-bold ph-arrow-up-right"></i></a></div>
         <div class="note"><i class="ph-fill ph-lightbulb"></i><div>Samsung działa też z kontem Google. Nie pamiętasz konta Samsung? W punkcie 4 kliknij „Kontynuuj z Google” albo <button type="button" data-goto="android">przejdź do instrukcji Google</button>, na Samsungu działa tak samo.</div></div>
         <div class="items">
           <article class="item" data-id="s1">
-            <div><span class="letter">Punkt 1</span><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go w pobliżu, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
+            <div><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go w pobliżu, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
             <div class="scene" data-scene="dial"></div>
           </article>
           <article class="item" data-id="s2">
-            <div><span class="letter">Punkt 2</span><h3>Jesteś zalogowany w Google na komputerze?</h3><p>Wpisz w Google <b>znajdź mój telefon</b>. Jeśli to Twoje konto (Gmail, YouTube), od razu zobaczysz mapę.</p><div class="row"></div></div>
+            <div><h3>Jesteś zalogowany w Google na komputerze?</h3><p>Wpisz w Google <b>znajdź mój telefon</b>. Jeśli to Twoje konto (Gmail, YouTube), od razu zobaczysz mapę.</p><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Szukaj w Google <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="search"></div>
           </article>
           <article class="item" data-id="s3">
-            <div><span class="letter">Punkt 3</span><h3>Otwórz stronę Samsunga</h3><p>W przeglądarce na komputerze lub innym telefonie wpisz adres albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz SmartThings Find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
+            <div><h3>Otwórz stronę Samsunga</h3><p>W przeglądarce na komputerze lub innym telefonie wpisz adres albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz SmartThings Find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="url" data-url="smartthingsfind.samsung.com" data-title="SmartThings Find" data-icon="device-mobile-camera"></div>
           </article>
           <article class="item" data-id="s4">
-            <div><span class="letter">Punkt 4</span><h3>Zaloguj się kontem Samsung albo Google</h3><p>Wpisz e-mail lub numer i hasło. Jeśli na telefonie logowałeś się Google, kliknij <b>Kontynuuj z Google</b>.</p><div class="row"></div></div>
+            <div><h3>Zaloguj się kontem Samsung albo Google</h3><p>Wpisz e-mail lub numer i hasło. Jeśli na telefonie logowałeś się Google, kliknij <b>Kontynuuj z Google</b>.</p><div class="row"><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz SmartThings Find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="login" data-style="samsung" data-user="jan.kowalski@gmail.com" data-phone="+48 600 123 456"></div>
           </article>
           <article class="item" data-id="s5">
-            <div><span class="letter">Punkt 5</span><h3>Mapa, dźwięk i dłuższa bateria</h3><p>Kliknij swojego Galaxy. Jest blisko? <b>Zadzwoń</b>. Daleko? Włącz <b>maksymalne oszczędzanie energii</b>, żeby dłużej był widoczny.</p><div class="row"></div></div>
+            <div><h3>Szukaj na mapie i oszczędzaj baterię</h3><p>Kliknij swojego Galaxy i idź w miejsce z mapy. Na miejscu kliknij <b>Zadzwoń</b>. Włącz też <b>maksymalne oszczędzanie energii</b>, żeby telefon dłużej był widoczny.</p><div class="row"></div></div>
             <div class="scene" data-scene="battery"></div>
           </article>
+          <article class="item" data-id="s5s">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To ważne! Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zostanie Ci na zawsze. Przyda się też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
           <article class="item" data-id="s6">
-            <div><span class="letter">Punkt 6</span><h3>Zablokuj i zostaw numer</h3><p>Kliknij <b>Zablokuj</b>. Na ekranie pojawi się wiadomość dla znalazcy, a płatności się wyłączą.</p><div class="row"></div></div>
+            <div><h3>Zablokuj i zostaw numer</h3><p>Kliknij <b>Zablokuj</b>. Na ekranie pojawi się wiadomość dla znalazcy, a płatności się wyłączą.</p><div class="row"></div></div>
             <div class="scene" data-scene="lock" data-msg="Znalazłeś ten telefon? Zadzwoń, proszę."></div>
           </article>
         </div>
@@ -549,29 +604,34 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       <!-- ===== Android / Google ===== -->
       <div class="list" id="list-android" data-list="android">
         <div class="progress"><span class="pr-txt">Zrobione 0 z 6</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Kliknij, nie musisz nic wpisywać:</span><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz Google Find Hub <i class="ph-bold ph-arrow-up-right"></i></a><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Szukaj w Google <i class="ph-bold ph-arrow-up-right"></i></a></div>
         <div class="items">
           <article class="item" data-id="g1">
-            <div><span class="letter">Punkt 1</span><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go w pobliżu, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
+            <div><h3>Zadzwoń na swój numer</h3><p>Z telefonu kogoś bliskiego. Może usłyszysz go w pobliżu, a może odbierze uczciwy znalazca.</p><div class="row"></div></div>
             <div class="scene" data-scene="dial"></div>
           </article>
           <article class="item" data-id="g2">
-            <div><span class="letter">Punkt 2</span><h3>Jesteś zalogowany w Google na komputerze?</h3><p>Wpisz w Google <b>znajdź mój telefon</b>. Jeśli to Twoje konto (Gmail, YouTube), od razu zobaczysz mapę. Bez wpisywania hasła.</p><div class="row"></div></div>
+            <div><h3>Jesteś zalogowany w Google na komputerze?</h3><p>Wpisz w Google <b>znajdź mój telefon</b>. Jeśli to Twoje konto (Gmail, YouTube), od razu zobaczysz mapę. Bez wpisywania hasła.</p><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Szukaj w Google <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="search"></div>
           </article>
           <article class="item" data-id="g3">
-            <div><span class="letter">Punkt 3</span><h3>Nie wyszło? Otwórz stronę Google</h3><p>Na komputerze albo telefonie kogoś bliskiego. Wpisz adres albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
+            <div><h3>Nie wyszło? Otwórz stronę Google</h3><p>Na komputerze albo telefonie kogoś bliskiego. Wpisz adres albo kliknij przycisk.</p><div class="row"><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="url" data-url="android.com/find" data-title="Find Hub" data-icon="google-logo"></div>
           </article>
           <article class="item" data-id="g4">
-            <div><span class="letter">Punkt 4</span><h3>Zaloguj się kontem Google</h3><p>Tym samym co na zgubionym telefonie. Wpisz adres Gmail albo numer telefonu, potem hasło.</p><div class="row"></div></div>
+            <div><h3>Zaloguj się kontem Google</h3><p>Tym samym co na zgubionym telefonie. Wpisz adres Gmail albo numer telefonu, potem hasło.</p><div class="row"><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz Google Find Hub <i class="ph-bold ph-arrow-up-right"></i></a></div></div>
             <div class="scene" data-scene="login" data-style="google" data-user="jan.kowalski@gmail.com" data-phone="600 123 456"></div>
           </article>
           <article class="item" data-id="g5">
-            <div><span class="letter">Punkt 5</span><h3>Zobacz mapę i włącz dźwięk</h3><p>Zobaczysz miejsce i baterię. Jest blisko? Kliknij <b>Odtwórz dźwięk</b>, zadzwoni 5 minut nawet wyciszony.</p><div class="row"></div></div>
+            <div><h3>Zobacz mapę i szukaj w tym miejscu</h3><p>Sklep, autobus, praca? Idź tam albo zadzwoń. Na miejscu kliknij <b>Odtwórz dźwięk</b>, zadzwoni 5 minut nawet wyciszony.</p><div class="row"></div></div>
             <div class="scene" data-scene="map" data-name="Twój telefon"></div>
           </article>
+          <article class="item" data-id="g5s">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To ważne! Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zostanie Ci na zawsze. Przyda się też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
           <article class="item" data-id="g6">
-            <div><span class="letter">Punkt 6</span><h3>Kliknij „Zabezpiecz urządzenie”</h3><p>Ekran się zablokuje i pokaże Twoją wiadomość oraz numer, pod który znalazca zadzwoni jednym dotknięciem.</p><div class="row"></div></div>
+            <div><h3>Kliknij „Zabezpiecz urządzenie”</h3><p>Ekran się zablokuje i pokaże Twoją wiadomość oraz numer, pod który znalazca zadzwoni jednym dotknięciem.</p><div class="row"></div></div>
             <div class="scene" data-scene="lock" data-msg="Zgubiłem ten telefon. Proszę, zadzwoń."></div>
           </article>
         </div>
@@ -590,11 +650,11 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     <div class="wrap">
       <div class="krok-head rv">
         <div class="krok-num">4</div>
-        <div><small>Krok 4 z 4</small><h2>Nie ma go albo ktoś go ukradł?</h2><p>Teraz zabezpieczasz siebie. Też po kolei.</p></div>
+        <div><h2>Nie ma go albo ktoś go ukradł?</h2><p>Teraz zabezpieczasz siebie. Też po kolei.</p></div>
       </div>
       <div class="k4">
         <article class="item" data-id="k1">
-          <div><i class="ph ph-police-car ic"></i><h3>Zgłoś na policji</h3><p>Nie jedź sam pod pinezkę. Pokaż policji mapę z lokalizacją, to im pomoże.</p><div class="row"></div></div>
+          <div><i class="ph ph-police-car ic"></i><h3>Zgłoś na policji</h3><p>Nie jedź sam pod pinezkę. Pokaż policji zrzut ekranu mapy, numer IMEI i godzinę, kiedy telefon był ostatnio widoczny.</p><div class="row"></div></div>
         </article>
         <article class="item" data-id="k2">
           <div><i class="ph ph-bank ic"></i><h3>Zablokuj bank i zmień hasła</h3><p>Bank zablokujesz przez infolinię lub aplikację na innym urządzeniu. Potem zmień hasło do poczty i Facebooka.</p><div class="row"></div></div>
@@ -604,6 +664,19 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
         </article>
         <article class="item" data-id="k4">
           <div><i class="ph ph-sim-card ic"></i><h3>Teraz dopiero duplikat SIM</h3><p>W salonie operatora zablokują starą kartę i dadzą nową z tym samym numerem.</p><div class="row"></div></div>
+        </article>
+        <article class="item wide" data-id="k6">
+          <div><i class="ph ph-storefront ic"></i><h3>Uprzedź lombardy i skupy telefonów</h3><p>Złodziej często próbuje szybko sprzedać telefon. Wyślij do lombardów i skupów w okolicy SMS z numerem IMEI. Jeśli ktoś przyniesie Twój telefon, zgłoszą to na policję i dadzą Ci znać.</p>
+            <form class="sms-gen" onsubmit="return false">
+              <div class="f"><label for="sg-model">Jaki to telefon?</label><input id="sg-model" placeholder="np. Samsung Galaxy A54, czarny" autocomplete="off"></div>
+              <div class="f"><label for="sg-imei">Numer IMEI</label><input id="sg-imei" inputmode="numeric" placeholder="15 cyfr z pudełka" autocomplete="off"></div>
+              <div class="f"><label for="sg-tel">Twój numer do kontaktu</label><input id="sg-tel" type="tel" inputmode="tel" placeholder="np. numer kogoś z rodziny" autocomplete="off"></div>
+              <div class="f"><label for="sg-out">Gotowy SMS</label><textarea id="sg-out" rows="5" readonly></textarea></div>
+              <div class="sg-btns"><button type="button" class="btn btn--fox" id="sg-copy"><i class="ph-bold ph-copy"></i><span>Skopiuj SMS</span></button><a class="btn" id="sg-send" href="sms:"><i class="ph-bold ph-paper-plane-tilt"></i>Wyślij SMS</a></div>
+              <a class="maplink" href="https://www.google.com/maps/search/lombard+skup+telefon%C3%B3w" target="_blank" rel="noopener"><i class="ph-fill ph-map-pin"></i>Znajdź lombardy i skupy w okolicy w Mapach Google</a>
+            </form>
+          </div>
+          <div class="scene" data-scene="sms"></div><div class="row"></div>
         </article>
         <article class="item wide last" data-id="k5">
           <div><i class="ph ph-trash ic" style="color:#C2271B"></i><h3>Na sam koniec: wymaż telefon</h3><p>Usuwa wszystkie Twoje dane. Po tym <b>telefonu nie da się już namierzyć</b>. Na iPhonie to „Wymaż to urządzenie”, na Androidzie „Przywróć ustawienia fabryczne”, na Samsungu „Wymaż dane”.</p><div class="row"></div></div>
@@ -854,6 +927,37 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       final(el){ el.querySelectorAll('.dv').forEach(y => y.classList.add('on')); }
     },
 
+    shot: {
+      html: () => `<div class="stage"><div class="shot-wrap">
+          <div class="map real"><div class="m-acc"></div><div class="m-pin"><i class="ph-fill ph-map-pin"></i></div>
+            <div class="m-card"><i class="ph-fill ph-device-mobile"></i><div><b>Twój telefon</b><span>Widziany o 14:32, bateria 9%</span></div></div></div>
+          <div class="shot-flash"></div>
+          <span class="shot-ok"><i class="ph-bold ph-check"></i>Zapisano zrzut ekranu</span>
+          <div class="shot-thumb"><div class="map"><div class="m-pin"><i class="ph-fill ph-map-pin"></i></div></div></div>
+        </div></div>
+        <p class="keys"><span>Telefon: <kbd>Zasilanie</kbd> + <kbd>Ciszej</kbd></span><span>Komputer: <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></span></p>`,
+      async run(el){
+        st(el, 'drop', 'acc', 'card'); await wait(1400);
+        st(el, 'drop', 'acc', 'card', 'flash'); await wait(450);
+        st(el, 'drop', 'acc', 'card', 'saved'); await wait(3200);
+      },
+      final(el){ st(el, 'drop', 'acc', 'card', 'saved'); }
+    },
+
+    sms: {
+      html: () => `<div class="stage"><div class="phone" style="width:168px;height:300px"><div class="p-screen" style="justify-content:flex-start;padding-top:30px">
+          <div class="sms-to">Do: Lombard, Skup GSM</div>
+          <div class="sms-bub"></div><span class="sms-sent">Wysłano</span>
+        </div></div></div><p class="cap"><i class="ph ph-chat-text"></i>Jeden SMS do kilku lombardów</p>`,
+      async run(el, alive){
+        st(el); const b = el.querySelector('.sms-bub'); b.textContent = '';
+        await wait(500);
+        await type(b, 'Dzień dobry, zaginął mi telefon. IMEI: 35 291 ... Jeśli ktoś go przyniesie, proszę zgłosić na policję i dać mi znać.', alive, 28);
+        if (!alive()) return; await wait(400); st(el, 'sent'); await wait(3000);
+      },
+      final(el){ el.querySelector('.sms-bub').textContent = 'Dzień dobry, zaginął mi telefon. IMEI: 35 291 ... Jeśli ktoś go przyniesie, proszę zgłosić na policję i dać mi znać.'; st(el, 'sent'); }
+    },
+
     sim: {
       html: () => `<div class="stage"><div class="sim-wrap">
           <div class="phone" style="width:132px;height:250px"><div class="p-screen">
@@ -894,6 +998,26 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
   document.querySelectorAll('.rv').forEach(n => rv.observe(n));
   const fox = document.getElementById('fox-cta');
   new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting){ fox.classList.add('in'); o.disconnect(); } }), { threshold: .35 }).observe(fox);
+
+
+  // Numery punktow w checklistach
+  document.querySelectorAll('.list').forEach(l => l.querySelectorAll('.item h3').forEach((h, i) => h.insertAdjacentHTML('afterbegin', `<span class="pn">${i + 1}</span>`)));
+
+  // Generator SMS do lombardow (nic nie jest zapisywane)
+  const $ = id => document.getElementById(id);
+  const sg = ['sg-model', 'sg-imei', 'sg-tel'].map($);
+  function smsText(){
+    const [m, im, t] = sg.map(x => x.value.trim());
+    return `Dzień dobry, zaginął mi telefon${m ? ' ' + m : ''}. Numer IMEI: ${im || '(wpisz IMEI)'}. Jeśli ktoś będzie chciał go sprzedać, proszę zgłosić to na policję i dać mi znać pod numer ${t || '(Twój numer)'}. Dziękuję!`;
+  }
+  function upd(){ const t = smsText(); $('sg-out').value = t; $('sg-send').href = 'sms:?&body=' + encodeURIComponent(t); }
+  sg.forEach(x => x.addEventListener('input', upd)); upd();
+  $('sg-copy').addEventListener('click', async () => {
+    const lbl = $('sg-copy').querySelector('span');
+    try { await navigator.clipboard.writeText(smsText()); lbl.textContent = 'Skopiowano!'; }
+    catch(e){ $('sg-out').select(); document.execCommand('copy'); lbl.textContent = 'Skopiowano!'; }
+    setTimeout(() => lbl.textContent = 'Skopiuj SMS', 2000);
+  });
 
   /* Zapamietywanie postepu (tylko w tej przegladarce) */
   const KEY = 'fx-zgubiony';
