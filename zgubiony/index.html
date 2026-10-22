@@ -372,7 +372,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .l-time{font-size:38px;font-weight:300;letter-spacing:-.02em;opacity:0;transition:opacity .4s}
 .l-ico{font-size:22px;opacity:0;transform:scale(.4);transition:.4s cubic-bezier(.3,1.6,.5,1)}
 .s-locked .l-time,.s-locked .l-ico{opacity:1;transform:none}
-.l-card{margin-top:10px;width:100%;min-height:78px;background:rgba(255,255,255,.14);border-radius:14px;padding:10px;font-size:12.5px;line-height:1.35;text-align:left;opacity:0;transition:opacity .3s}
+.l-card{margin-top:12px;width:100%;min-height:96px;background:rgba(255,255,255,.14);border-radius:14px;padding:10px;font-size:12.5px;line-height:1.35;text-align:left;opacity:0;transition:opacity .3s}
 .l-card small{display:block;font-size:10.5px;opacity:.7;margin-bottom:3px}
 .s-msg .l-card{opacity:1}
 .l-call{margin-top:auto;display:inline-flex;align-items:center;gap:6px;background:#188038;color:#fff;border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
@@ -397,6 +397,30 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .shot-keys{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:.84rem;color:var(--mute)}
 .shot-keys kbd{font:600 .76rem var(--ff-d);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:1px 6px;color:var(--ink)}
 @media (max-width:420px){.shot-keys{grid-template-columns:1fr}}
+
+/* odstepy i przejscie do kolejnego punktu */
+.items{gap:0!important}
+.link-next{position:relative;display:flex;justify-content:center;padding:30px 0}
+.link-next::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed color-mix(in srgb,var(--fox) 45%,var(--line-2))}
+.link-next button{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:.7em 1.4em;border-radius:999px;border:2px solid var(--fox-btn);background:var(--bg);color:var(--fox-d);font:600 1rem/1 var(--ff-d);cursor:pointer;transition:background .2s,color .2s,transform .15s}
+.link-next button:hover{background:var(--fox-btn);color:var(--on-fox)}
+.link-next button:active{transform:scale(.97)}
+.link-next button i{font-size:18px;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.link-next.hot button{background:var(--fox-btn);color:var(--on-fox);animation:hot 1.3s ease-in-out infinite}
+@keyframes hot{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--fox) 22%,transparent)}}
+.gated{display:none!important}
+.reveal{animation:revealIn .7s var(--ease) both}
+@keyframes revealIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.gate-q{font-weight:600;font-size:1.05rem;width:100%;margin-bottom:2px}
+.gate-ok{display:none;align-items:center;gap:10px;font-weight:600;color:var(--ok)}
+.gate-ok i{font-size:24px}
+.item.gate.passed .gate-btns{display:none}
+.item.gate.passed .gate-ok{display:flex}
+.gate-btns{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+.flash-item{animation:flashI 1.2s ease-out}
+@keyframes flashI{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--fox) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
+@media (prefers-reduced-motion:reduce){.link-next button i,.link-next.hot button{animation:none}}
 /* Generator SMS do lombardow */
 .sms-gen{display:grid;gap:14px;margin-top:18px;max-width:480px}
 .sms-gen .f{display:grid;gap:6px}
@@ -575,14 +599,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
             <div class="scene" data-scene="dial"></div><div class="row"></div>
           </article>
           <article class="item" data-id="a2">
-            <div><h3>Sprawdź na innym sprzęcie Apple</h3><p>Masz iPada, Maca albo stary iPhone z tym samym kontem Apple? A może ktoś z rodziny ma iPhone'a i macie „Chmurę rodzinną”? Otwórz na nim aplikację <b>Znajdź</b>, a potem zakładkę <b>Urządzenia</b>. Zgubiony telefon będzie na liście, bez logowania.</p><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go, kolejne punkty dają to samo.</p></div>
+            <div><h3>Sprawdź na innym sprzęcie Apple</h3><p>Masz iPada, Maca albo stary iPhone z tym samym kontem Apple? A może ktoś z rodziny ma iPhone'a i macie „Chmurę rodzinną”? Otwórz na nim aplikację <b>Znajdź</b>, a potem zakładkę <b>Urządzenia</b>. Zgubiony telefon będzie na liście, bez logowania.</p><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
             <div class="scene" data-scene="devices" data-devs="laptop,device-tablet,device-mobile" data-names="Mac,iPad,stary iPhone"></div><div class="row"></div>
           </article>
           <article class="item" data-id="a3">
             <div><h3>Otwórz stronę icloud.com/find</h3><p>Na dowolnym komputerze lub telefonie, także z Androidem. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
             <div class="scene" data-scene="url" data-url="icloud.com/find" data-title="icloud.com/find" data-icon="apple-logo"></div><div class="row"><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz icloud.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
           </article>
-          <article class="item" data-id="a4">
+          <article class="item gate" data-id="a4">
             <div><h3>Zaloguj się. Kodu nie trzeba</h3><p>Wpisz e-mail lub numer telefonu i hasło do konta Apple. Gdy strona poprosi o kod, <b>kliknij „Znajdź urządzenia” na dole okna</b>. Kod i tak przyszedłby na zgubiony telefon.</p></div>
             <div class="scene" data-scene="login" data-style="apple" data-user="anna.nowak@icloud.com" data-phone="+48 600 123 456"></div><div class="row"></div>
           </article>
@@ -596,7 +620,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
           </article>
           <article class="item" data-id="a7">
             <div><h3>Kliknij „Oznacz jako zaginione”</h3><p>Telefon się zablokuje, a na ekranie pojawi się Twoja wiadomość i numer do kontaktu. Płatności telefonem zostaną wyłączone.</p></div>
-            <div class="scene" data-scene="lock" data-msg="Ten telefon zaginął. Proszę o kontakt."></div><div class="row"></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
           </article>
         </div>
       </div>
@@ -610,14 +634,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
             <div class="scene" data-scene="dial"></div><div class="row"></div>
           </article>
           <article class="item" data-id="s2">
-            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Google Find Hub). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go, kolejne punkty dają to samo.</p></div>
+            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Znajdź telefon od Google). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
             <div class="scene" data-scene="search"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Wyszukaj w Google: znajdź mój telefon <i class="ph-bold ph-arrow-up-right"></i></a></div>
           </article>
           <article class="item" data-id="s3">
             <div><h3>Otwórz stronę smartthingsfind.samsung.com</h3><p>Na komputerze albo telefonie kogoś bliskiego. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
             <div class="scene" data-scene="url" data-url="smartthingsfind.samsung.com" data-title="smartthingsfind.samsung.com" data-icon="device-mobile-camera"></div><div class="row"><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz smartthingsfind.samsung.com <i class="ph-bold ph-arrow-up-right"></i></a></div>
           </article>
-          <article class="item" data-id="s4">
+          <article class="item gate" data-id="s4">
             <div><h3>Zaloguj się kontem Samsung albo Google</h3><p>Wpisz e-mail lub numer telefonu i hasło. Jeśli na telefonie logowałeś się kontem Google, kliknij <b>Kontynuuj z Google</b>.</p></div>
             <div class="scene" data-scene="login" data-style="samsung" data-user="jan.kowalski@gmail.com" data-phone="+48 600 123 456"></div><div class="row"></div>
           </article>
@@ -631,7 +655,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
           </article>
           <article class="item" data-id="s7">
             <div><h3>Kliknij „Zablokuj”</h3><p>Telefon się zablokuje, a na ekranie pojawi się wiadomość dla znalazcy z numerem do kontaktu. Płatności telefonem zostaną wyłączone.</p></div>
-            <div class="scene" data-scene="lock" data-msg="Ten telefon zaginął. Proszę o kontakt."></div><div class="row"></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
           </article>
         </div>
       </div>
@@ -644,14 +668,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
             <div class="scene" data-scene="dial"></div><div class="row"></div>
           </article>
           <article class="item" data-id="g2">
-            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Google Find Hub). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go, kolejne punkty dają to samo.</p></div>
+            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Znajdź telefon od Google). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
             <div class="scene" data-scene="search"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Wyszukaj w Google: znajdź mój telefon <i class="ph-bold ph-arrow-up-right"></i></a></div>
           </article>
           <article class="item" data-id="g3">
             <div><h3>Otwórz stronę android.com/find</h3><p>Na komputerze albo telefonie kogoś bliskiego. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
             <div class="scene" data-scene="url" data-url="android.com/find" data-title="android.com/find" data-icon="google-logo"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
           </article>
-          <article class="item" data-id="g4">
+          <article class="item gate" data-id="g4">
             <div><h3>Zaloguj się kontem Google</h3><p>Tym samym co na zgubionym telefonie. Wpisz adres Gmail albo numer telefonu, potem hasło.</p></div>
             <div class="scene" data-scene="login" data-style="google" data-user="jan.kowalski@gmail.com" data-phone="600 123 456"></div><div class="row"></div>
           </article>
@@ -665,7 +689,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
           </article>
           <article class="item" data-id="g7">
             <div><h3>Kliknij „Zabezpiecz urządzenie”</h3><p>Telefon się zablokuje, a na ekranie pojawi się wiadomość dla znalazcy z numerem do kontaktu.</p></div>
-            <div class="scene" data-scene="lock" data-msg="Ten telefon zaginął. Proszę o kontakt."></div><div class="row"></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
           </article>
         </div>
       </div>
@@ -686,6 +710,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
         <div><h2>Nie ma go albo ktoś go ukradł?</h2><p>Teraz zabezpieczasz siebie. Też po kolei.</p></div>
       </div>
       <div class="items k4">
+          <article class="item" data-id="k3">
+            <div><h3>Zablokuj bank i zmień hasła</h3><p>Bank zablokujesz przez infolinię albo aplikację na innym urządzeniu. Potem zmień hasło do poczty i Facebooka.</p></div>
+            <div class="row"></div>
+          </article>
           <article class="item" data-id="k1">
             <div><h3>Znajdź numer IMEI</h3><p>To numer seryjny telefonu, 15 cyfr. Jest na naklejce na pudełku i na fakturze lub paragonie. Zapisz go, przyda się w następnych punktach.</p></div>
             <div class="row"></div>
@@ -694,16 +722,12 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
             <div><h3>Zgłoś sprawę na policji</h3><p>Nie jedź sam w miejsce z mapy. Idź na komisariat i pokaż zrzut ekranu mapy, numer IMEI i godzinę, kiedy telefon był ostatnio widoczny.</p></div>
             <div class="row"></div>
           </article>
-          <article class="item" data-id="k3">
-            <div><h3>Zablokuj bank i zmień hasła</h3><p>Bank zablokujesz przez infolinię albo aplikację na innym urządzeniu. Potem zmień hasło do poczty i Facebooka.</p></div>
-            <div class="row"></div>
-          </article>
           <article class="item" data-id="k4">
             <div><h3>Uprzedź lombardy i skupy telefonów</h3><p>Kto ukradł telefon, często próbuje go szybko sprzedać. Wyślij do lombardów i skupów w okolicy SMS z numerem IMEI. Jeśli ktoś przyniesie Twój telefon, powiadomią policję i dadzą Ci znać.</p>
             <a class="place-btn" href="https://www.google.com/maps/search/lombard+skup+telefon%C3%B3w" target="_blank" rel="noopener"><span class="pi"><i class="ph-fill ph-storefront"></i></span><span><b>Lombardy i skupy telefonów w okolicy</b><small>Otworzy Mapy Google z numerami telefonów</small></span><i class="ph-bold ph-arrow-up-right"></i></a>
             <form class="sms-gen" onsubmit="return false">
               <div class="f"><label for="sg-model">Jaki to telefon?</label><input id="sg-model" placeholder="np. Samsung Galaxy A54, czarny" autocomplete="off"></div>
-              <div class="f"><label for="sg-imei">Numer IMEI (z punktu a)</label><input id="sg-imei" inputmode="numeric" placeholder="15 cyfr z pudełka" autocomplete="off"></div>
+              <div class="f"><label for="sg-imei">Numer IMEI (z punktu b)</label><input id="sg-imei" inputmode="numeric" placeholder="15 cyfr z pudełka" autocomplete="off"></div>
               <div class="f"><label for="sg-tel">Twój numer do kontaktu</label><input id="sg-tel" type="tel" inputmode="tel" placeholder="np. numer kogoś z rodziny" autocomplete="off"></div>
               <div class="f"><label for="sg-out">Gotowy SMS</label><textarea id="sg-out" rows="6" readonly></textarea></div>
               <div class="sg-btns"><button type="button" class="btn btn--fox" id="sg-copy"><i class="ph-bold ph-copy"></i><span>Skopiuj SMS</span></button><a class="btn" id="sg-send" href="sms:"><i class="ph-bold ph-paper-plane-tilt"></i>Wyślij SMS</a></div>
@@ -779,6 +803,9 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     for (const ch of text){ if (!alive()) return; node.textContent += ch; await wait(speed + Math.random() * 45); }
   }
   async function press(node){ if (!node) return; node.classList.remove('press'); void node.offsetWidth; node.classList.add('press'); await wait(300); }
+  // Losowy numer do przykladowej wiadomosci na ekranie blokady
+  const rnd = () => Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+  const MSG = `Ten telefon zaginął. Proszę zadzwonić na numer mamy: ${5 + Math.floor(Math.random() * 3)}${rnd().slice(1)}\u00a0${rnd()}\u00a0${rnd()}`;
   const st = (el, ...c) => { el.className = 'scene ' + c.map(x => 's-' + x).join(' '); };
 
   const SCENES = {
@@ -885,15 +912,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       html: () => `<div class="stage"><div class="phone lockp" style="width:172px;height:318px"><div class="p-screen">
           <i class="ph-fill ph-lock-simple l-ico"></i><div class="l-time">14:32</div>
           <div class="l-card"><small>Wiadomość od właściciela</small><span class="l-txt"></span></div>
-          <span class="l-call"><i class="ph-fill ph-phone"></i>Zadzwoń do właściciela</span>
         </div></div></div><p class="cap"><i class="ph ph-eye"></i>Tak zobaczy to osoba, która znajdzie telefon</p>`,
       async run(el, alive, d){
         const t = el.querySelector('.l-txt'); t.textContent = '';
         st(el); await wait(700); st(el, 'locked'); await wait(800);
-        st(el, 'locked', 'msg'); await type(t, d.msg, alive, 45); if (!alive()) return;
-        await wait(300); st(el, 'locked', 'msg', 'call'); await wait(3200);
+        st(el, 'locked', 'msg'); await type(t, MSG, alive, 40); if (!alive()) return;
+        await wait(3400);
       },
-      final(el, d){ el.querySelector('.l-txt').textContent = d.msg; st(el, 'locked', 'msg', 'call'); }
+      final(el){ el.querySelector('.l-txt').textContent = MSG; st(el, 'locked', 'msg'); }
     },
 
 
@@ -912,7 +938,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       html: () => `<div class="stage"><div class="search">
           <div class="s-box real"><i class="ph-bold ph-magnifying-glass"></i><span class="s-q"></span><span class="caret"></span></div>
           <div class="s-list real">
-            <div class="s-r first"><small>google.com › android › find</small><b>Google Find Hub</b><i class="ph-fill ph-cursor cursor"></i></div>
+            <div class="s-r first"><small>google.com › android › find</small><b>Znajdź telefon | Google</b><i class="ph-fill ph-cursor cursor"></i></div>
             <div class="s-r dim"><small>support.google.com</small><b>Jak znaleźć zgubiony telefon</b></div>
           </div>
           <div class="s-res real"><div class="mini"><i class="ph-fill ph-map-pin"></i></div>
@@ -1059,16 +1085,61 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 
   // Przycisk "Zrobione" przy kazdym punkcie (postep nie jest nigdzie zapisywany)
   const checks = [];
-  document.querySelectorAll('.item[data-id]').forEach(it => {
+  document.querySelectorAll('.item[data-id]:not(.gate)').forEach(it => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'check';
     b.innerHTML = '<span class="box"><i class="ph-bold ph-check"></i></span><span class="lbl">Zrobione</span>';
     b.set = v => { b.setAttribute('aria-pressed', String(v)); it.classList.toggle('is-done', v); };
     b.set(false);
-    b.addEventListener('click', () => { b.set(b.getAttribute('aria-pressed') !== 'true'); progress(); });
+    b.addEventListener('click', () => {
+      const v = b.getAttribute('aria-pressed') !== 'true'; b.set(v); progress();
+      const nx = it.nextElementSibling; if (v && nx && nx.classList.contains('link-next')) nx.classList.add('hot'); else if (nx) nx.classList.remove('hot');
+    });
     const row = it.querySelector('.row'); row.prepend(b); it.append(row);
     checks.push(b);
   });
+  // Bramka po logowaniu: "Udalo sie" pokazuje dalsze punkty, "Nie udalo sie" prowadzi do kroku 4
+  document.querySelectorAll('.item.gate').forEach(it => {
+    const row = it.querySelector('.row');
+    row.innerHTML = `<p class="gate-q">Udało się zalogować?</p>
+      <div class="gate-btns"><button type="button" class="btn btn--fox" data-ok><i class="ph-bold ph-check"></i>Tak, widzę swoje urządzenia</button>
+      <a class="btn" href="#krok-4" data-no><i class="ph-bold ph-x"></i>Nie, przejdź do kroku 4</a></div>
+      <span class="gate-ok"><i class="ph-fill ph-check-circle"></i>Super! Poniżej kolejne punkty.</span>`;
+    it.append(row);
+    row.querySelector('[data-ok]').addEventListener('click', () => {
+      it.classList.add('passed', 'is-done');
+      let n = it.nextElementSibling, k = 0;
+      while (n){ n.classList.remove('gated'); n.classList.add('reveal'); n.style.animationDelay = (k++ * 120) + 'ms'; n = n.nextElementSibling; }
+      progress();
+      const nx = it.nextElementSibling?.nextElementSibling;
+      setTimeout(() => nx?.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }), 350);
+    });
+  });
+  function gateAll(){
+    document.querySelectorAll('.item.gate').forEach(it => {
+      it.classList.remove('passed', 'is-done');
+      let n = it.nextElementSibling;
+      while (n){ n.classList.add('gated'); n.classList.remove('reveal'); n = n.nextElementSibling; }
+    });
+  }
+
+  // Przycisk "Przejdz do punktu ..." miedzy punktami
+  document.querySelectorAll('.items').forEach(list => {
+    const items = [...list.querySelectorAll(':scope > .item')];
+    items.forEach((it, i) => {
+      if (i === items.length - 1 || it.classList.contains('gate')) return;
+      const next = items[i + 1], letter = String.fromCharCode(98 + i);
+      const d = document.createElement('div'); d.className = 'link-next';
+      d.innerHTML = `<button type="button">Przejdź do punktu ${letter}<i class="ph-bold ph-arrow-down"></i></button>`;
+      d.querySelector('button').addEventListener('click', () => {
+        next.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
+        next.classList.remove('flash-item'); void next.offsetWidth; next.classList.add('flash-item');
+      });
+      it.after(d);
+    });
+  });
+  gateAll();
+
   function progress(){
     document.querySelectorAll('.list').forEach(l => {
       const items = [...l.querySelectorAll('.item')], n = items.filter(i => i.classList.contains('is-done')).length;
@@ -1085,7 +1156,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
   const picks = [...document.querySelectorAll('.pick')];
   let current = null;
   function choose(dev, scroll){
-    if (current && current !== dev){ checks.forEach(b => b.set(false)); progress(); }
+    if (current && current !== dev){ checks.forEach(b => b.set(false)); document.querySelectorAll('.link-next.hot').forEach(x => x.classList.remove('hot')); gateAll(); progress(); }
     current = dev;
     picks.forEach(p => p.setAttribute('aria-checked', String(p.dataset.dev === dev)));
     document.querySelectorAll('.list').forEach(l => l.classList.toggle('on', l.dataset.list === dev));
