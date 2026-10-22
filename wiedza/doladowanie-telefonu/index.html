@@ -20,17 +20,18 @@
 
 <!-- =====================================================================
      USTAWIENIA: LISTA SIECI (CSV, rozdzielone srednikiem)
-     nazwa ; domena (do ikonki; kilka rozdziel |) ; kolor kola ; kolor litery ; kod USSD ({KOD} = cyfry z paragonu) ; wlasne logo (opcjonalnie)
+     nazwa ; domena (do ikonki; kilka rozdziel |) ; kolor kola ; kolor litery ; kod USSD ({KOD} = cyfry z paragonu) ; wlasne logo (opcjonalnie) ;
+     ikony = skad brac ikonke TYLKO dla tej sieci, np. duckduckgo (puste = domyslne zrodla z FAVICON_ZRODLA)
      Linie zaczynajace sie od // sa pomijane.
      Link prosto do sieci: /wiedza/doladowanie-telefonu/#orange, #play, #plus,
      #t-mobile, #heyah, #nju, #virgin-mobile, #lycamobile, #plush, #red-bull-mobile
      (slug = nazwa malymi literami, spacje zamienione na myslnik)
      ===================================================================== -->
 <script type="text/csv" id="operatorzy">
-nazwa;domena;kolor;kolor_litery;kod_ussd;logo
+nazwa;domena;kolor;kolor_litery;kod_ussd;logo;ikony
 Orange;orange.pl;#ff7900;#000000;*125*{KOD}#;
 Play;play.pl;#5a2d82;#ffffff;*100*{KOD}#;
-Plus;plus.pl;#2e9e3e;#ffffff;*123*{KOD}#;
+Plus;plus.pl;#2e9e3e;#ffffff;*123*{KOD}#;;duckduckgo
 T-Mobile;t-mobile.pl;#e20074;#ffffff;*111*{KOD}#;
 Heyah;heyah.pl;#d6001c;#ffffff;*111*{KOD}#;
 nju;njumobile.pl;#1d1d1b;#ffffff;*128*{KOD}#;
@@ -42,7 +43,7 @@ Red Bull Mobile;redbullmobile.pl;#1a2a5e;#ffffff;*100*{KOD}#;
 </script>
 <script>
 /* Zrodla ikonek sieci, probowane po kolei. Pusta lista [] = same kola z litera. */
-const FAVICON_ZRODLA = ["duckduckgo", "google", "google-s2"];
+const FAVICON_ZRODLA = ["google", "duckduckgo", "google-s2"];
 </script>
 <!-- ===================== koniec ustawien ===================== -->
 
@@ -153,6 +154,15 @@ details[open] summary{border-bottom:1px solid var(--line)}
 @media (pointer:fine){.pc-note{display:block}}
 @media (prefers-reduced-motion:reduce){.big.call,.finger,.ph3 .green,.arrow-d,.rcp span{animation:none}.rcp span{background-size:100% 100%}}
 
+
+.soon{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px;font-size:1.25rem;font-weight:500;color:var(--ink-2)}
+.soon .ring{position:relative;width:52px;height:52px;flex:0 0 auto}
+.soon svg{width:100%;height:100%;transform:rotate(-90deg)}
+.soon circle{fill:none;stroke:var(--fox);stroke-width:4;stroke-dasharray:120;stroke-dashoffset:0}
+.soon.run circle{animation:countdown var(--t,5s) linear forwards}
+@keyframes countdown{to{stroke-dashoffset:120}}
+.soon b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.3rem;font-weight:600;color:var(--ink)}
+.soon.done{display:none}
 /* stopka */
 .help{margin:30px auto 0;display:flex;align-items:center;gap:16px;background:var(--tile-dark);color:#F2F2F3;border-radius:var(--r-lg);padding:20px 22px;text-decoration:none}
 .help .fx{flex:0 0 56px;height:56px;border-radius:50%;background:var(--fox);display:grid;place-items:center}
@@ -217,6 +227,7 @@ footer a{color:var(--fox-d);text-decoration:none;font-weight:600}
       <div class="ph3"><div class="num" id="ph-num"></div><div class="pad"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="green"><i class="ph-fill ph-phone"></i></span></div>
       <i class="ph-fill ph-hand-pointing finger"></i>
     </div>
+    <div class="soon" id="soon" aria-live="polite"><span class="ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/></svg><b id="sec">5</b></span><span>Za chwilę otworzy się telefon</span></div>
     <p class="then"><i class="ph-fill ph-chat-circle-text"></i>Przyjdzie SMS. Gotowe!</p>
     <p class="pc-note">Otwórz tę stronę na telefonie, który chcesz doładować.</p>
     <details>
@@ -255,7 +266,8 @@ footer a{color:var(--fox-d);text-decoration:none;font-weight:600}
         id: r.nazwa.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), name: r.nazwa,
         domains: r.domena.split('|').map(d => d.trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '')).filter(Boolean),
         color: r.kolor || '#555555', fg: r.kolor_litery || '#ffffff',
-        ussd: r.kod_ussd.includes('{KOD}') ? r.kod_ussd : r.kod_ussd.replace(/#$/, '') + '*{KOD}#', logo: r.logo
+        ussd: r.kod_ussd.includes('{KOD}') ? r.kod_ussd : r.kod_ussd.replace(/#$/, '') + '*{KOD}#', logo: r.logo,
+        ikony: (r.ikony || '').split('|').map(x => x.trim().toLowerCase()).filter(Boolean)
       }));
   }
   const OPS = wczytajCSV($('operatorzy').textContent);
@@ -267,16 +279,19 @@ footer a{color:var(--fox-d);text-decoration:none;font-weight:600}
   function badge(el, o){
     el.className = 'nb'; el.style.cssText = `background:${o.color};color:${o.fg};--ring:${o.color}`;
     el.innerHTML = `<span class="ltr">${o.name[0].toUpperCase()}</span>`;
-    const adresy = []; if (o.logo) adresy.push(o.logo);
-    o.domains.forEach(d => FAVICON_ZRODLA.forEach(z => ZRODLA[z] && adresy.push(ZRODLA[z](d))));
-    let i = 0; const img = new Image(); img.alt = ''; img.referrerPolicy = 'no-referrer';
-    const nast = () => { if (i < adresy.length) img.src = adresy[i++]; else img.remove(); };
-    img.onload = () => img.naturalWidth > 16 ? el.classList.add('has-img') : nast();
+    // [adres, minimalna szerokosc]. Google przy braku ikonki daje szara kule 16 px, wiec od niego wymagamy > 16 px.
+    const zrodla = o.ikony.length ? o.ikony : FAVICON_ZRODLA;
+    const adresy = []; if (o.logo) adresy.push([o.logo, 1]);
+    o.domains.forEach(d => zrodla.forEach(z => ZRODLA[z] && adresy.push([ZRODLA[z](d), z === 'duckduckgo' ? 16 : 17])));
+    let i = 0, min = 1; const img = new Image(); img.alt = ''; img.referrerPolicy = 'no-referrer';
+    const nast = () => { if (i < adresy.length){ const [u, m] = adresy[i++]; min = m; img.src = u; } else img.remove(); };
+    img.onload = () => img.naturalWidth >= min ? el.classList.add('has-img') : nast();
     img.onerror = nast; el.appendChild(img); nast();
   }
 
   /* ---------- ekrany ---------- */
-  let op = null, ussd = '';
+  let op = null, ussd = '', timer = null;
+  const WAIT_S = 5;   // ile sekund pokazac instrukcje, zanim otworzy sie telefon
   function show(n){
     document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === 's' + n));
     document.querySelectorAll('.dots i').forEach(d => d.classList.toggle('on', +d.dataset.d <= n));
@@ -320,7 +335,14 @@ footer a{color:var(--fox-d);text-decoration:none;font-weight:600}
     const href = 'tel:' + ussd.replace(/#/g, '%23');
     $('ussd').textContent = ussd; $('ph-num').textContent = ussd; $('call').href = href;
     show(3);
-    location.href = href;   // od razu otwiera telefon z kodem
+    // najpierw kilka sekund na obejrzenie, co trzeba nacisnac, potem otwiera telefon z kodem
+    clearInterval(timer);
+    let left = WAIT_S; $('sec').textContent = left; $('soon').classList.remove('done'); $('soon').style.setProperty('--t', WAIT_S + 's');
+    $('soon').classList.remove('run'); void $('soon').offsetWidth; $('soon').classList.add('run');
+    timer = setInterval(() => {
+      left--; $('sec').textContent = Math.max(left, 0);
+      if (left <= 0){ clearInterval(timer); $('soon').classList.add('done'); location.href = href; }
+    }, 1000);
   });
 
   $('copy').addEventListener('click', async () => {
@@ -330,7 +352,7 @@ footer a{color:var(--fox-d);text-decoration:none;font-weight:600}
     setTimeout(() => lbl.textContent = 'Skopiuj kod', 2500);
   });
   document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => {
-    const n = +b.dataset.back;
+    const n = +b.dataset.back; clearInterval(timer);
     if (n === 1) history.replaceState(null, '', location.pathname);
     show(n);
   }));
