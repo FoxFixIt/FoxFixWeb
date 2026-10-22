@@ -398,29 +398,70 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .shot-keys kbd{font:600 .76rem var(--ff-d);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:1px 6px;color:var(--ink)}
 @media (max-width:420px){.shot-keys{grid-template-columns:1fr}}
 
-/* odstepy i przejscie do kolejnego punktu */
-.items{gap:0!important}
-.link-next{position:relative;display:flex;justify-content:center;padding:30px 0}
-.link-next::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed color-mix(in srgb,var(--fox) 45%,var(--line-2))}
-.link-next button{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:.7em 1.4em;border-radius:999px;border:2px solid var(--fox-btn);background:var(--bg);color:var(--fox-d);font:600 1rem/1 var(--ff-d);cursor:pointer;transition:background .2s,color .2s,transform .15s}
-.link-next button:hover{background:var(--fox-btn);color:var(--on-fox)}
-.link-next button:active{transform:scale(.97)}
-.link-next button i{font-size:18px;animation:nudge 1.6s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-.link-next.hot button{background:var(--fox-btn);color:var(--on-fox);animation:hot 1.3s ease-in-out infinite}
-@keyframes hot{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--fox) 22%,transparent)}}
+/* duzy przycisk do nastepnego kroku */
+.step-go{position:relative;display:flex;justify-content:center;padding-top:56px}
+.step-go::before{content:"";position:absolute;left:50%;top:6px;height:44px;border-left:3px dashed color-mix(in srgb,var(--fox) 55%,transparent)}
+.go-btn{position:relative;display:inline-flex;align-items:center;gap:16px;min-height:66px;padding:10px 12px 10px 30px;border-radius:999px;background:var(--fox-btn);color:var(--on-fox);font:600 1.15rem/1.2 var(--ff-d);text-decoration:none;box-shadow:0 16px 36px -14px rgba(191,65,14,.7);animation:goPulse 2.2s ease-in-out infinite;transition:background .2s,transform .15s}
+.go-btn:hover{background:var(--fox-btn-h)}
+.go-btn:active{transform:scale(.97)}
+.go-ic{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:22px}
+.go-ic i{animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
+@keyframes goPulse{0%,100%{box-shadow:0 16px 36px -14px rgba(191,65,14,.7),0 0 0 0 rgba(226,83,30,.35)}50%{box-shadow:0 16px 36px -14px rgba(191,65,14,.7),0 0 0 12px rgba(226,83,30,0)}}
+.go-btn[aria-disabled="true"]{background:var(--surface-2);color:var(--mute);box-shadow:none;animation:none;pointer-events:none}
+.go-btn[aria-disabled="true"] .go-ic{background:var(--line)}
+.go-btn[aria-disabled="true"] .go-ic i{animation:none}
+@media (max-width:560px){.go-btn{font-size:1.02rem;padding-left:22px;text-align:left}}
+@media (prefers-reduced-motion:reduce){.go-btn,.go-ic i{animation:none}}
+.items{gap:20px!important}
 .gated{display:none!important}
-.reveal{animation:revealIn .7s var(--ease) both}
-@keyframes revealIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.reveal{animation:revealIn .6s ease both}
+@keyframes revealIn{from{opacity:0}to{opacity:1}}
 .gate-q{font-weight:600;font-size:1.05rem;width:100%;margin-bottom:2px}
 .gate-ok{display:none;align-items:center;gap:10px;font-weight:600;color:var(--ok)}
 .gate-ok i{font-size:24px}
 .item.gate.passed .gate-btns{display:none}
 .item.gate.passed .gate-ok{display:flex}
 .gate-btns{display:flex;flex-wrap:wrap;gap:10px;width:100%}
-.flash-item{animation:flashI 1.2s ease-out}
-@keyframes flashI{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--fox) 45%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
-@media (prefers-reduced-motion:reduce){.link-next button i,.link-next.hot button{animation:none}}
+
+/* krok 4: sceny */
+.k-card{width:min(100%,320px);border-radius:18px;padding:18px;display:grid;gap:12px}
+.k-head{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+.k-head i{font-size:22px;color:#0b57d0}
+.bankcard{border-radius:14px;padding:14px;background:linear-gradient(135deg,#2b2f3a,#4a5060);color:#fff;display:grid;gap:14px;font-size:13px}
+.bankcard b{font-family:var(--ff-m);letter-spacing:.08em;font-weight:500}
+.bk-state{display:flex;align-items:center;gap:6px;font-weight:600;font-size:12.5px;color:#188038}
+.bk-state .off{display:none;color:#d93025}
+.s-blocked .bk-state .on{display:none}.s-blocked .bk-state .off{display:inline-flex;align-items:center;gap:5px}
+.s-blocked .bankcard{background:linear-gradient(135deg,#5d5d66,#7d7d86)}
+.s-blocked .bk-state .off{background:#fff;border-radius:999px;padding:3px 9px;justify-self:start}
+.k-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;font-weight:500}
+.k-row .tg{background:#c7c7c7}
+.s-blocked .k-row.r1 .tg{background:#d93025}.s-blocked .k-row.r1 .tg::after{transform:translateX(20px)}
+.k-ok{color:#188038;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .3s}
+.s-pass .k-ok{opacity:1}
+.sticker{width:min(100%,320px);border-radius:10px;padding:16px;display:grid;gap:8px;font-family:Arial,var(--ff-d);color:#1f1f1f}
+.sticker .bc{height:38px;background:repeating-linear-gradient(90deg,#1f1f1f 0 2px,transparent 2px 4px,#1f1f1f 4px 5px,transparent 5px 8px,#1f1f1f 8px 11px,transparent 11px 12px)}
+.sticker .ln{font-size:13px;display:flex;justify-content:space-between}
+.sticker .imei{position:relative;font-weight:700;font-size:15px;letter-spacing:.04em;padding:2px 4px}
+.sticker .imei::before{content:"";position:absolute;inset:0;background:#ffe066;border-radius:4px;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .9s ease}
+.sticker .imei{isolation:isolate}
+.s-hl .sticker .imei::before{transform:scaleX(1)}
+.box3d{position:relative;padding:22px 18px 18px;border-radius:16px;background:#d9c3a3;box-shadow:var(--shadow)}
+.report .rp{display:flex;align-items:center;gap:10px;font-size:14px;opacity:.25;transition:opacity .35s}
+.report .rp i{font-size:22px;color:#188038}
+.report .rp.on{opacity:1}
+.sims{display:flex;align-items:center;gap:22px}
+.simc{width:78px;height:104px;border-radius:9px 24px 9px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;font-weight:600;transition:.5s var(--ease)}
+.simc i{font-size:30px}
+.simc.old{background:#9a9aa3;color:#fff;position:relative}
+.simc.old::after{content:"";position:absolute;inset:-6px;background:linear-gradient(45deg,transparent 46%,#d93025 46% 54%,transparent 54%);opacity:0;transition:opacity .3s}
+.s-cut .simc.old::after{opacity:1}
+.s-cut .simc.old{opacity:.5}
+.simc.new{background:var(--fox);color:#fff;transform:translateX(60px);opacity:0}
+.s-new .simc.new{transform:none;opacity:1}
+.sim-num{font:600 1rem var(--ff-d);color:var(--ink);opacity:0;transition:opacity .3s}
+.s-new .sim-num{opacity:1}
 /* Generator SMS do lombardow */
 .sms-gen{display:grid;gap:14px;margin-top:18px;max-width:480px}
 .sms-gen .f{display:grid;gap:6px}
@@ -561,7 +602,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
         </div>
         <div class="scene" data-scene="sim" role="img" aria-label="Animacja: po duplikacie SIM zgubiony telefon traci internet i znika z mapy"></div>
       </div>
-      <div class="next"><a class="btn btn--fox" href="#krok-2" data-done-rail="1">Rozumiem, dalej <i class="ph-bold ph-arrow-down"></i></a></div>
+      <div class="step-go"><a class="go-btn" href="#krok-2" data-done-rail="1"><span class="go-lbl">Rozumiem. Przejdź do kroku 2</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
     </div>
   </section>
 
@@ -577,6 +618,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
         <button class="pick" role="radio" aria-checked="false" data-dev="samsung"><span class="ico-box"><i class="ph-fill ph-device-mobile-camera"></i></span><div><b>Samsung</b><span>Galaxy</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
         <button class="pick" role="radio" aria-checked="false" data-dev="android"><span class="ico-box"><i class="ph-fill ph-android-logo"></i></span><div><b>Inny Android</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
       </div>
+      <div class="step-go"><a class="go-btn" href="#krok-3" id="go-3" aria-disabled="true"><span class="go-lbl">Najpierw kliknij swój telefon</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
     </div>
   </section>
 
@@ -698,7 +740,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
         <div><b>Znalazłeś telefon? Super!</b><br>Jeśli po przygodzie ma zbity ekran albo był w wodzie, zajrzyj do nas.</div>
         <a class="btn btn--fox" href="#serwis">Zobacz, w czym pomożemy</a>
       </div>
-      <div class="next"><a class="btn" href="#krok-4">Nie ma go? Przejdź do kroku 4 <i class="ph-bold ph-arrow-down"></i></a></div>
+      <div class="step-go"><a class="go-btn" href="#krok-4"><span class="go-lbl">Nie znalazłeś? Przejdź do kroku 4</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
     </div>
   </section>
 
@@ -712,15 +754,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       <div class="items k4">
           <article class="item" data-id="k3">
             <div><h3>Zablokuj bank i zmień hasła</h3><p>Bank zablokujesz przez infolinię albo aplikację na innym urządzeniu. Potem zmień hasło do poczty i Facebooka.</p></div>
-            <div class="row"></div>
+            <div class="scene" data-scene="bank"></div><div class="row"></div>
           </article>
           <article class="item" data-id="k1">
             <div><h3>Znajdź numer IMEI</h3><p>To numer seryjny telefonu, 15 cyfr. Jest na naklejce na pudełku i na fakturze lub paragonie. Zapisz go, przyda się w następnych punktach.</p></div>
-            <div class="row"></div>
+            <div class="scene" data-scene="imei"></div><div class="row"></div>
           </article>
           <article class="item" data-id="k2">
             <div><h3>Zgłoś sprawę na policji</h3><p>Nie jedź sam w miejsce z mapy. Idź na komisariat i pokaż zrzut ekranu mapy, numer IMEI i godzinę, kiedy telefon był ostatnio widoczny.</p></div>
-            <div class="row"></div>
+            <div class="scene" data-scene="police"></div><div class="row"></div>
           </article>
           <article class="item" data-id="k4">
             <div><h3>Uprzedź lombardy i skupy telefonów</h3><p>Kto ukradł telefon, często próbuje go szybko sprzedać. Wyślij do lombardów i skupów w okolicy SMS z numerem IMEI. Jeśli ktoś przyniesie Twój telefon, powiadomią policję i dadzą Ci znać.</p>
@@ -736,9 +778,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
           </article>
           <article class="item" data-id="k5">
             <div><h3>Teraz dopiero duplikat karty SIM</h3><p>W salonie operatora zablokują starą kartę i wydadzą nową z tym samym numerem. Dopiero teraz, bo po tym telefon zniknie z mapy.</p></div>
-            <div class="row"></div>
+            <div class="scene" data-scene="simswap"></div><div class="row"></div>
           </article>
       </div>
+      <div class="step-go"><a class="go-btn" href="#serwis"><span class="go-lbl">Telefon się znalazł? Zobacz, w czym pomożemy</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
     </div>
   </section>
 
@@ -1022,6 +1065,54 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       final(el){ el.querySelector('.sms-bub').textContent = 'Dzień dobry, zwracam się z prośbą o pomoc. Skradziono mi telefon, IMEI: 35 291 ... Jeśli ktoś zaproponuje Państwu jego sprzedaż, bardzo proszę o powiadomienie policji i kontakt ze mną.'; st(el, 'sent'); }
     },
 
+    bank: {
+      html: () => `<div class="stage"><div class="k-card real">
+          <div class="k-head"><i class="ph-fill ph-bank"></i>Aplikacja banku</div>
+          <div class="bankcard"><span>Karta debetowa</span><b>**** 4417</b><span class="bk-state"><span class="on"><i class="ph-fill ph-check-circle"></i>Aktywna</span><span class="off"><i class="ph-fill ph-lock-simple"></i>Zablokowana</span></span></div>
+          <div class="k-row r1">Zablokuj kartę i BLIK <span class="tg"></span></div>
+          <span class="k-ok"><i class="ph-fill ph-check-circle"></i>Hasło do poczty zmienione</span>
+        </div></div><p class="cap"><i class="ph ph-phone-call"></i>Albo zadzwoń na infolinię banku</p>`,
+      async run(el){ st(el); await wait(1400); st(el, 'blocked'); await wait(1300); st(el, 'blocked', 'pass'); await wait(3000); },
+      final(el){ st(el, 'blocked', 'pass'); }
+    },
+
+    imei: {
+      html: () => `<div class="stage"><div class="box3d"><div class="sticker real">
+          <div class="ln"><span>Model</span><span>Galaxy A54</span></div>
+          <div class="bc"></div>
+          <div class="ln"><span>IMEI 1</span><span class="imei">352914110000007</span></div>
+          <div class="ln" style="color:#777"><span>S/N</span><span>R58T21ABCDE</span></div>
+        </div></div></div><p class="cap"><i class="ph ph-package"></i>Naklejka na pudełku od telefonu</p>`,
+      async run(el){ st(el); await wait(1200); st(el, 'hl'); await wait(3600); },
+      final(el){ st(el, 'hl'); }
+    },
+
+    police: {
+      html: () => `<div class="stage"><div class="k-card real report">
+          <div class="k-head"><i class="ph-fill ph-clipboard-text"></i>Weź ze sobą na komisariat</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Zrzut ekranu mapy</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Numer IMEI</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Godzina, gdy telefon był widoczny</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Dowód osobisty</div>
+        </div></div><p class="cap"><i class="ph ph-police-car"></i>Nie jedź sam w miejsce z mapy</p>`,
+      async run(el, alive){
+        st(el); const r = [...el.querySelectorAll('.rp')]; r.forEach(x => x.classList.remove('on')); await wait(700);
+        for (const x of r){ if (!alive()) return; x.classList.add('on'); await wait(650); }
+        await wait(2600);
+      },
+      final(el){ el.querySelectorAll('.rp').forEach(x => x.classList.add('on')); st(el); }
+    },
+
+    simswap: {
+      html: () => `<div class="stage" style="gap:14px"><div class="sims">
+          <div class="simc old"><i class="ph-fill ph-sim-card"></i>Stara</div>
+          <i class="ph-bold ph-arrow-right" style="font-size:22px;color:var(--mute)"></i>
+          <div class="simc new"><i class="ph-fill ph-sim-card"></i>Nowa</div>
+        </div><span class="sim-num">Ten sam numer telefonu</span></div><p class="cap"><i class="ph ph-storefront"></i>W salonie operatora, z dowodem osobistym</p>`,
+      async run(el){ st(el); await wait(1200); st(el, 'cut'); await wait(900); st(el, 'cut', 'new'); await wait(3200); },
+      final(el){ st(el, 'cut', 'new'); }
+    },
+
     sim: {
       html: () => `<div class="stage"><div class="sim-wrap">
           <div class="phone" style="width:132px;height:250px"><div class="p-screen">
@@ -1091,10 +1182,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     b.innerHTML = '<span class="box"><i class="ph-bold ph-check"></i></span><span class="lbl">Zrobione</span>';
     b.set = v => { b.setAttribute('aria-pressed', String(v)); it.classList.toggle('is-done', v); };
     b.set(false);
-    b.addEventListener('click', () => {
-      const v = b.getAttribute('aria-pressed') !== 'true'; b.set(v); progress();
-      const nx = it.nextElementSibling; if (v && nx && nx.classList.contains('link-next')) nx.classList.add('hot'); else if (nx) nx.classList.remove('hot');
-    });
+    b.addEventListener('click', () => { b.set(b.getAttribute('aria-pressed') !== 'true'); progress(); });
     const row = it.querySelector('.row'); row.prepend(b); it.append(row);
     checks.push(b);
   });
@@ -1108,11 +1196,16 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     it.append(row);
     row.querySelector('[data-ok]').addEventListener('click', () => {
       it.classList.add('passed', 'is-done');
-      let n = it.nextElementSibling, k = 0;
-      while (n){ n.classList.remove('gated'); n.classList.add('reveal'); n.style.animationDelay = (k++ * 120) + 'ms'; n = n.nextElementSibling; }
+      const first = it.nextElementSibling;
+      let n = first;
+      while (n){ n.classList.remove('gated'); n.classList.add('reveal'); n = n.nextElementSibling; }
       progress();
-      const nx = it.nextElementSibling?.nextElementSibling;
-      setTimeout(() => nx?.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }), 350);
+      // delikatnie przewin tylko do pierwszego odslonietego punktu (pod naglowek i pasek postepu)
+      setTimeout(() => {
+        if (!first) return;
+        const y = first.getBoundingClientRect().top + window.scrollY - 150;
+        window.scrollTo({ top: y, behavior: REDUCED ? 'auto' : 'smooth' });
+      }, 450);
     });
   });
   function gateAll(){
@@ -1123,21 +1216,6 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
     });
   }
 
-  // Przycisk "Przejdz do punktu ..." miedzy punktami
-  document.querySelectorAll('.items').forEach(list => {
-    const items = [...list.querySelectorAll(':scope > .item')];
-    items.forEach((it, i) => {
-      if (i === items.length - 1 || it.classList.contains('gate')) return;
-      const next = items[i + 1], letter = String.fromCharCode(98 + i);
-      const d = document.createElement('div'); d.className = 'link-next';
-      d.innerHTML = `<button type="button">Przejdź do punktu ${letter}<i class="ph-bold ph-arrow-down"></i></button>`;
-      d.querySelector('button').addEventListener('click', () => {
-        next.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
-        next.classList.remove('flash-item'); void next.offsetWidth; next.classList.add('flash-item');
-      });
-      it.after(d);
-    });
-  });
   gateAll();
 
   function progress(){
@@ -1156,13 +1234,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
   const picks = [...document.querySelectorAll('.pick')];
   let current = null;
   function choose(dev, scroll){
-    if (current && current !== dev){ checks.forEach(b => b.set(false)); document.querySelectorAll('.link-next.hot').forEach(x => x.classList.remove('hot')); gateAll(); progress(); }
+    if (current && current !== dev){ checks.forEach(b => b.set(false)); gateAll(); progress(); }
     current = dev;
     picks.forEach(p => p.setAttribute('aria-checked', String(p.dataset.dev === dev)));
     document.querySelectorAll('.list').forEach(l => l.classList.toggle('on', l.dataset.list === dev));
     document.getElementById('k3-empty').hidden = true;
     document.getElementById('found').hidden = false;
     rail(2);
+    const g3 = document.getElementById('go-3'); g3.removeAttribute('aria-disabled'); g3.querySelector('.go-lbl').textContent = 'Przejdź do kroku 3';
     if (location.hash !== '#' + dev) history.replaceState(null, '', '#' + dev);
     if (scroll) setTimeout(() => document.getElementById('krok-3').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' }), 250);
   }
