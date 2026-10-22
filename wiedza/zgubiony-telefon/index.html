@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zgubiony telefon? Jak go znaleźć krok po kroku | FoxFix Kurów</title>
+<meta name="description" content="Zgubiłeś telefon? Spokojnie. 4 proste kroki z obrazkami: iPhone, Samsung i każdy inny Android. Poradnik serwisu FoxFix z Kurowa.">
+<meta name="theme-color" content="#F7F7F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0F11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://foxfix.it/wiedza/zgubiony-telefon/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:url" content="https://foxfix.it/wiedza/zgubiony-telefon/">
+<meta property="og:title" content="Zgubiony telefon? Spokojnie, znajdziemy go | FoxFix">
+<meta property="og:description" content="4 proste kroki z obrazkami. iPhone, Samsung, Android.">
+<meta property="og:image" content="https://foxfix.it/img/telefon-przod.webp">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="preload" href="../../fonts/geist-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Te same kolory, czcionka i przyciski co na foxfix.it -->
+<link rel="stylesheet" href="../../css/base.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* ===== Uklad strony (dopasowany do foxfix.it) ===== */
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
+.ph,.ph-fill,.ph-bold{line-height:1}
+.btn{min-height:50px;font-size:1rem}
+.btn-lg{min-height:56px;padding:.8em 1.6em;font-size:1.06rem}
+
+/* Naglowek jak na foxfix.it */
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.4rem;height:68px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:600 1rem/1 var(--ff-d);letter-spacing:.24em}
+.logo svg{width:30px;height:30px;color:var(--fox)}
+.nav-r{display:flex;align-items:center;gap:1rem;margin-left:auto}
+.nav-home{font-size:.95rem;color:var(--mute);text-decoration:none;display:inline-flex;align-items:center;gap:.4em}
+.nav-home:hover{color:var(--ink)}
+@media (max-width:560px){.nav .btn{display:none}}
+
+/* Hero */
+.hero{padding:clamp(28px,5vw,64px) 0 8px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:.55em;margin-bottom:1.2rem;font:500 .85rem/1 var(--ff-m);color:var(--fox-d)}
+.hero h1{font-size:clamp(2.7rem,6vw,5rem)}
+.hero h1 em{font-style:normal;color:var(--fox)}
+.lead{font-size:1.2rem;color:var(--ink-2);max-width:40ch;margin:1.2rem 0 1.8rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.radar{position:relative;aspect-ratio:1;max-width:360px;width:100%;margin-left:auto}
+.radar .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--fox) 40%,transparent)}
+.radar .ring:nth-child(2){inset:15%}.radar .ring:nth-child(3){inset:30%}
+.radar .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,color-mix(in srgb,var(--fox) 34%,transparent),transparent 28%);animation:spin 4.5s linear infinite}
+.radar .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--fox);top:28%;left:67%;animation:ping 2s ease-out infinite}
+.radar .center{position:absolute;inset:38%;display:grid;place-items:center;background:var(--surface);border-radius:50%;box-shadow:var(--shadow);font-size:44px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--fox) 55%,transparent)}100%{box-shadow:0 0 0 26px transparent}}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.radar{display:none}}
+
+/* Szyna 4 krokow */
+.rail{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:36px 0 0;padding:0;list-style:none;counter-reset:r}
+.rail a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--line);text-decoration:none;font-weight:500;height:100%;transition:border-color .2s}
+.rail a:hover{border-color:var(--fox)}
+.rail li{counter-increment:r}
+.rail a::before{content:counter(r);flex:0 0 32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--fox-btn);color:var(--on-fox);font-weight:600}
+.rail a.done::before{content:"✓";background:var(--ok)}
+@media (max-width:820px){.rail{grid-template-columns:1fr 1fr}}
+
+/* Kroki glowne */
+.krok{padding:clamp(90px,12vw,150px) 0 0;scroll-margin-top:72px}
+.krok-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.krok-head h2{padding-top:4px}
+.krok-num{flex:0 0 auto;width:58px;height:58px;border-radius:50%;background:var(--fox-btn);color:var(--on-fox);display:grid;place-items:center;font-size:1.6rem;font-weight:600}
+.krok-head small{display:block;font:500 .85rem/1 var(--ff-m);color:var(--fox-d);margin:4px 0 8px}
+.krok-head h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.krok-head p{color:var(--ink-2);font-size:1.1rem;margin-top:10px;max-width:58ch}
+@media (max-width:560px){.krok-head{flex-direction:column;gap:12px}.krok-num{width:48px;height:48px;font-size:1.3rem}}
+.next{display:flex;justify-content:flex-end;margin-top:20px}
+
+/* Krok 1: SIM */
+.alert{background:var(--tile-dark);color:#F2F2F3;border-radius:var(--r-lg);padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,40px);align-items:center}
+.alert h3{font-size:clamp(1.6rem,3vw,2.2rem);color:#fff}
+.alert p{color:#CFCFD4;margin:14px 0 20px;font-size:1.05rem}
+.alert ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:o}
+.alert li{counter-increment:o;display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.07);border-radius:14px;padding:13px 15px}
+.alert li::before{content:counter(o);flex:0 0 28px;height:28px;border-radius:50%;background:var(--fox);color:#fff;font-weight:600;display:grid;place-items:center}
+.alert li b{display:block;color:#fff}
+.alert li span{color:#B9B9C0;font-size:.95rem}
+@media (max-width:860px){.alert{grid-template-columns:1fr}}
+
+/* Krok 2: wybor telefonu */
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pick{position:relative;appearance:none;border:2px solid var(--line);background:var(--surface);border-radius:var(--r-lg);padding:24px;cursor:pointer;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:190px;transition:border-color .2s,background .2s,transform .15s,box-shadow .2s}
+.pick .ico-box{width:64px;height:64px;border-radius:18px;background:var(--surface-2);display:grid;place-items:center;transition:background .2s,color .2s}
+.pick .sel{position:absolute;top:18px;right:18px;background:var(--fox-btn);color:var(--on-fox);border-radius:999px;padding:5px 12px;font-size:.85rem;font-weight:600;opacity:0;transform:scale(.8);transition:.25s var(--ease)}
+.pick .go{margin-top:auto;color:var(--fox-d);font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:6px}
+.pick:hover{border-color:var(--fox)}
+.pick:active{transform:scale(.98)}
+.pick .ico-box i{font-size:36px}
+.pick b{display:block;font-size:1.3rem;font-weight:600}
+.pick span{color:var(--mute);font-size:.95rem}
+.pick[aria-checked="true"]{border-color:var(--fox);box-shadow:var(--shadow)}
+.pick[aria-checked="true"] .ico-box{background:var(--fox-btn);color:var(--on-fox)}
+.pick[aria-checked="true"] .sel{opacity:1;transform:none}
+.pick[aria-checked="true"] .go{visibility:hidden}
+@media (max-width:760px){.picker{grid-template-columns:1fr}.pick{min-height:0;flex-direction:row;align-items:center;padding:16px 18px}.pick .go{display:none}.pick .sel{position:static;margin-left:auto}}
+
+/* Krok 3: checklista */
+.k3-empty{background:var(--surface);border:2px dashed var(--line-2);border-radius:var(--r);padding:28px;text-align:center;color:var(--mute);font-size:1.1rem}
+.k3-empty i{font-size:34px;color:var(--fox);display:block;margin-bottom:8px}
+.list{display:none}
+.list.on{display:block}
+.progress{position:sticky;top:76px;z-index:5;display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 18px;margin-bottom:16px;box-shadow:var(--shadow);font-weight:500}
+.progress .bar{flex:1;height:8px;border-radius:9px;background:var(--surface-2);overflow:hidden}
+.progress .bar b{display:block;height:100%;width:0;background:var(--ok);border-radius:9px;transition:width .5s var(--ease)}
+.note{display:flex;gap:12px;align-items:flex-start;background:color-mix(in srgb,var(--fox) 8%,var(--surface));border-radius:var(--r);padding:16px 18px;margin-bottom:16px;font-size:1rem}
+.note i{color:var(--fox-d);font-size:22px;flex:0 0 auto;margin-top:1px}
+.note button{all:unset;color:var(--fox-d);font-weight:600;text-decoration:underline;cursor:pointer}
+.items{display:grid;gap:14px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-width:0;grid-template-areas:"txt scene" "row scene";gap:18px 26px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;transition:opacity .3s,border-color .3s}
+.item h3{font-size:clamp(1.35rem,2.4vw,1.75rem);margin:0;display:flex;gap:12px;align-items:flex-start}
+.pn{flex:0 0 34px;height:34px;border-radius:50%;border:2px solid var(--fox-btn);color:var(--fox-d);display:grid;place-items:center;font-size:1rem;font-weight:600;letter-spacing:0;margin-top:-1px;transition:.2s}
+.item.is-done .pn{background:var(--ok);border-color:var(--ok);color:#fff}
+
+.item p{color:var(--ink-2);margin-top:8px;font-size:1.05rem;max-width:46ch}
+.item p b{color:var(--ink)}
+.item .letter{font:500 .85rem/1 var(--ff-m);color:var(--fox-d)}
+.item>div:first-child{grid-area:txt;align-self:end}.item>.scene{grid-area:scene}
+.item>.row{grid-area:row;align-self:start;display:flex;flex-wrap:wrap;gap:10px}
+.item:not(:has(.scene)){grid-template-columns:minmax(0,1fr);grid-template-areas:"txt" "row"}
+.check{display:inline-flex;align-items:center;gap:.6em;min-height:50px;padding:.6em 1.2em .6em .7em;border-radius:999px;border:2px solid var(--line-2);background:var(--surface);font:500 1rem/1 var(--ff-d);cursor:pointer;transition:.2s}
+.check .box{width:28px;height:28px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;color:transparent;font-size:15px;transition:.2s}
+.check:hover{border-color:var(--ok)}
+.check[aria-pressed="true"]{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--surface))}
+.check[aria-pressed="true"] .box{background:var(--ok);border-color:var(--ok);color:#fff}
+.item.is-done{border-color:color-mix(in srgb,var(--ok) 55%,var(--line))}
+.item.is-done h3{text-decoration:line-through;text-decoration-color:var(--ok);text-decoration-thickness:2px}
+.item.is-done .scene{opacity:.55}
+.found{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:color-mix(in srgb,var(--ok) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--ok) 40%,var(--line));border-radius:var(--r);padding:18px 22px;font-size:1.05rem}
+.found b{font-size:1.15rem}
+@media (max-width:860px){.item{grid-template-columns:minmax(0,1fr);grid-template-areas:"txt" "scene" "row";padding:18px;gap:16px}}
+
+/* Krok 4 */
+
+/* ===== Sceny (animowane obrazki) ===== */
+.scene{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-radius:var(--r);background:var(--stage);min-height:300px;padding:22px 16px;overflow:hidden;position:relative}
+.scene .stage{position:relative;display:grid;place-items:center;width:100%}
+.cap{font-size:.92rem;font-weight:500;color:var(--mute);text-align:center;display:flex;align-items:center;gap:.4em}
+.cap.warn{color:#C2271B}
+@media (prefers-color-scheme:dark){.cap.warn{color:#F87171}}
+.caret{display:inline-block;width:2px;height:1.1em;background:currentColor;vertical-align:-3px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.press{animation:press .28s}
+@keyframes press{50%{transform:scale(.9);filter:brightness(.85)}}
+
+/* Prawdziwy wyglad stron (zawsze jasne, jak oryginaly) */
+.real{color:#1f1f1f;background:#fff;font-family:Roboto,Arial,var(--ff-d);box-shadow:0 14px 40px -16px rgba(0,0,0,.35)}
+
+/* przegladarka */
+.browser{width:min(100%,380px);border-radius:14px;overflow:hidden;border:1px solid #dadce0}
+.b-top{height:26px;display:flex;align-items:center;gap:5px;padding:0 10px;background:#eef0f3}
+.b-top i{width:9px;height:9px;border-radius:50%;background:#c9cdd3;display:block}
+.b-bar{margin:10px;display:flex;align-items:center;gap:8px;background:#eef0f3;border-radius:999px;padding:9px 14px;font-size:14px;min-height:40px;color:#1f1f1f}
+.b-bar .ph-lock-simple{color:#5f6368}
+.b-addr{font-family:var(--ff-m)}
+.b-bar kbd{margin-left:auto;font:600 11px var(--ff-d);background:#fff;border:1px solid #dadce0;border-radius:6px;padding:3px 7px;opacity:0;transition:opacity .2s}
+.s-enter .b-bar kbd{opacity:1}
+.b-page{position:relative;height:150px}
+.b-load{position:absolute;top:0;left:0;height:3px;width:0;background:#1a73e8;transition:width .9s cubic-bezier(.6,0,.2,1)}
+.s-go .b-load{width:100%}
+.b-hello{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(8px);transition:.45s var(--ease)}
+.b-hello i{font-size:40px}
+.b-hello b{font-size:18px;font-weight:500}
+.s-loaded .b-hello{opacity:1;transform:none}
+.s-loaded .b-load{opacity:0}
+
+/* logowanie wspolne */
+.lg{width:min(100%,340px);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px;min-height:290px;position:relative}
+.lg .st{display:none;flex-direction:column;gap:12px}
+.s-1 .st1,.s-2 .st2,.s-code .stc,.s-gpick .stg{display:flex}
+.lg-ok{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:auto;font-weight:500;font-size:16px}
+.lg-ok i{font-size:52px;color:#188038}
+.s-ok .lg-ok{display:flex;animation:pop .4s var(--ease)}
+.s-ok .lg-hide-ok{display:none!important}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.pw{letter-spacing:3px}
+
+/* Google */
+.g-logo{font-size:30px}
+.g-logo i{background:conic-gradient(from -45deg,#ea4335 0 25%,#4285f4 0 50%,#34a853 0 75%,#fbbc05 0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.g-h{font-size:26px;font-weight:400;letter-spacing:0;line-height:1.2}
+.g-sub{font-size:15px;color:#444746}
+.g-field{position:relative;border:2px solid #0b57d0;border-radius:6px;padding:14px 12px 10px;font-size:15px;min-height:52px;display:flex;align-items:center}
+.g-field .lbl{position:absolute;top:-9px;left:10px;background:#fff;padding:0 4px;font-size:12px;color:#0b57d0}
+.g-link{color:#0b57d0;font-size:14px;font-weight:500}
+.g-chip{align-self:flex-start;border:1px solid #c4c7c5;border-radius:999px;padding:4px 12px 4px 6px;font-size:13px;display:inline-flex;gap:6px;align-items:center}
+.g-chip i{font-size:18px;color:#5f6368}
+.g-btn{margin-top:auto;align-self:flex-end;background:#0b57d0;color:#fff;border-radius:999px;padding:10px 24px;font-size:14px;font-weight:500}
+.g-acc{display:flex;align-items:center;gap:10px;border-bottom:1px solid #e3e3e3;padding:10px 4px;font-size:14px}
+.g-acc .av{width:32px;height:32px;border-radius:50%;background:#7b5ea7;color:#fff;display:grid;place-items:center;font-weight:500}
+.g-acc small{display:block;color:#444746;font-size:12px}
+
+/* Apple */
+.lg-apple{align-items:center;text-align:center;font-family:-apple-system,"SF Pro Text","Helvetica Neue",var(--ff-d)}
+.lg-apple .st{width:100%;align-items:center}
+.a-logo{font-size:44px;color:#1d1d1f}
+.a-h{font-size:24px;font-weight:600;letter-spacing:-.02em;color:#1d1d1f}
+.a-field{width:100%;display:flex;align-items:center;border:1px solid #86868b;border-radius:12px;padding:12px 12px 12px 14px;font-size:15px;min-height:50px;text-align:left;color:#1d1d1f}
+.a-field .arrow{margin-left:auto;width:28px;height:28px;border-radius:50%;border:1.5px solid #86868b;display:grid;place-items:center;color:#86868b;font-size:14px;flex:0 0 auto}
+.a-sub{font-size:13px;color:#6e6e73}
+.a-boxes{display:flex;gap:7px;justify-content:center}
+.a-boxes i{width:36px;height:44px;border:1px solid #86868b;border-radius:9px;display:block}
+.a-find{margin-top:4px;background:#f5f5f7;border-radius:12px;padding:12px 14px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:600;color:#0066cc}
+.s-code .a-find{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(0,102,204,.25)}}
+.lg-apple .lg-ok i{color:#34c759}
+
+/* Samsung */
+.lg-sam{font-family:"SamsungOne",Arial,var(--ff-d)}
+.s-brand{font-weight:700;font-size:15px;letter-spacing:.02em;color:#000}
+.s-h{font-size:22px;font-weight:700;color:#000;line-height:1.2}
+.s-field{border-bottom:2px solid #1428a0;padding:10px 2px;font-size:15px;min-height:44px;display:flex;align-items:center}
+.s-lbl{font-size:12px;color:#5c5c5c}
+.s-btn{background:#000;color:#fff;border-radius:999px;padding:12px;text-align:center;font-size:15px;font-weight:700}
+.s-or{display:flex;align-items:center;gap:10px;color:#8a8a8a;font-size:12px}
+.s-or::before,.s-or::after{content:"";flex:1;height:1px;background:#ddd}
+.s-google{border:1px solid #c7c7c7;border-radius:999px;padding:10px;text-align:center;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;color:#000}
+.s-google.hl{animation:pulseS 1s ease-in-out infinite}
+@keyframes pulseS{50%{box-shadow:0 0 0 6px rgba(20,40,160,.18)}}
+
+/* mapa */
+.map{position:relative;width:min(100%,380px);aspect-ratio:4/3;border-radius:16px;overflow:hidden;
+  background:
+   linear-gradient(90deg,transparent 47%,#fff 47%,#fff 53%,transparent 53%),
+   linear-gradient(0deg,transparent 60%,#fff 60%,#fff 66%,transparent 66%),
+   linear-gradient(25deg,transparent 30%,#fff 30%,#fff 34%,transparent 34%),
+   radial-gradient(circle at 18% 22%,#c8e6c9 0 16%,transparent 17%),
+   radial-gradient(circle at 84% 82%,#bbdefb 0 20%,transparent 21%),
+   #eceae4}
+.m-acc{position:absolute;left:62%;top:38%;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:rgba(226,83,30,.16);border:1.5px solid rgba(226,83,30,.5);transform:scale(0);transition:transform .5s var(--ease)}
+.m-pin{position:absolute;left:62%;top:38%;font-size:44px;color:var(--fox);transform:translate(-50%,-100%) translateY(-140px);opacity:0;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.s-drop .m-pin{animation:drop .6s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes drop{to{opacity:1;transform:translate(-50%,-100%)}}
+.s-acc .m-acc{transform:scale(1)}
+.m-card{position:absolute;left:12px;right:12px;bottom:12px;background:#fff;color:#1f1f1f;border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 6px 18px rgba(0,0,0,.18);transform:translateY(140%);transition:transform .5s var(--ease)}
+.m-card i{font-size:26px;color:var(--fox)}
+.m-card b{display:block;font-size:15px;font-weight:600}
+.m-card span{font-size:12.5px;color:#5f6368}
+.s-card .m-card{transform:none}
+
+/* telefon */
+.phone{position:relative;width:148px;height:280px;border-radius:30px;border:7px solid #1b1b1e;background:#fff;color:#1f1f1f;box-shadow:var(--shadow);overflow:hidden;flex:0 0 auto}
+.phone::before{content:"";position:absolute;top:6px;left:50%;width:44px;height:12px;margin-left:-22px;border-radius:10px;background:#1b1b1e;z-index:2}
+.p-screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px 12px 14px;text-align:center}
+.waves{position:absolute;left:50%;top:50%;width:0;height:0}
+.waves i{position:absolute;left:-62px;top:-62px;width:124px;height:124px;border-radius:50%;border:2px solid var(--fox);opacity:0}
+.s-ring .waves i{animation:wave 1.4s ease-out infinite}
+.s-ring .waves i:nth-child(2){animation-delay:.45s}.s-ring .waves i:nth-child(3){animation-delay:.9s}
+@keyframes wave{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.3);opacity:0}}
+.s-ring .phone{animation:shake .5s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+.p-bell{font-size:50px;color:#9a9a9a;transition:color .2s}
+.s-ring .p-bell{color:var(--fox)}
+.p-lock{font-size:44px;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.s-locked .p-lock{transform:scale(1)}
+.p-msg{font-size:13px;line-height:1.35;min-height:54px}
+.p-call{display:inline-flex;align-items:center;gap:6px;background:#188038;color:#fff;border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
+.s-call .p-call{opacity:1;transform:none}
+
+/* dzwonienie na swoj numer */
+.d-num{font-size:17px;font-weight:500;white-space:nowrap;min-height:28px}
+.d-keys{display:grid;grid-template-columns:repeat(3,24px);gap:8px}
+.d-keys i{width:24px;height:24px;border-radius:50%;background:#efefef;display:block}
+.d-callbtn{width:44px;height:44px;border-radius:50%;background:#188038;color:#fff;display:grid;place-items:center;font-size:22px}
+.d-calling{display:none;flex-direction:column;align-items:center;gap:10px}
+.d-calling i{font-size:40px;color:#188038;animation:ping2 1.2s ease-out infinite;border-radius:50%}
+@keyframes ping2{0%{box-shadow:0 0 0 0 rgba(24,128,56,.4)}100%{box-shadow:0 0 0 20px transparent}}
+.s-dialing .d-dial{display:none}
+.s-dialing .d-calling{display:flex}
+
+/* inne urzadzenia */
+.devs{display:flex;align-items:flex-end;gap:18px}
+.dv{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--mute);font-size:13px;font-weight:500;transition:color .3s,transform .3s}
+.dv i{font-size:54px}
+.dv.on{color:var(--fox);transform:translateY(-6px)}
+.dv .pinmini{font-size:20px;opacity:0;transition:opacity .3s}
+.dv.on .pinmini{opacity:1}
+
+/* bateria */
+.batt-card{width:min(100%,320px);border-radius:16px;padding:20px;display:grid;gap:16px}
+.batt{display:flex;align-items:center;gap:14px}
+.batt i{font-size:44px;color:#d93025;transition:color .3s}
+.s-on .batt i{color:#188038}
+.batt b{display:block;font-size:16px}
+.batt span{font-size:13px;color:#5f6368}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;font-weight:500}
+.tg{width:48px;height:28px;border-radius:99px;background:#c7c7c7;position:relative;transition:background .25s;flex:0 0 auto}
+.tg::after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.3,1.5,.5,1);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.s-on .tg{background:#1428a0}
+.s-on .tg::after{transform:translateX(20px)}
+.batt .t-on,.s-on .batt .t-off{display:none}
+.s-on .batt .t-on{display:inline}
+
+/* wyszukiwarka */
+.search{width:min(100%,420px);display:grid;gap:12px}
+.s-box{display:flex;align-items:center;gap:10px;border-radius:999px;padding:12px 18px;font-size:16px;min-height:50px}
+.s-box i{color:#5f6368;font-size:20px}
+.s-res{border-radius:16px;overflow:hidden;opacity:0;transform:translateY(12px);transition:.5s var(--ease)}
+.s-res.real{background:#fff}
+.s-show .s-res{opacity:1;transform:none}
+.s-res .mini{height:100px;position:relative;background:linear-gradient(90deg,transparent 40%,#fff 40%,#fff 45%,transparent 45%),linear-gradient(0deg,transparent 55%,#fff 55%,#fff 61%,transparent 61%),#eceae4}
+.s-res .mini i{position:absolute;left:58%;top:20%;font-size:34px;color:var(--fox)}
+.s-res .row2{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;flex-wrap:wrap}
+.s-res .row2 b{font-size:15px;font-weight:600}
+.s-res .row2 span{font-size:13px;color:#5f6368;display:block}
+.s-res .row2 .chip{background:#0b57d0;color:#fff;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:500;display:inline-flex;gap:6px;align-items:center}
+
+/* SIM */
+.sim-wrap{display:flex;align-items:center;gap:26px}
+.sim-status{display:grid;gap:8px;font-size:12.5px;font-weight:600;width:100%}
+.sim-status div{display:flex;align-items:center;gap:6px;justify-content:center}
+.sim-status .bad{display:none;color:#d93025}
+.sim-status .good{color:#188038}
+.s-off .sim-status .bad{display:flex}
+.s-off .sim-status .good{display:none}
+.bars{display:flex;align-items:flex-end;gap:3px;height:26px;justify-content:center}
+.bars i{width:6px;border-radius:2px;background:#1b1b1e;display:block;transition:background .3s}
+.bars i:nth-child(1){height:25%}.bars i:nth-child(2){height:50%}.bars i:nth-child(3){height:75%}.bars i:nth-child(4){height:100%}
+.s-off .bars i{background:#d4d4d8}
+.s-off .bars i:nth-child(3){transition-delay:.25s}.s-off .bars i:nth-child(2){transition-delay:.5s}.s-off .bars i:nth-child(1){transition-delay:.75s}
+.sim-card{width:84px;height:110px;border-radius:10px 26px 10px 10px;background:var(--fox);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:600;font-size:13px;transform:translateX(160px) rotate(12deg);opacity:0;transition:.6s var(--ease)}
+.sim-card i{font-size:34px}
+.s-new .sim-card{transform:none;opacity:1}
+.alert .scene{background:rgba(255,255,255,.05)}
+.alert .cap{color:#B9B9C0}
+
+
+.quick{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px;background:var(--surface);border:2px solid color-mix(in srgb,var(--fox) 40%,var(--line));border-radius:var(--r);padding:16px 18px}
+.quick .q-t{font-weight:600;display:inline-flex;align-items:center;gap:8px;margin-right:6px}
+.quick .q-t i{color:var(--fox-d);font-size:20px}
+@media (max-width:560px){.quick .btn{width:100%;white-space:normal}}
+
+.skip{display:flex;gap:8px;align-items:flex-start;margin-top:12px!important;font-size:.95rem!important;color:var(--mute)!important}
+.skip i{color:var(--fox-d);font-size:18px;margin-top:3px}
+.mini-steps{margin:12px 0 0;padding:0 0 0 0;list-style:none;counter-reset:m;display:grid;gap:8px;font-size:1.02rem;color:var(--ink-2)}
+.mini-steps li{counter-increment:m;position:relative;padding-left:34px}
+.mini-steps li::before{content:counter(m);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--surface-2);color:var(--ink);font-size:.82rem;font-weight:600;display:grid;place-items:center}
+.place-btn{display:flex;align-items:center;gap:14px;margin-top:18px;max-width:480px;padding:14px 16px;border-radius:var(--r);border:1.5px solid var(--line-2);background:var(--bg);text-decoration:none;transition:border-color .2s,transform .15s}
+.place-btn:hover{border-color:var(--fox)}
+.place-btn:active{transform:scale(.98)}
+.place-btn .pi{flex:0 0 46px;height:46px;border-radius:14px;background:var(--fox-btn);color:var(--on-fox);display:grid;place-items:center;font-size:24px}
+.place-btn b{display:block;font-weight:600}
+.place-btn small{color:var(--mute);font-size:.88rem}
+.place-btn>i{margin-left:auto;color:var(--fox-d);font-size:20px}
+
+/* nowe dzwonienie */
+.dial .p-screen{justify-content:flex-start;padding:30px 14px 16px;gap:12px}
+.d-top{height:44px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:500;white-space:nowrap}
+.d-pad{display:grid;grid-template-columns:repeat(3,34px);gap:8px 14px}
+.d-pad span{width:34px;height:34px;border-radius:50%;background:#f1f1f1;display:grid;place-items:center;font-size:14px;font-weight:500;transition:background .15s}
+.d-pad span.hit{background:#cfe8d6}
+.d-green{width:44px;height:44px;border-radius:50%;background:#188038;color:#fff;display:grid;place-items:center;font-size:20px;margin-top:auto}
+.d-calling{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#fff;opacity:0;transition:opacity .3s;pointer-events:none}
+.d-calling .av{width:64px;height:64px;border-radius:50%;background:#e8f0fe;color:#0b57d0;display:grid;place-items:center;font-size:30px;animation:ping2 1.4s ease-out infinite}
+.d-calling b{font-size:15px}
+.d-calling small{font-size:12px;color:#5f6368}
+.d-red{position:absolute;bottom:18px;width:44px;height:44px;border-radius:50%;background:#d93025;color:#fff;display:grid;place-items:center;font-size:20px;transform:rotate(135deg)}
+.s-dialing .d-calling{opacity:1}
+
+/* nowa blokada */
+.lockp .p-screen{justify-content:flex-start;padding:34px 12px 18px;gap:6px;background:linear-gradient(170deg,#2b2f3a,#141416);color:#fff}
+.l-time{font-size:38px;font-weight:300;letter-spacing:-.02em;opacity:0;transition:opacity .4s}
+.l-ico{font-size:22px;opacity:0;transform:scale(.4);transition:.4s cubic-bezier(.3,1.6,.5,1)}
+.s-locked .l-time,.s-locked .l-ico{opacity:1;transform:none}
+.l-card{margin-top:12px;width:100%;min-height:96px;background:rgba(255,255,255,.14);border-radius:14px;padding:10px;font-size:12.5px;line-height:1.35;text-align:left;opacity:0;transition:opacity .3s}
+.l-card small{display:block;font-size:10.5px;opacity:.7;margin-bottom:3px}
+.s-msg .l-card{opacity:1}
+.l-call{margin-top:auto;display:inline-flex;align-items:center;gap:6px;background:#188038;color:#fff;border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
+.s-call .l-call{opacity:1;transform:none}
+
+/* wyniki wyszukiwania */
+.s-list{border-radius:16px;padding:12px 14px;display:grid;gap:10px;opacity:0;transform:translateY(10px);transition:.4s var(--ease)}
+.s-list.real{background:#fff}
+.s-show .s-list,.s-click .s-list{opacity:1;transform:none}
+.s-r{display:grid;gap:2px;padding:6px 8px;border-radius:10px;transition:background .2s}
+.s-r small{font-size:11.5px;color:#4d5156}
+.s-r b{font-size:15px;font-weight:400;color:#1a0dab}
+.s-r.dim b{color:#b9b9c4}.s-r.dim small{color:#cfcfd6}
+.s-click .s-r.first{background:#e8f0fe}
+.s-r.first{position:relative}
+.cursor{position:absolute;right:16px;bottom:-6px;font-size:22px;color:#1f1f1f;opacity:0;transition:.3s}
+.s-click .cursor{opacity:1}
+.s-map .s-list{display:none}
+.s-map .s-res{opacity:1;transform:none}
+.s-res{display:none}
+.s-map .s-res{display:block}
+.shot-keys{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:.84rem;color:var(--mute)}
+.shot-keys kbd{font:600 .76rem var(--ff-d);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:1px 6px;color:var(--ink)}
+@media (max-width:420px){.shot-keys{grid-template-columns:1fr}}
+
+/* duzy przycisk do nastepnego kroku */
+.step-go{position:relative;display:flex;justify-content:center;padding-top:84px}
+.step-go::before{content:"";position:absolute;left:50%;top:10px;height:66px;border-left:3px dashed color-mix(in srgb,var(--fox) 55%,transparent)}
+.go-btn{position:relative;display:inline-flex;align-items:center;gap:16px;min-height:66px;padding:10px 12px 10px 30px;border-radius:999px;background:var(--fox-btn);color:var(--on-fox);font:600 1.15rem/1.2 var(--ff-d);text-decoration:none;box-shadow:0 16px 36px -14px rgba(191,65,14,.7);animation:goPulse 2.2s ease-in-out infinite;transition:background .2s,transform .15s}
+.go-btn:hover{background:var(--fox-btn-h)}
+.go-btn:active{transform:scale(.97)}
+.go-ic{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:22px}
+.go-ic i{animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
+@keyframes goPulse{0%,100%{box-shadow:0 16px 36px -14px rgba(191,65,14,.7),0 0 0 0 rgba(226,83,30,.35)}50%{box-shadow:0 16px 36px -14px rgba(191,65,14,.7),0 0 0 12px rgba(226,83,30,0)}}
+.go-btn[aria-disabled="true"]{background:var(--surface-2);color:var(--mute);box-shadow:none;animation:none;pointer-events:none}
+.go-btn[aria-disabled="true"] .go-ic{background:var(--line)}
+.go-btn[aria-disabled="true"] .go-ic i{animation:none}
+@media (max-width:560px){.go-btn{font-size:1.02rem;padding-left:22px;text-align:left}}
+@media (prefers-reduced-motion:reduce){.go-btn,.go-ic i{animation:none}}
+.items{gap:20px!important}
+.gated{display:none!important}
+.reveal{animation:revealIn .6s ease both}
+@keyframes revealIn{from{opacity:0}to{opacity:1}}
+.gate-q{font-weight:600;font-size:1.05rem;width:100%;margin-bottom:2px}
+.gate-ok{display:none;align-items:center;gap:10px;font-weight:600;color:var(--ok)}
+.gate-ok i{font-size:24px}
+.item.gate.passed .gate-btns{display:none}
+.item.gate.passed .gate-ok{display:flex}
+.gate-btns{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+
+/* krok 4: sceny */
+.k-card{width:min(100%,320px);border-radius:18px;padding:18px;display:grid;gap:12px}
+.k-head{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+.k-head i{font-size:22px;color:#0b57d0}
+.bankcard{border-radius:14px;padding:14px;background:linear-gradient(135deg,#2b2f3a,#4a5060);color:#fff;display:grid;gap:14px;font-size:13px}
+.bankcard b{font-family:var(--ff-m);letter-spacing:.08em;font-weight:500}
+.bk-state{display:flex;align-items:center;gap:6px;font-weight:600;font-size:12.5px;color:#188038}
+.bk-state .off{display:none;color:#d93025}
+.s-blocked .bk-state .on{display:none}.s-blocked .bk-state .off{display:inline-flex;align-items:center;gap:5px}
+.s-blocked .bankcard{background:linear-gradient(135deg,#5d5d66,#7d7d86)}
+.s-blocked .bk-state .off{background:#fff;border-radius:999px;padding:3px 9px;justify-self:start}
+.k-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;font-weight:500}
+.k-row .tg{background:#c7c7c7}
+.s-blocked .k-row.r1 .tg{background:#d93025}.s-blocked .k-row.r1 .tg::after{transform:translateX(20px)}
+.k-ok{color:#188038;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .3s}
+.s-pass .k-ok{opacity:1}
+.sticker{width:min(100%,320px);border-radius:10px;padding:16px;display:grid;gap:8px;font-family:Arial,var(--ff-d);color:#1f1f1f}
+.sticker .bc{height:38px;background:repeating-linear-gradient(90deg,#1f1f1f 0 2px,transparent 2px 4px,#1f1f1f 4px 5px,transparent 5px 8px,#1f1f1f 8px 11px,transparent 11px 12px)}
+.sticker .ln{font-size:13px;display:flex;justify-content:space-between}
+.sticker .imei{position:relative;font-weight:700;font-size:15px;letter-spacing:.04em;padding:2px 4px}
+.sticker .imei::before{content:"";position:absolute;inset:0;background:#ffe066;border-radius:4px;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .9s ease}
+.sticker .imei{isolation:isolate}
+.s-hl .sticker .imei::before{transform:scaleX(1)}
+.box3d{position:relative;padding:22px 18px 18px;border-radius:16px;background:#d9c3a3;box-shadow:var(--shadow)}
+.report .rp{display:flex;align-items:center;gap:10px;font-size:14px;opacity:.25;transition:opacity .35s}
+.report .rp i{font-size:22px;color:#188038}
+.report .rp.on{opacity:1}
+.sims{display:flex;align-items:center;gap:22px}
+.simc{width:78px;height:104px;border-radius:9px 24px 9px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;font-weight:600;transition:.5s var(--ease)}
+.simc i{font-size:30px}
+.simc.old{background:#9a9aa3;color:#fff;position:relative}
+.simc.old::after{content:"";position:absolute;inset:-6px;background:linear-gradient(45deg,transparent 46%,#d93025 46% 54%,transparent 54%);opacity:0;transition:opacity .3s}
+.s-cut .simc.old::after{opacity:1}
+.s-cut .simc.old{opacity:.5}
+.simc.new{background:var(--fox);color:#fff;transform:translateX(60px);opacity:0}
+.s-new .simc.new{transform:none;opacity:1}
+.sim-num{font:600 1rem var(--ff-d);color:var(--ink);opacity:0;transition:opacity .3s}
+.s-new .sim-num{opacity:1}
+
+.crumbs{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;font:500 .9rem/1.2 var(--ff-d);color:var(--mute)}
+.crumbs a{display:inline-flex;align-items:center;gap:6px;color:var(--fox-d);text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.item .btn,.quick .btn{white-space:normal;text-align:left;line-height:1.25;overflow-wrap:anywhere}
+.scene,.item>div{min-width:0}
+.scene .stage{max-width:100%}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 28px)}
+  .item{padding:16px;border-radius:var(--r)}
+  .scene{padding:16px 10px;min-height:0}
+  .lg{padding:18px;min-height:0}
+  .sim-wrap{gap:14px}
+  .shot-thumb{right:0}
+  .sms-gen{max-width:none}
+}
+/* Generator SMS do lombardow */
+.sms-gen{display:grid;gap:14px;margin-top:18px;max-width:480px}
+.sms-gen .f{display:grid;gap:6px}
+.sms-gen label{font-weight:600;font-size:.95rem}
+.sms-gen input,.sms-gen textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-sm);padding:12px 14px;width:100%}
+.sms-gen input::placeholder{color:var(--mute)}
+.sms-gen input:focus,.sms-gen textarea:focus{outline:none;border-color:var(--fox)}
+.sms-gen textarea{resize:vertical;line-height:1.45;background:var(--surface-2)}
+.sg-btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* zrzut ekranu */
+.shot-wrap{position:relative;width:min(100%,380px)}
+.shot-flash{position:absolute;inset:0;border-radius:16px;background:#fff;opacity:0;pointer-events:none}
+.s-flash .shot-flash{animation:flash .5s ease-out}
+@keyframes flash{0%{opacity:0}20%{opacity:.95}100%{opacity:0}}
+.shot-thumb{position:absolute;right:-6px;bottom:-14px;width:96px;border-radius:10px;border:3px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.3);overflow:hidden;transform:scale(0);transform-origin:bottom right;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.shot-thumb .map{width:100%;border-radius:0}
+.shot-thumb .m-pin{font-size:18px;opacity:1;transform:translate(-50%,-100%)}
+.shot-thumb .m-card,.shot-thumb .m-acc{display:none}
+.s-saved .shot-thumb{transform:scale(1)}
+.shot-ok{position:absolute;left:12px;top:12px;background:#188038;color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(-8px);transition:.35s}
+.s-saved .shot-ok{opacity:1;transform:none}
+.keys{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;font-size:.88rem;color:var(--mute)}
+.keys kbd{font:600 .8rem var(--ff-d);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:2px 7px;color:var(--ink)}
+
+/* SMS */
+.sms-bub{background:#e9e9eb;color:#1f1f1f;border-radius:16px 16px 16px 4px;padding:9px 11px;font-size:11.5px;line-height:1.35;text-align:left;min-height:40px;align-self:stretch}
+.sms-to{font-size:11px;color:#5f6368;align-self:stretch;text-align:left;border-bottom:1px solid #eee;padding-bottom:6px}
+.sms-sent{font-size:11px;color:#188038;font-weight:600;opacity:0;transition:opacity .3s}
+.s-sent .sms-sent{opacity:1}
+.s-sent .sms-bub{background:#0b57d0;color:#fff;border-radius:16px 16px 4px 16px}
+
+/* ===== FoxFix CTA z animowanym logo ===== */
+.fox{margin-top:clamp(64px,9vw,110px);background:var(--tile-dark);color:#F2F2F3;border-radius:var(--r-lg);padding:clamp(26px,5vw,56px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center;position:relative;overflow:hidden}
+.fox::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 15% 50%,rgba(226,83,30,.28),transparent 70%);pointer-events:none}
+.badge{position:relative;width:clamp(170px,22vw,240px);aspect-ratio:1;display:grid;place-items:center}
+.badge .pulse{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(240,116,67,.6);opacity:0}
+.fox.in .badge .pulse{animation:wave2 2.6s ease-out infinite 1.6s}
+.fox.in .badge .pulse:nth-child(2){animation-delay:2.5s}
+.fox.in .badge .pulse:nth-child(3){animation-delay:3.4s}
+@keyframes wave2{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.15);opacity:0}}
+.badge .disc{position:absolute;inset:14%;border-radius:50%;background:var(--fox);box-shadow:0 20px 60px -10px rgba(226,83,30,.6)}
+.badge svg{position:relative;width:46%;height:46%;color:#fff;overflow:visible}
+.badge svg path{stroke-dasharray:1;stroke-dashoffset:1}
+.fox.in .badge svg path{animation:draw 1.6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fox.in .badge svg{animation:nod 3.2s ease-in-out infinite 2s}
+@keyframes nod{0%,100%{transform:rotate(0)}20%{transform:rotate(-7deg)}40%{transform:rotate(5deg)}60%{transform:rotate(0)}}
+.fox h2{font-size:clamp(2rem,4.4vw,3.4rem);color:#fff;max-width:16ch}
+.fox h2 em{font-style:normal;color:#F07443}
+.fox p{color:#CFCFD4;margin:14px 0 20px;font-size:1.1rem;max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chips span{background:rgba(255,255,255,.08);border-radius:999px;padding:8px 14px;font-weight:500;font-size:.95rem;display:inline-flex;gap:7px;align-items:center}
+.chips i{color:#F07443}
+.info{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:22px;font-size:.98rem;color:#CFCFD4}
+.info b{color:#fff;font-weight:600}
+.info div{display:flex;gap:8px;align-items:flex-start}
+.info i{color:#F07443;font-size:20px;margin-top:2px}
+.fox .btn--ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+.fox .btn--ghost:hover{border-color:#fff}
+@media (max-width:860px){.fox{grid-template-columns:1fr}.badge{margin:0 auto}}
+
+/* Stopka jak na foxfix.it */
+.foot{padding:clamp(56px,8vw,90px) 0 28px;overflow:hidden}
+.foot-word{display:flex;align-items:center;margin:0 0 1.4rem;font:600 clamp(3.4rem,13vw,11rem)/.85 var(--ff-d);letter-spacing:-.06em;color:var(--surface-2);white-space:nowrap;user-select:none}
+.foot-soc{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin-bottom:1.2rem}
+.foot-soc a{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-size:.92rem;color:var(--mute);text-decoration:none}
+.foot-soc a:hover{color:var(--ink)}
+.foot-soc i{font-size:18px}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.88rem;color:var(--mute)}
+.foot-row a{text-decoration:none}
+.foot-row a:hover{color:var(--ink)}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.radar .sweep,.radar .dot{animation:none}.badge svg path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fox" viewBox="-5 -5 110 110"><path fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M6 6 50 94 94 6M6 6l22 11M94 6 72 17M50 6 19.6 33.3M50 6l30.4 27.3M15.5 38 3 50.5 50 94M84.5 38 97 50.5 50 94"/></symbol>
+</svg>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Główna">
+    <a class="logo" href="/" aria-label="FoxFix, strona główna"><svg aria-hidden="true"><use href="#fox"/></svg><b>FOXFIX</b></a>
+    <div class="nav-r">
+      <a class="nav-home" href="/wiedza/"><i class="ph ph-books"></i>Baza wiedzy</a>
+      <a class="btn btn--ink" href="tel:+48572571704" aria-label="Zadzwoń: 572 571 704"><i class="ph-fill ph-phone"></i><span>572&nbsp;571&nbsp;704</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <nav class="crumbs" aria-label="Okruszki"><a href="/wiedza/"><i class="ph-bold ph-books"></i>Baza wiedzy</a><i class="ph ph-caret-right"></i><span>Zgubiony telefon</span></nav>
+          <h1>Zgubiony telefon?<br><em>Spokojnie, znajdziemy go.</em></h1>
+          <p class="lead">4 proste kroki z obrazkami. Rób po kolei i odhaczaj to, co już zrobione.</p>
+          <div class="cta">
+            <a class="btn btn--fox btn-lg" href="#krok-1">Zacznij od kroku 1 <i class="ph-bold ph-arrow-down"></i></a>
+          </div>
+        </div>
+        <div class="radar" aria-hidden="true">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+          <div class="sweep"></div><div class="dot"></div>
+          <div class="center"><i class="ph ph-device-mobile"></i></div>
+        </div>
+      </div>
+      <ol class="rail" aria-label="Kroki poradnika">
+        <li><a href="#krok-1" data-rail="1">Bez paniki</a></li>
+        <li><a href="#krok-2" data-rail="2">Twój telefon</a></li>
+        <li><a href="#krok-3" data-rail="3">Szukamy</a></li>
+        <li><a href="#krok-4" data-rail="4">Nie ma go?</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- KROK 1 -->
+  <section class="krok" id="krok-1">
+    <div class="wrap">
+      <div class="krok-head rv">
+        <div class="krok-num">1</div>
+        <div><h2>Spokojnie. Nie rób jeszcze duplikatu karty SIM.</h2></div>
+      </div>
+      <div class="alert rv">
+        <div>
+          <h3>Dlaczego to takie ważne?</h3>
+          <p>Zgubiony telefon łączy się z internetem przez Twoją kartę SIM. Gdy wyrobisz duplikat, stara karta przestaje działać. Telefon traci internet i nie pokaże już, gdzie jest.</p>
+          <ol>
+            <li><div><b>Najpierw szukaj</b><span>Pierwsze godziny są najważniejsze, telefon ma jeszcze baterię.</span></div></li>
+            <li><div><b>Potem zablokuj ekran z wiadomością</b><span>Znalazca zobaczy numer, pod który może zadzwonić.</span></div></li>
+            <li><div><b>Na samym końcu duplikat SIM</b><span>Dopiero gdy wiesz, że telefonu nie odzyskasz.</span></div></li>
+          </ol>
+        </div>
+        <div class="scene" data-scene="sim" role="img" aria-label="Animacja: po duplikacie SIM zgubiony telefon traci internet i znika z mapy"></div>
+      </div>
+      <div class="step-go"><a class="go-btn" href="#krok-2" data-done-rail="1"><span class="go-lbl">Rozumiem. Przejdź do kroku 2</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
+    </div>
+  </section>
+
+  <!-- KROK 2 -->
+  <section class="krok" id="krok-2">
+    <div class="wrap">
+      <div class="krok-head rv">
+        <div class="krok-num">2</div>
+        <div><h2>Jaki masz telefon?</h2><p>Kliknij swój. Instrukcja w kroku 3 dopasuje się do Twojego telefonu.</p></div>
+      </div>
+      <div class="picker rv" role="radiogroup" aria-label="Wybierz swój telefon">
+        <button class="pick" role="radio" aria-checked="false" data-dev="apple"><span class="ico-box"><i class="ph-fill ph-apple-logo"></i></span><div><b>iPhone</b><span>Apple</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="samsung"><span class="ico-box"><i class="ph-fill ph-device-mobile-camera"></i></span><div><b>Samsung</b><span>Galaxy</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="android"><span class="ico-box"><i class="ph-fill ph-android-logo"></i></span><div><b>Inny Android</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+      </div>
+      <div class="step-go"><a class="go-btn" href="#krok-3" id="go-3" aria-disabled="true"><span class="go-lbl">Najpierw kliknij swój telefon</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
+    </div>
+  </section>
+
+  <!-- KROK 3 -->
+  <section class="krok" id="krok-3">
+    <div class="wrap">
+      <div class="krok-head rv">
+        <div class="krok-num">3</div>
+        <div><h2>Szukamy. Odhaczaj po kolei.</h2><p>Nie potrzebujesz drugiego takiego samego telefonu. Wystarczy komputer, tablet, stary telefon albo telefon kogoś bliskiego.</p></div>
+      </div>
+
+      <div class="k3-empty" id="k3-empty"><i class="ph ph-hand-pointing"></i>Najpierw wybierz swój telefon w kroku 2.<br><a class="btn btn--fox" href="#krok-2" style="margin-top:16px">Wybierz telefon</a></div>
+
+      <div class="list" id="list-apple" data-list="apple">
+        <div class="progress"><span class="pr-txt">Zrobione 0 z 7</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Nie musisz nic wpisywać, kliknij:</span><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz icloud.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
+        <div class="items">
+          <article class="item" data-id="a1">
+            <div><h3>Zadzwoń na swój numer</h3><p>Pożycz telefon od kogoś bliskiego i zadzwoń do siebie. Może usłyszysz dzwonek w pobliżu, a może odbierze uczciwa osoba, która go znalazła.</p></div>
+            <div class="scene" data-scene="dial"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="a2">
+            <div><h3>Sprawdź na innym sprzęcie Apple</h3><p>Masz iPada, Maca albo stary iPhone z tym samym kontem Apple? A może ktoś z rodziny ma iPhone'a i macie „Chmurę rodzinną”? Otwórz na nim aplikację <b>Znajdź</b>, a potem zakładkę <b>Urządzenia</b>. Zgubiony telefon będzie na liście, bez logowania.</p><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
+            <div class="scene" data-scene="devices" data-devs="laptop,device-tablet,device-mobile" data-names="Mac,iPad,stary iPhone"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="a3">
+            <div><h3>Otwórz stronę icloud.com/find</h3><p>Na dowolnym komputerze lub telefonie, także z Androidem. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
+            <div class="scene" data-scene="url" data-url="icloud.com/find" data-title="icloud.com/find" data-icon="apple-logo"></div><div class="row"><a class="btn btn--fox" href="https://www.icloud.com/find" target="_blank" rel="noopener">Otwórz icloud.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
+          </article>
+          <article class="item gate" data-id="a4">
+            <div><h3>Zaloguj się. Kodu nie trzeba</h3><p>Wpisz e-mail lub numer telefonu i hasło do konta Apple. Gdy strona poprosi o kod, <b>kliknij „Znajdź urządzenia” na dole okna</b>. Kod i tak przyszedłby na zgubiony telefon.</p></div>
+            <div class="scene" data-scene="login" data-style="apple" data-user="anna.nowak@icloud.com" data-phone="+48 600 123 456"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="a5">
+            <div><h3>Zobacz na mapie, gdzie jest telefon</h3><p>Kliknij swojego iPhone'a na liście. Mapa pokaże, gdzie teraz jest. <b>Rozpoznajesz to miejsce?</b> Może to sklep, w którym robiłeś zakupy, przystanek albo Twoja praca. Idź tam, najlepiej z kimś, albo zadzwoń do tego miejsca. Na miejscu kliknij <b>Odtwórz dźwięk</b>, telefon zapiszczy nawet wyciszony.</p></div>
+            <div class="scene" data-scene="map" data-name="iPhone"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="a6">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To bardzo ważne. Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zachowa ostatnie miejsce i godzinę. Pokażesz go też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="a7">
+            <div><h3>Kliknij „Oznacz jako zaginione”</h3><p>Telefon się zablokuje, a na ekranie pojawi się Twoja wiadomość i numer do kontaktu. Płatności telefonem zostaną wyłączone.</p></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
+          </article>
+        </div>
+      </div>
+      <div class="list" id="list-samsung" data-list="samsung">
+        <div class="progress"><span class="pr-txt">Zrobione 0 z 7</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Nie musisz nic wpisywać, kliknij:</span><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz smartthingsfind.samsung.com <i class="ph-bold ph-arrow-up-right"></i></a><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
+        <div class="note"><i class="ph-fill ph-lightbulb"></i><div>Samsung działa też z kontem Google. Nie pamiętasz konta Samsung? W punkcie d kliknij „Kontynuuj z Google” albo <button type="button" data-goto="android">przejdź do instrukcji Google</button>, na Samsungu działa tak samo.</div></div>
+        <div class="items">
+          <article class="item" data-id="s1">
+            <div><h3>Zadzwoń na swój numer</h3><p>Pożycz telefon od kogoś bliskiego i zadzwoń do siebie. Może usłyszysz dzwonek w pobliżu, a może odbierze uczciwa osoba, która go znalazła.</p></div>
+            <div class="scene" data-scene="dial"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="s2">
+            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Znajdź telefon od Google). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
+            <div class="scene" data-scene="search"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Wyszukaj w Google: znajdź mój telefon <i class="ph-bold ph-arrow-up-right"></i></a></div>
+          </article>
+          <article class="item" data-id="s3">
+            <div><h3>Otwórz stronę smartthingsfind.samsung.com</h3><p>Na komputerze albo telefonie kogoś bliskiego. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
+            <div class="scene" data-scene="url" data-url="smartthingsfind.samsung.com" data-title="smartthingsfind.samsung.com" data-icon="device-mobile-camera"></div><div class="row"><a class="btn btn--fox" href="https://smartthingsfind.samsung.com" target="_blank" rel="noopener">Otwórz smartthingsfind.samsung.com <i class="ph-bold ph-arrow-up-right"></i></a></div>
+          </article>
+          <article class="item gate" data-id="s4">
+            <div><h3>Zaloguj się kontem Samsung albo Google</h3><p>Wpisz e-mail lub numer telefonu i hasło. Jeśli na telefonie logowałeś się kontem Google, kliknij <b>Kontynuuj z Google</b>.</p></div>
+            <div class="scene" data-scene="login" data-style="samsung" data-user="jan.kowalski@gmail.com" data-phone="+48 600 123 456"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="s5">
+            <div><h3>Zobacz na mapie, gdzie jest telefon</h3><p>Kliknij swojego Galaxy na liście. Mapa pokaże, gdzie teraz jest. <b>Rozpoznajesz to miejsce?</b> Może to sklep, w którym robiłeś zakupy, przystanek albo Twoja praca. Idź tam, najlepiej z kimś, albo zadzwoń do tego miejsca. Na miejscu kliknij <b>Zadzwoń</b>. Włącz też <b>maksymalne oszczędzanie energii</b>, żeby telefon dłużej był widoczny.</p></div>
+            <div class="scene" data-scene="battery"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="s6">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To bardzo ważne. Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zachowa ostatnie miejsce i godzinę. Pokażesz go też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="s7">
+            <div><h3>Kliknij „Zablokuj”</h3><p>Telefon się zablokuje, a na ekranie pojawi się wiadomość dla znalazcy z numerem do kontaktu. Płatności telefonem zostaną wyłączone.</p></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
+          </article>
+        </div>
+      </div>
+      <div class="list" id="list-android" data-list="android">
+        <div class="progress"><span class="pr-txt">Zrobione 0 z 7</span><span class="bar"><b></b></span></div>
+        <div class="quick"><span class="q-t"><i class="ph-fill ph-cursor-click"></i>Nie musisz nic wpisywać, kliknij:</span><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Wyszukaj w Google: znajdź mój telefon <i class="ph-bold ph-arrow-up-right"></i></a></div>
+        <div class="items">
+          <article class="item" data-id="g1">
+            <div><h3>Zadzwoń na swój numer</h3><p>Pożycz telefon od kogoś bliskiego i zadzwoń do siebie. Może usłyszysz dzwonek w pobliżu, a może odbierze uczciwa osoba, która go znalazła.</p></div>
+            <div class="scene" data-scene="dial"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="g2">
+            <div><h3>Sprawdź na komputerze lub starym telefonie</h3><p>Potrzebujesz urządzenia, na którym jesteś zalogowany na <b>to samo konto Google</b> co w zgubionym telefonie. Może to być domowy komputer, na którym używasz Gmaila lub YouTube, tablet albo stary telefon z szuflady.</p><ol class="mini-steps"><li>Na tym urządzeniu wejdź na stronę Google.</li><li>Wpisz: <b>znajdź mój telefon</b>.</li><li>Kliknij <b>pierwszy wynik</b> (Znajdź telefon od Google). Pokaże się mapa z Twoim telefonem.</li></ol><p class="skip"><i class="ph ph-arrow-bend-down-right"></i>Nie rozumiesz tego punktu albo nie masz takiego sprzętu? Pomiń go i przejdź dalej.</p></div>
+            <div class="scene" data-scene="search"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/search?q=znajd%C5%BA+m%C3%B3j+telefon" target="_blank" rel="noopener">Wyszukaj w Google: znajdź mój telefon <i class="ph-bold ph-arrow-up-right"></i></a></div>
+          </article>
+          <article class="item" data-id="g3">
+            <div><h3>Otwórz stronę android.com/find</h3><p>Na komputerze albo telefonie kogoś bliskiego. Kliknij przycisk albo wpisz ten adres w przeglądarce.</p></div>
+            <div class="scene" data-scene="url" data-url="android.com/find" data-title="android.com/find" data-icon="google-logo"></div><div class="row"><a class="btn btn--fox" href="https://www.google.com/android/find" target="_blank" rel="noopener">Otwórz android.com/find <i class="ph-bold ph-arrow-up-right"></i></a></div>
+          </article>
+          <article class="item gate" data-id="g4">
+            <div><h3>Zaloguj się kontem Google</h3><p>Tym samym co na zgubionym telefonie. Wpisz adres Gmail albo numer telefonu, potem hasło.</p></div>
+            <div class="scene" data-scene="login" data-style="google" data-user="jan.kowalski@gmail.com" data-phone="600 123 456"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="g5">
+            <div><h3>Zobacz na mapie, gdzie jest telefon</h3><p>Kliknij swój telefon na liście. Mapa pokaże, gdzie teraz jest. <b>Rozpoznajesz to miejsce?</b> Może to sklep, w którym robiłeś zakupy, przystanek albo Twoja praca. Idź tam, najlepiej z kimś, albo zadzwoń do tego miejsca. Na miejscu kliknij <b>Odtwórz dźwięk</b>, telefon będzie dzwonił 5 minut nawet wyciszony.</p></div>
+            <div class="scene" data-scene="map" data-name="Twój telefon"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="g6">
+            <div><h3>Zrób zrzut ekranu mapy</h3><p>To bardzo ważne. Gdy telefon się rozładuje albo ktoś go wyłączy, mapa przestanie się odświeżać. Zrzut ekranu zachowa ostatnie miejsce i godzinę. Pokażesz go też policji.</p></div>
+            <div class="scene" data-scene="shot"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="g7">
+            <div><h3>Kliknij „Zabezpiecz urządzenie”</h3><p>Telefon się zablokuje, a na ekranie pojawi się wiadomość dla znalazcy z numerem do kontaktu.</p></div>
+            <div class="scene" data-scene="lock" data-msg="mama"></div><div class="row"></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="found" id="found" hidden>
+        <div><b>Znalazłeś telefon? Super!</b><br>Jeśli po przygodzie ma zbity ekran albo był w wodzie, zajrzyj do nas.</div>
+        <a class="btn btn--fox" href="#serwis">Zobacz, w czym pomożemy</a>
+      </div>
+      <div class="step-go"><a class="go-btn" href="#krok-4"><span class="go-lbl">Nie znalazłeś? Przejdź do kroku 4</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
+    </div>
+  </section>
+
+  <!-- KROK 4 -->
+  <section class="krok" id="krok-4">
+    <div class="wrap">
+      <div class="krok-head rv">
+        <div class="krok-num">4</div>
+        <div><h2>Nie ma go albo ktoś go ukradł?</h2><p>Teraz zabezpieczasz siebie. Też po kolei.</p></div>
+      </div>
+      <div class="items k4">
+          <article class="item" data-id="k3">
+            <div><h3>Zablokuj bank i zmień hasła</h3><p>Bank zablokujesz przez infolinię albo aplikację na innym urządzeniu. Potem zmień hasło do poczty i Facebooka.</p></div>
+            <div class="scene" data-scene="bank"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="k1">
+            <div><h3>Znajdź numer IMEI</h3><p>To numer seryjny telefonu, 15 cyfr. Jest na naklejce na pudełku i na fakturze lub paragonie. Zapisz go, przyda się w następnych punktach.</p></div>
+            <div class="scene" data-scene="imei"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="k2">
+            <div><h3>Zgłoś sprawę na policji</h3><p>Nie jedź sam w miejsce z mapy. Idź na komisariat i pokaż zrzut ekranu mapy, numer IMEI i godzinę, kiedy telefon był ostatnio widoczny.</p></div>
+            <div class="scene" data-scene="police"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="k4">
+            <div><h3>Uprzedź lombardy i skupy telefonów</h3><p>Kto ukradł telefon, często próbuje go szybko sprzedać. Wyślij do lombardów i skupów w okolicy SMS z numerem IMEI. Jeśli ktoś przyniesie Twój telefon, powiadomią policję i dadzą Ci znać.</p>
+            <a class="place-btn" href="https://www.google.com/maps/search/lombard+skup+telefon%C3%B3w" target="_blank" rel="noopener"><span class="pi"><i class="ph-fill ph-storefront"></i></span><span><b>Lombardy i skupy telefonów w okolicy</b><small>Otworzy Mapy Google z numerami telefonów</small></span><i class="ph-bold ph-arrow-up-right"></i></a>
+            <form class="sms-gen" onsubmit="return false">
+              <div class="f"><label for="sg-model">Jaki to telefon?</label><input id="sg-model" placeholder="np. Samsung Galaxy A54, czarny" autocomplete="off"></div>
+              <div class="f"><label for="sg-imei">Numer IMEI (z punktu b)</label><input id="sg-imei" inputmode="numeric" placeholder="15 cyfr z pudełka" autocomplete="off"></div>
+              <div class="f"><label for="sg-tel">Twój numer do kontaktu</label><input id="sg-tel" type="tel" inputmode="tel" placeholder="np. numer kogoś z rodziny" autocomplete="off"></div>
+              <div class="f"><label for="sg-out">Gotowy SMS</label><textarea id="sg-out" rows="6" readonly></textarea></div>
+              <div class="sg-btns"><button type="button" class="btn btn--fox" id="sg-copy"><i class="ph-bold ph-copy"></i><span>Skopiuj SMS</span></button><a class="btn" id="sg-send" href="sms:"><i class="ph-bold ph-paper-plane-tilt"></i>Wyślij SMS</a></div>
+            </form></div>
+            <div class="scene" data-scene="sms"></div><div class="row"></div>
+          </article>
+          <article class="item" data-id="k5">
+            <div><h3>Teraz dopiero duplikat karty SIM</h3><p>W salonie operatora zablokują starą kartę i wydadzą nową z tym samym numerem. Dopiero teraz, bo po tym telefon zniknie z mapy.</p></div>
+            <div class="scene" data-scene="simswap"></div><div class="row"></div>
+          </article>
+      </div>
+      <div class="step-go"><a class="go-btn" href="#serwis"><span class="go-lbl">Telefon się znalazł? Zobacz, w czym pomożemy</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
+    </div>
+  </section>
+
+  <!-- FOXFIX -->
+  <section id="serwis">
+    <div class="wrap">
+      <div class="fox" id="fox-cta">
+        <div class="badge" aria-hidden="true">
+          <span class="pulse"></span><span class="pulse"></span><span class="pulse"></span>
+          <span class="disc"></span>
+          <svg viewBox="-5 -5 110 110"><path pathLength="1" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M6 6 50 94 94 6M6 6l22 11M94 6 72 17M50 6 19.6 33.3M50 6l30.4 27.3M15.5 38 3 50.5 50 94M84.5 38 97 50.5 50 94"/></svg>
+          
+        </div>
+        <div>
+          <h2>Telefon się znalazł? <em>Teraz go naprawimy.</em></h2>
+          <p>Zbity ekran po upadku, telefon z kałuży, słaba bateria. A jeśli kupujesz nowy, przenosimy dane i pomagamy go ustawić. Spokojnie, naprawimy to.</p>
+          <div class="chips">
+            <span><i class="ph-fill ph-device-mobile"></i>Wymiana ekranu</span>
+            <span><i class="ph-fill ph-battery-charging"></i>Baterie</span>
+            <span><i class="ph-fill ph-drop"></i>Po zalaniu</span>
+            <span><i class="ph-fill ph-plug"></i>Gniazda ładowania</span>
+            <span><i class="ph-fill ph-shield-check"></i>Szkła i folie</span>
+            <span><i class="ph-fill ph-laptop"></i>Laptopy i komputery</span>
+          </div>
+          <div class="cta">
+            <a class="btn btn--fox btn-lg" href="tel:+48572571704"><i class="ph-fill ph-phone"></i>Zadzwoń: 572 571 704</a>
+            <a class="btn btn--ghost btn-lg" href="/">Wszystkie usługi <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="info">
+            <div><i class="ph-fill ph-map-pin"></i><span><b>ul. Lubelska 21</b><br>24-170 Kurów</span></div>
+            <div><i class="ph-fill ph-clock"></i><span><b>Pon 9-19</b>, Wt-Czw 9-17<br>Pt-Nd nieczynne</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-word" aria-hidden="true">FOXFIX</p>
+    <nav class="foot-soc" aria-label="FoxFix w sieci">
+      <a href="https://www.facebook.com/foxfixserwis" target="_blank" rel="noopener"><i class="ph ph-facebook-logo"></i>Facebook</a>
+      <a href="https://www.instagram.com/foxfixserwis/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i>Instagram</a>
+      <a href="https://www.tiktok.com/@foxfixserwis" target="_blank" rel="noopener"><i class="ph ph-tiktok-logo"></i>TikTok</a>
+      <a href="https://maps.app.goo.gl/vqJfizRezmTTjqvH7" target="_blank" rel="noopener"><i class="ph ph-map-pin"></i>Mapy Google</a>
+    </nav>
+    <div class="foot-row">
+      <span>© 2026 FoxFix, Kurów</span>
+      <a href="/">Wróć na foxfix.it</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  async function type(node, text, alive, speed = 55){
+    node.textContent = '';
+    for (const ch of text){ if (!alive()) return; node.textContent += ch; await wait(speed + Math.random() * 45); }
+  }
+  async function press(node){ if (!node) return; node.classList.remove('press'); void node.offsetWidth; node.classList.add('press'); await wait(300); }
+  // Losowy numer do przykladowej wiadomosci na ekranie blokady
+  const rnd = () => Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+  const MSG = `Ten telefon zaginął. Proszę zadzwonić na numer mamy: ${5 + Math.floor(Math.random() * 3)}${rnd().slice(1)}\u00a0${rnd()}\u00a0${rnd()}`;
+  const st = (el, ...c) => { el.className = 'scene ' + c.map(x => 's-' + x).join(' '); };
+
+  const SCENES = {
+    url: {
+      html: d => `<div class="stage"><div class="browser real">
+          <div class="b-top"><i></i><i></i><i></i></div>
+          <div class="b-bar"><i class="ph-bold ph-lock-simple"></i><span class="b-addr"></span><span class="caret"></span><kbd>Enter</kbd></div>
+          <div class="b-page"><div class="b-load"></div><div class="b-hello"><i class="ph-fill ph-${esc(d.icon)}"></i><b>${esc(d.title)}</b></div></div>
+        </div></div><p class="cap"><i class="ph ph-keyboard"></i>Wpisz adres i naciśnij Enter</p>`,
+      async run(el, alive, d){
+        st(el); const a = el.querySelector('.b-addr'); a.textContent = '';
+        await wait(500); await type(a, d.url, alive, 70); if (!alive()) return;
+        st(el, 'enter'); await wait(450); st(el, 'enter', 'go'); await wait(950);
+        st(el, 'go', 'loaded'); await wait(2600);
+      },
+      final(el, d){ el.querySelector('.b-addr').textContent = d.url; st(el, 'go', 'loaded'); }
+    },
+
+    login: {
+      html(d){
+        const ok = `<div class="lg-ok"><i class="ph-fill ph-check-circle"></i>Zalogowano</div>`;
+        if (d.style === 'google') return `<div class="stage"><div class="lg real">
+            <div class="g-logo lg-hide-ok"><i class="ph-bold ph-google-logo"></i></div>
+            <div class="st st1"><div class="g-h">Zaloguj się</div><div class="g-sub">Użyj konta Google</div>
+              <div class="g-field"><span class="lbl">Adres e-mail lub telefon</span><span class="val"></span><span class="caret"></span></div>
+              <span class="g-link">Nie pamiętasz adresu e-mail?</span></div>
+            <div class="st st2"><div class="g-h">Witaj</div><span class="g-chip"><i class="ph-fill ph-user-circle"></i><span class="chipv"></span></span>
+              <div class="g-field"><span class="lbl">Wpisz hasło</span><span class="pw"></span><span class="caret"></span></div></div>
+            ${ok}<span class="g-btn lg-hide-ok">Dalej</span></div></div>
+            <p class="cap"><i class="ph ph-user"></i>E-mail albo numer telefonu, potem hasło</p>`;
+        if (d.style === 'apple') return `<div class="stage"><div class="lg real lg-apple">
+            <i class="ph-fill ph-apple-logo a-logo lg-hide-ok"></i>
+            <div class="st st1"><div class="a-h">Zaloguj się</div>
+              <div class="a-field"><span class="val"></span><span class="caret"></span><span class="arrow"><i class="ph-bold ph-arrow-right"></i></span></div></div>
+            <div class="st st2"><div class="a-h">Zaloguj się</div><div class="a-sub chipv"></div>
+              <div class="a-field"><span class="pw"></span><span class="caret"></span><span class="arrow"><i class="ph-bold ph-arrow-right"></i></span></div></div>
+            <div class="st stc"><div class="a-h" style="font-size:19px">Uwierzytelnianie dwupoziomowe</div>
+              <div class="a-boxes"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="a-sub">Kod przyszedłby na zgubiony telefon. Pomiń go:</div>
+              <div class="a-find"><i class="ph-fill ph-map-pin"></i>Znajdź urządzenia</div></div>
+            ${ok}</div></div>
+            <p class="cap"><i class="ph ph-hand-tap"></i>Gdy prosi o kod, kliknij „Znajdź urządzenia”</p>`;
+        return `<div class="stage"><div class="lg real lg-sam">
+            <div class="s-brand lg-hide-ok">Samsung Account</div>
+            <div class="st st1"><div class="s-h">Zaloguj się</div><div><div class="s-lbl">E-mail lub numer telefonu</div>
+              <div class="s-field"><span class="val"></span><span class="caret"></span></div></div>
+              <div class="s-btn">Dalej</div><div class="s-or">lub</div>
+              <div class="s-google"><i class="ph-bold ph-google-logo"></i>Kontynuuj z Google</div></div>
+            <div class="st st2"><div class="s-h">Wpisz hasło</div><div class="s-lbl chipv"></div>
+              <div class="s-field"><span class="pw"></span><span class="caret"></span></div><div class="s-btn">Zaloguj się</div></div>
+            <div class="st stg"><div class="s-h" style="font-size:18px">Wybierz konto Google</div>
+              <div class="g-acc"><span class="av">J</span><div>Jan Kowalski<small>${esc(d.user)}</small></div></div>
+              <div class="g-acc" style="color:#5f6368"><i class="ph ph-user-plus" style="font-size:22px"></i>Użyj innego konta</div></div>
+            ${ok}</div></div>
+            <p class="cap"><i class="ph ph-user"></i>Konto Samsung albo przycisk Google</p>`;
+      },
+      async run(el, alive, d){
+        el._n = (el._n || 0) + 1;
+        const lg = el.querySelector('.lg'), val = el.querySelector('.val'), pw = el.querySelector('.pw');
+        val.textContent = ''; pw.textContent = '';
+        // Samsung: co drugi raz pokazujemy logowanie przez Google
+        if (d.style === 'samsung' && el._n % 2 === 0){
+          st(el, '1'); await wait(1300); if (!alive()) return;
+          const g = el.querySelector('.s-google'); g.classList.add('hl'); await wait(1400); g.classList.remove('hl');
+          await press(g); if (!alive()) return;
+          st(el, 'gpick'); await wait(1300); await press(el.querySelector('.stg .g-acc'));
+          st(el, 'ok'); await wait(2200); return;
+        }
+        const user = el._n % 2 ? d.user : (d.phone || d.user);
+        st(el, '1'); await wait(500);
+        await type(val, user, alive, 60); if (!alive()) return;
+        await wait(250);
+        const nextBtn = d.style === 'google' ? el.querySelector('.g-btn') : d.style === 'apple' ? el.querySelector('.st1 .arrow') : el.querySelector('.st1 .s-btn');
+        await press(nextBtn); if (!alive()) return;
+        el.querySelectorAll('.chipv').forEach(c => c.textContent = user);
+        st(el, '2'); await wait(350);
+        await type(pw, '••••••••', alive, 95); if (!alive()) return;
+        await wait(250);
+        const pwBtn = d.style === 'google' ? el.querySelector('.g-btn') : d.style === 'apple' ? el.querySelector('.st2 .arrow') : el.querySelector('.st2 .s-btn');
+        await press(pwBtn); if (!alive()) return;
+        if (d.style === 'apple'){ st(el, 'code'); await wait(2300); if (!alive()) return; await press(el.querySelector('.a-find')); }
+        st(el, 'ok'); await wait(2200);
+      },
+      final(el, d){
+        el.querySelector('.val').textContent = d.user;
+        el.querySelectorAll('.chipv').forEach(c => c.textContent = d.user);
+        st(el, d.style === 'apple' ? 'code' : '1');
+      }
+    },
+
+    map: {
+      html: d => `<div class="stage"><div class="map real">
+          <div class="m-acc"></div><div class="m-pin"><i class="ph-fill ph-map-pin"></i></div>
+          <div class="m-card"><i class="ph-fill ph-device-mobile"></i><div><b>${esc(d.name)}</b><span>Widziany przed chwilą, bateria 41%</span></div></div>
+        </div></div><p class="cap"><i class="ph ph-bell-ringing"></i>Potem kliknij „Odtwórz dźwięk”</p>`,
+      async run(el, alive){
+        st(el); await wait(500); st(el, 'drop'); await wait(650);
+        st(el, 'drop', 'acc'); await wait(500); st(el, 'drop', 'acc', 'card'); await wait(3200);
+      },
+      final(el){ st(el, 'drop', 'acc', 'card'); }
+    },
+
+    lock: {
+      html: () => `<div class="stage"><div class="phone lockp" style="width:172px;height:318px"><div class="p-screen">
+          <i class="ph-fill ph-lock-simple l-ico"></i><div class="l-time">14:32</div>
+          <div class="l-card"><small>Wiadomość od właściciela</small><span class="l-txt"></span></div>
+        </div></div></div><p class="cap"><i class="ph ph-eye"></i>Tak zobaczy to osoba, która znajdzie telefon</p>`,
+      async run(el, alive, d){
+        const t = el.querySelector('.l-txt'); t.textContent = '';
+        st(el); await wait(700); st(el, 'locked'); await wait(800);
+        st(el, 'locked', 'msg'); await type(t, MSG, alive, 40); if (!alive()) return;
+        await wait(3400);
+      },
+      final(el){ el.querySelector('.l-txt').textContent = MSG; st(el, 'locked', 'msg'); }
+    },
+
+
+    battery: {
+      html: () => `<div class="stage" style="gap:12px">
+          <div class="map real" style="aspect-ratio:auto;height:120px;width:min(100%,320px)"><div class="m-pin" style="opacity:1;transform:translate(-50%,-100%)"><i class="ph-fill ph-map-pin"></i></div></div>
+          <div class="batt-card real">
+            <div class="batt"><i class="ph-fill ph-battery-low"></i><div><b>Galaxy</b><span class="t-off">Bateria 18%</span><span class="t-on">Bateria wytrzyma dłużej</span></div></div>
+            <div class="toggle-row">Maks. oszczędzanie energii <span class="tg"></span></div>
+          </div></div><p class="cap"><i class="ph ph-battery-plus"></i>Telefon dłużej zostanie na mapie</p>`,
+      async run(el){ st(el); await wait(1400); st(el, 'on'); await wait(3200); },
+      final(el){ st(el, 'on'); }
+    },
+
+    search: {
+      html: () => `<div class="stage"><div class="search">
+          <div class="s-box real"><i class="ph-bold ph-magnifying-glass"></i><span class="s-q"></span><span class="caret"></span></div>
+          <div class="s-list real">
+            <div class="s-r first"><small>google.com › android › find</small><b>Znajdź telefon | Google</b><i class="ph-fill ph-cursor cursor"></i></div>
+            <div class="s-r dim"><small>support.google.com</small><b>Jak znaleźć zgubiony telefon</b></div>
+          </div>
+          <div class="s-res real"><div class="mini"><i class="ph-fill ph-map-pin"></i></div>
+            <div class="row2"><div><b>Twój telefon</b><span>Widziany przed chwilą</span></div><span class="chip"><i class="ph-fill ph-bell-ringing"></i>Odtwórz dźwięk</span></div></div>
+        </div></div><p class="cap"><i class="ph ph-cursor-click"></i>Kliknij pierwszy wynik</p>`,
+      async run(el, alive){
+        st(el); const q = el.querySelector('.s-q'); q.textContent = '';
+        await wait(500); await type(q, 'znajdź mój telefon', alive, 70); if (!alive()) return;
+        await wait(400); st(el, 'show'); await wait(1300);
+        st(el, 'click'); await wait(500); await press(el.querySelector('.s-r.first')); await wait(400);
+        if (!alive()) return; st(el, 'map'); await wait(3200);
+      },
+      final(el){ el.querySelector('.s-q').textContent = 'znajdź mój telefon'; st(el, 'click'); }
+    },
+
+    dial: {
+      html: () => `<div class="stage"><div class="phone dial" style="width:172px;height:318px"><div class="p-screen">
+          <div class="d-top"></div>
+          <div class="d-pad">${['1','2','3','4','5','6','7','8','9','*','0','#'].map(k => `<span data-k="${k}">${k}</span>`).join('')}</div>
+          <span class="d-green"><i class="ph-fill ph-phone"></i></span>
+          <div class="d-calling"><span class="av"><i class="ph-fill ph-user"></i></span><b>Mój numer</b><small>Dzwonię…</small><span class="d-red"><i class="ph-fill ph-phone"></i></span></div>
+        </div></div></div><p class="cap"><i class="ph ph-ear"></i>Nasłuchuj dzwonka w pobliżu</p>`,
+      async run(el, alive){
+        st(el); const top = el.querySelector('.d-top'); top.textContent = '';
+        await wait(500);
+        for (const ch of '600 123 456'){
+          if (!alive()) return;
+          top.textContent += ch;
+          const k = el.querySelector(`[data-k="${ch}"]`);
+          if (k){ k.classList.add('hit'); setTimeout(() => k.classList.remove('hit'), 180); }
+          await wait(ch === ' ' ? 120 : 230);
+        }
+        await wait(300); await press(el.querySelector('.d-green')); if (!alive()) return;
+        st(el, 'dialing'); await wait(3400);
+      },
+      final(el){ el.querySelector('.d-top').textContent = '600 123 456'; st(el); }
+    },
+
+    devices: {
+      html: d => {
+        const icons = d.devs.split(','), names = d.names.split(',');
+        return `<div class="stage"><div class="devs">${icons.map((ic, i) => `<div class="dv"><i class="ph-fill ph-map-pin pinmini"></i><i class="ph ph-${esc(ic)}"></i>${esc(names[i])}</div>`).join('')}</div></div>
+        <p class="cap"><i class="ph ph-app-window"></i>Aplikacja „Znajdź” na innym urządzeniu</p>`;
+      },
+      async run(el, alive){
+        st(el); const dv = [...el.querySelectorAll('.dv')];
+        for (const x of dv){ if (!alive()) return; dv.forEach(y => y.classList.remove('on')); x.classList.add('on'); await wait(1300); }
+        await wait(600); dv.forEach(y => y.classList.remove('on'));
+      },
+      final(el){ el.querySelectorAll('.dv').forEach(y => y.classList.add('on')); }
+    },
+
+    shot: {
+      html: () => `<div class="stage"><div class="shot-wrap">
+          <div class="map real"><div class="m-acc"></div><div class="m-pin"><i class="ph-fill ph-map-pin"></i></div>
+            <div class="m-card"><i class="ph-fill ph-device-mobile"></i><div><b>Twój telefon</b><span>Widziany o 14:32, bateria 9%</span></div></div></div>
+          <div class="shot-flash"></div>
+          <span class="shot-ok"><i class="ph-bold ph-check"></i>Zapisano zrzut ekranu</span>
+          <div class="shot-thumb"><div class="map"><div class="m-pin"><i class="ph-fill ph-map-pin"></i></div></div></div>
+        </div></div>
+        <div class="shot-keys"><span>Android: <kbd>Zasilanie</kbd> + <kbd>Ciszej</kbd></span><span>iPhone: <kbd>Boczny</kbd> + <kbd>Głośniej</kbd></span><span>Windows: <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></span><span>MacBook: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>3</kbd></span></div>`,
+      async run(el){
+        st(el, 'drop', 'acc', 'card'); await wait(1400);
+        st(el, 'drop', 'acc', 'card', 'flash'); await wait(450);
+        st(el, 'drop', 'acc', 'card', 'saved'); await wait(3200);
+      },
+      final(el){ st(el, 'drop', 'acc', 'card', 'saved'); }
+    },
+
+    sms: {
+      html: () => `<div class="stage"><div class="phone" style="width:168px;height:300px"><div class="p-screen" style="justify-content:flex-start;padding-top:30px">
+          <div class="sms-to">Do: Lombard, Skup GSM</div>
+          <div class="sms-bub"></div><span class="sms-sent">Wysłano</span>
+        </div></div></div><p class="cap"><i class="ph ph-chat-text"></i>Jeden SMS do kilku lombardów</p>`,
+      async run(el, alive){
+        st(el); const b = el.querySelector('.sms-bub'); b.textContent = '';
+        await wait(500);
+        await type(b, 'Dzień dobry, zwracam się z prośbą o pomoc. Skradziono mi telefon, IMEI: 35 291 ... Jeśli ktoś zaproponuje Państwu jego sprzedaż, bardzo proszę o powiadomienie policji i kontakt ze mną.', alive, 22);
+        if (!alive()) return; await wait(400); st(el, 'sent'); await wait(3000);
+      },
+      final(el){ el.querySelector('.sms-bub').textContent = 'Dzień dobry, zwracam się z prośbą o pomoc. Skradziono mi telefon, IMEI: 35 291 ... Jeśli ktoś zaproponuje Państwu jego sprzedaż, bardzo proszę o powiadomienie policji i kontakt ze mną.'; st(el, 'sent'); }
+    },
+
+    bank: {
+      html: () => `<div class="stage"><div class="k-card real">
+          <div class="k-head"><i class="ph-fill ph-bank"></i>Aplikacja banku</div>
+          <div class="bankcard"><span>Karta debetowa</span><b>**** 4417</b><span class="bk-state"><span class="on"><i class="ph-fill ph-check-circle"></i>Aktywna</span><span class="off"><i class="ph-fill ph-lock-simple"></i>Zablokowana</span></span></div>
+          <div class="k-row r1">Zablokuj kartę i BLIK <span class="tg"></span></div>
+          <span class="k-ok"><i class="ph-fill ph-check-circle"></i>Hasło do poczty zmienione</span>
+        </div></div><p class="cap"><i class="ph ph-phone-call"></i>Albo zadzwoń na infolinię banku</p>`,
+      async run(el){ st(el); await wait(1400); st(el, 'blocked'); await wait(1300); st(el, 'blocked', 'pass'); await wait(3000); },
+      final(el){ st(el, 'blocked', 'pass'); }
+    },
+
+    imei: {
+      html: () => `<div class="stage"><div class="box3d"><div class="sticker real">
+          <div class="ln"><span>Model</span><span>Galaxy A54</span></div>
+          <div class="bc"></div>
+          <div class="ln"><span>IMEI 1</span><span class="imei">352914110000007</span></div>
+          <div class="ln" style="color:#777"><span>S/N</span><span>R58T21ABCDE</span></div>
+        </div></div></div><p class="cap"><i class="ph ph-package"></i>Naklejka na pudełku od telefonu</p>`,
+      async run(el){ st(el); await wait(1200); st(el, 'hl'); await wait(3600); },
+      final(el){ st(el, 'hl'); }
+    },
+
+    police: {
+      html: () => `<div class="stage"><div class="k-card real report">
+          <div class="k-head"><i class="ph-fill ph-clipboard-text"></i>Weź ze sobą na komisariat</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Zrzut ekranu mapy</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Numer IMEI</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Godzina, gdy telefon był widoczny</div>
+          <div class="rp"><i class="ph-fill ph-check-circle"></i>Dowód osobisty</div>
+        </div></div><p class="cap"><i class="ph ph-police-car"></i>Nie jedź sam w miejsce z mapy</p>`,
+      async run(el, alive){
+        st(el); const r = [...el.querySelectorAll('.rp')]; r.forEach(x => x.classList.remove('on')); await wait(700);
+        for (const x of r){ if (!alive()) return; x.classList.add('on'); await wait(650); }
+        await wait(2600);
+      },
+      final(el){ el.querySelectorAll('.rp').forEach(x => x.classList.add('on')); st(el); }
+    },
+
+    simswap: {
+      html: () => `<div class="stage" style="gap:14px"><div class="sims">
+          <div class="simc old"><i class="ph-fill ph-sim-card"></i>Stara</div>
+          <i class="ph-bold ph-arrow-right" style="font-size:22px;color:var(--mute)"></i>
+          <div class="simc new"><i class="ph-fill ph-sim-card"></i>Nowa</div>
+        </div><span class="sim-num">Ten sam numer telefonu</span></div><p class="cap"><i class="ph ph-storefront"></i>W salonie operatora, z dowodem osobistym</p>`,
+      async run(el){ st(el); await wait(1200); st(el, 'cut'); await wait(900); st(el, 'cut', 'new'); await wait(3200); },
+      final(el){ st(el, 'cut', 'new'); }
+    },
+
+    sim: {
+      html: () => `<div class="stage"><div class="sim-wrap">
+          <div class="phone" style="width:132px;height:250px"><div class="p-screen">
+            <div class="bars"><i></i><i></i><i></i><i></i></div>
+            <div class="sim-status">
+              <div class="good"><i class="ph-bold ph-globe"></i>Internet działa</div>
+              <div class="good"><i class="ph-fill ph-map-pin"></i>Widać na mapie</div>
+              <div class="bad"><i class="ph-bold ph-cell-signal-slash"></i>Brak internetu</div>
+              <div class="bad"><i class="ph-bold ph-eye-slash"></i>Nie widać na mapie</div>
+            </div></div></div>
+          <div class="sim-card"><i class="ph-fill ph-sim-card"></i>Duplikat</div>
+        </div></div><p class="cap">Zgubiony telefon po wyrobieniu duplikatu</p>`,
+      async run(el){ st(el); await wait(1700); st(el, 'new'); await wait(900); st(el, 'new', 'off'); await wait(3600); },
+      final(el){ st(el, 'new', 'off'); }
+    }
+  };
+
+  /* Silnik scen: gra tylko to, co widac na ekranie */
+  const scenes = [...document.querySelectorAll('.scene[data-scene]')];
+  scenes.forEach(el => {
+    const def = SCENES[el.dataset.scene], d = el.dataset;
+    el.innerHTML = def.html(d);
+    def.final(el, d);
+    if (!el.hasAttribute('role')){ el.setAttribute('role', 'img'); el.setAttribute('aria-label', 'Animacja pokazująca ten punkt'); }
+    let token = 0;
+    el._start = () => {
+      if (el._on) return; el._on = true;
+      const my = ++token, alive = () => my === token;
+      if (REDUCED) return;
+      (async () => { while (alive()){ await def.run(el, alive, d); if (!alive()) break; await wait(900); } })();
+    };
+    el._stop = () => { token++; el._on = false; };
+  });
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target._start() : e.target._stop()), { threshold: .4 });
+  scenes.forEach(s => io.observe(s));
+
+  const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.rv').forEach(n => rv.observe(n));
+  const fox = document.getElementById('fox-cta');
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting){ fox.classList.add('in'); o.disconnect(); } }), { threshold: .35 }).observe(fox);
+
+
+  // Podpunkty a, b, c (zeby nie mylily sie z krokami 1-4)
+  document.querySelectorAll('.items').forEach(l => l.querySelectorAll('.item h3').forEach((h, i) => h.insertAdjacentHTML('afterbegin', `<span class="pn">${String.fromCharCode(97 + i)}</span>`)));
+
+  // Generator SMS do lombardow (nic nie jest zapisywane)
+  const $ = id => document.getElementById(id);
+  const sg = ['sg-model', 'sg-imei', 'sg-tel'].map($);
+  function smsText(){
+    const [m, im, t] = sg.map(x => x.value.trim());
+    return `Dzień dobry, zwracam się z uprzejmą prośbą o pomoc. Skradziono mi telefon${m ? ' ' + m : ''}, numer IMEI: ${im || '(wpisz IMEI)'}. Jeśli ktoś zaproponuje Państwu jego sprzedaż, bardzo proszę o powiadomienie policji oraz o kontakt ze mną pod numerem ${t || '(Twój numer)'}. Z góry serdecznie dziękuję za pomoc.`;
+  }
+  function upd(){ const t = smsText(); $('sg-out').value = t; $('sg-send').href = 'sms:?&body=' + encodeURIComponent(t); }
+  sg.forEach(x => x.addEventListener('input', upd)); upd();
+  $('sg-copy').addEventListener('click', async () => {
+    const lbl = $('sg-copy').querySelector('span');
+    try { await navigator.clipboard.writeText(smsText()); }
+    catch(e){ $('sg-out').select(); document.execCommand('copy'); }
+    lbl.textContent = 'Skopiowano!'; setTimeout(() => lbl.textContent = 'Skopiuj SMS', 2000);
+  });
+
+  // Przycisk "Zrobione" przy kazdym punkcie (postep nie jest nigdzie zapisywany)
+  const checks = [];
+  document.querySelectorAll('.item[data-id]:not(.gate)').forEach(it => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'check';
+    b.innerHTML = '<span class="box"><i class="ph-bold ph-check"></i></span><span class="lbl">Zrobione</span>';
+    b.set = v => { b.setAttribute('aria-pressed', String(v)); it.classList.toggle('is-done', v); };
+    b.set(false);
+    b.addEventListener('click', () => { b.set(b.getAttribute('aria-pressed') !== 'true'); progress(); });
+    const row = it.querySelector('.row'); row.prepend(b); it.append(row);
+    checks.push(b);
+  });
+  // Bramka po logowaniu: "Udalo sie" pokazuje dalsze punkty, "Nie udalo sie" prowadzi do kroku 4
+  document.querySelectorAll('.item.gate').forEach(it => {
+    const row = it.querySelector('.row');
+    row.innerHTML = `<p class="gate-q">Udało się zalogować?</p>
+      <div class="gate-btns"><button type="button" class="btn btn--fox" data-ok><i class="ph-bold ph-check"></i>Tak, widzę swoje urządzenia</button>
+      <a class="btn" href="#krok-4" data-no><i class="ph-bold ph-x"></i>Nie, przejdź do kroku 4</a></div>
+      <span class="gate-ok"><i class="ph-fill ph-check-circle"></i>Super! Poniżej kolejne punkty.</span>`;
+    it.append(row);
+    row.querySelector('[data-ok]').addEventListener('click', () => {
+      it.classList.add('passed', 'is-done');
+      const first = it.nextElementSibling;
+      let n = first;
+      while (n){ n.classList.remove('gated'); n.classList.add('reveal'); n = n.nextElementSibling; }
+      progress();
+      // delikatnie przewin tylko do pierwszego odslonietego punktu (pod naglowek i pasek postepu)
+      setTimeout(() => {
+        if (!first) return;
+        const y = first.getBoundingClientRect().top + window.scrollY - 150;
+        window.scrollTo({ top: y, behavior: REDUCED ? 'auto' : 'smooth' });
+      }, 450);
+    });
+  });
+  function gateAll(){
+    document.querySelectorAll('.item.gate').forEach(it => {
+      it.classList.remove('passed', 'is-done');
+      let n = it.nextElementSibling;
+      while (n){ n.classList.add('gated'); n.classList.remove('reveal'); n = n.nextElementSibling; }
+    });
+  }
+
+  gateAll();
+
+  function progress(){
+    document.querySelectorAll('.list').forEach(l => {
+      const items = [...l.querySelectorAll('.item')], n = items.filter(i => i.classList.contains('is-done')).length;
+      l.querySelector('.pr-txt').textContent = `Zrobione ${n} z ${items.length}`;
+      l.querySelector('.bar b').style.width = (n / items.length * 100) + '%';
+    });
+  }
+  progress();
+
+  const rail = n => document.querySelector(`[data-rail="${n}"]`)?.classList.add('done');
+  document.querySelector('[data-done-rail="1"]').addEventListener('click', () => rail(1));
+
+  /* Wybor telefonu: zmiana telefonu czysci wszystkie odhaczenia, takze w kroku 4 */
+  const picks = [...document.querySelectorAll('.pick')];
+  let current = null;
+  function choose(dev, scroll){
+    if (current && current !== dev){ checks.forEach(b => b.set(false)); gateAll(); progress(); }
+    current = dev;
+    picks.forEach(p => p.setAttribute('aria-checked', String(p.dataset.dev === dev)));
+    document.querySelectorAll('.list').forEach(l => l.classList.toggle('on', l.dataset.list === dev));
+    document.getElementById('k3-empty').hidden = true;
+    document.getElementById('found').hidden = false;
+    rail(2);
+    const g3 = document.getElementById('go-3'); g3.removeAttribute('aria-disabled'); g3.querySelector('.go-lbl').textContent = 'Przejdź do kroku 3';
+    if (location.hash !== '#' + dev) history.replaceState(null, '', '#' + dev);
+    if (scroll) setTimeout(() => document.getElementById('krok-3').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' }), 250);
+  }
+  picks.forEach(p => p.addEventListener('click', () => choose(p.dataset.dev, true)));
+  document.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', () => choose(b.dataset.goto, true)));
+
+  // Link z QR: /zgubiony/#apple, #samsung, #android
+  const h = location.hash.slice(1);
+  if (['apple', 'samsung', 'android'].includes(h)) choose(h, false);
+})();
+</script>
+</body>
+</html>

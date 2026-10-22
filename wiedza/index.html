@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baza wiedzy FoxFix | Poradniki krok po kroku: telefony, komputery, laptopy</title>
+<meta name="description" content="Proste poradniki od serwisu FoxFix z Kurowa. Telefony, komputery i laptopy, krok po kroku i bez technicznego żargonu.">
+<meta name="theme-color" content="#F7F7F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0F11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://foxfix.it/wiedza/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:url" content="https://foxfix.it/wiedza/">
+<meta property="og:title" content="Baza wiedzy FoxFix | Poradniki krok po kroku">
+<meta property="og:description" content="Telefony, komputery i laptopy. Proste instrukcje bez technicznego żargonu.">
+<meta property="og:image" content="https://foxfix.it/img/telefon-przod.webp">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preload" href="../fonts/geist-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/base.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.04}
+.ph,.ph-fill,.ph-bold{line-height:1}
+
+/* Naglowek jak na foxfix.it */
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.4rem;height:68px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:600 1rem/1 var(--ff-d);letter-spacing:.24em}
+.logo svg{width:30px;height:30px;color:var(--fox)}
+.nav-r{display:flex;align-items:center;gap:1rem;margin-left:auto}
+.nav-home{font-size:.95rem;color:var(--mute);text-decoration:none;display:inline-flex;align-items:center;gap:.4em}
+.nav-home:hover{color:var(--ink)}
+@media (max-width:560px){.nav .btn{display:none}}
+
+/* Hero */
+.hero{padding:clamp(36px,6vw,80px) 0 0}
+.kicker{display:inline-flex;align-items:center;gap:.55em;margin-bottom:1.2rem;font:500 .85rem/1 var(--ff-m);color:var(--fox-d)}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.2rem)}
+.hero h1 em{font-style:normal;color:var(--fox)}
+.lead{font-size:1.2rem;color:var(--ink-2);max-width:44ch;margin-top:1.1rem}
+
+/* Szukaj + kategorie */
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px}
+.search{flex:1 1 320px;max-width:480px;position:relative}
+.search label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.search i{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--mute)}
+.search input{width:100%;min-height:54px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font:400 1.02rem var(--ff-d);padding:0 20px 0 50px}
+.search input::placeholder{color:var(--mute)}
+.search input:focus{outline:none;border-color:var(--fox)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font:500 .95rem var(--ff-d);cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--fox)}
+.chip small{font:500 .78rem var(--ff-m);color:var(--mute)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip[aria-pressed="true"] small{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+
+/* Wyrozniony poradnik */
+.feat{margin-top:32px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,48px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,4vw,44px);text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:border-color .25s,transform .25s var(--ease)}
+.feat:hover{border-color:var(--fox);transform:translateY(-3px)}
+.tag{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:color-mix(in srgb,var(--fox) 12%,var(--surface));color:var(--fox-d);font:600 .82rem/1 var(--ff-d)}
+.badge-new{background:var(--ok);color:#fff}
+.feat h2{font-size:clamp(2rem,4.2vw,3.2rem);margin:16px 0 0}
+.feat p{color:var(--ink-2);font-size:1.1rem;margin-top:12px;max-width:50ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 24px;color:var(--mute);font-size:.95rem}
+.meta span{display:inline-flex;align-items:center;gap:7px}
+.meta i{color:var(--fox-d);font-size:18px}
+.read{display:inline-flex;align-items:center;gap:14px;min-height:58px;padding:8px 10px 8px 26px;border-radius:999px;background:var(--fox-btn);color:var(--on-fox);font-weight:600;font-size:1.05rem}
+.read .ic{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:20px;transition:transform .25s var(--ease)}
+.feat:hover .read .ic,.card:hover .go{transform:translateX(4px)}
+.radar{position:relative;aspect-ratio:1;width:100%;max-width:320px;margin:0 auto}
+.radar .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--fox) 40%,transparent)}
+.radar .ring:nth-child(2){inset:15%}.radar .ring:nth-child(3){inset:30%}
+.radar .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,color-mix(in srgb,var(--fox) 34%,transparent),transparent 28%);animation:spin 4.5s linear infinite}
+.radar .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--fox);top:28%;left:67%;animation:ping 2s ease-out infinite}
+.radar .center{position:absolute;inset:38%;display:grid;place-items:center;background:var(--bg);border-radius:50%;box-shadow:var(--shadow);font-size:40px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--fox) 55%,transparent)}100%{box-shadow:0 0 0 26px transparent}}
+@media (max-width:820px){.feat{grid-template-columns:minmax(0,1fr)}.radar{max-width:200px;order:-1}}
+
+/* Pozostale poradniki */
+.sec-h{font-size:clamp(1.6rem,3vw,2.2rem);margin:clamp(56px,8vw,90px) 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:12px;min-height:250px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;text-decoration:none;color:inherit;transition:border-color .25s,transform .25s var(--ease)}
+.card:hover{border-color:var(--fox);transform:translateY(-3px)}
+.card .ico{width:56px;height:56px;border-radius:16px;background:var(--surface-2);display:grid;place-items:center;font-size:28px;color:var(--fox-d)}
+.card h3{font-size:1.35rem}
+.card p{color:var(--ink-2);font-size:1rem}
+.card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;color:var(--mute);font-size:.9rem}
+.card .go{color:var(--fox-d);font-size:20px;transition:transform .25s var(--ease)}
+.soon{border-style:dashed;background:transparent;justify-content:center;align-items:flex-start}
+.soon .ico{background:color-mix(in srgb,var(--fox) 10%,transparent)}
+.empty{display:none;margin-top:28px;padding:28px;border:2px dashed var(--line-2);border-radius:var(--r-lg);text-align:center;color:var(--mute);font-size:1.05rem}
+.empty.on{display:block}
+.empty button{all:unset;cursor:pointer;color:var(--fox-d);font-weight:600;text-decoration:underline}
+
+/* Pas serwisu */
+.svc{margin-top:clamp(64px,9vw,110px);background:var(--tile-dark);color:#F2F2F3;border-radius:var(--r-lg);padding:clamp(26px,5vw,52px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 90% at 0% 50%,rgba(226,83,30,.28),transparent 70%);pointer-events:none}
+.svc-l{position:relative;display:flex;align-items:center;gap:22px}
+.svc-fox{flex:0 0 auto;width:78px;height:78px;border-radius:50%;background:var(--fox);display:grid;place-items:center;box-shadow:0 14px 40px -10px rgba(226,83,30,.6)}
+.svc-fox svg{width:46%;height:46%;color:#fff}
+.svc-fox path{stroke-dasharray:1;stroke-dashoffset:1}
+.svc.in .svc-fox path{animation:draw 1.6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.svc h2{font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;max-width:22ch}
+.svc p{color:#CFCFD4;margin-top:8px}
+.svc .btn{position:relative}
+
+/* Stopka jak na foxfix.it */
+.foot-site{padding:clamp(56px,8vw,90px) 0 28px;overflow:hidden}
+.foot-word{margin:0 0 1.4rem;font:600 clamp(3.4rem,13vw,11rem)/.85 var(--ff-d);letter-spacing:-.06em;color:var(--surface-2);white-space:nowrap;user-select:none}
+.foot-soc{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin-bottom:1.2rem}
+.foot-soc a{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-size:.92rem;color:var(--mute);text-decoration:none}
+.foot-soc a:hover{color:var(--ink)}
+.foot-soc i{font-size:18px}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.88rem;color:var(--mute)}
+.foot-row a{text-decoration:none}
+.foot-row a:hover{color:var(--ink)}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.radar .sweep,.radar .dot{animation:none}.svc-fox path{stroke-dashoffset:0}}
+@media (max-width:560px){.wrap{width:calc(100% - 28px)}.read{font-size:1rem}.svc-l{flex-direction:column;align-items:flex-start;gap:16px}.svc-fox{width:64px;height:64px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fox" viewBox="-5 -5 110 110"><path fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M6 6 50 94 94 6M6 6l22 11M94 6 72 17M50 6 19.6 33.3M50 6l30.4 27.3M15.5 38 3 50.5 50 94M84.5 38 97 50.5 50 94"/></symbol>
+</svg>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Główna">
+    <a class="logo" href="/" aria-label="FoxFix, strona główna"><svg aria-hidden="true"><use href="#fox"/></svg><b>FOXFIX</b></a>
+    <div class="nav-r">
+      <a class="nav-home" href="/"><i class="ph ph-arrow-left"></i>Strona główna</a>
+      <a class="btn btn--ink" href="tel:+48572571704" aria-label="Zadzwoń: 572 571 704"><i class="ph-fill ph-phone"></i><span>572&nbsp;571&nbsp;704</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker"><i class="ph-bold ph-books"></i>Baza wiedzy FoxFix</p>
+      <h1>Poradniki<br><em>krok po kroku.</em></h1>
+      <p class="lead">Telefony, komputery i laptopy. Proste instrukcje z obrazkami, bez technicznego żargonu.</p>
+
+      <div class="tools">
+        <div class="search"><label for="q">Szukaj poradnika</label><i class="ph-bold ph-magnifying-glass"></i><input id="q" type="search" placeholder="Szukaj, np. zgubiony telefon" autocomplete="off"></div>
+        <div class="chips" id="chips" role="group" aria-label="Kategorie"></div>
+      </div>
+
+      <div id="featured"></div>
+
+      <h2 class="sec-h rv" id="more-h">Wszystkie poradniki</h2>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty">Nic nie znaleźliśmy. <button type="button" id="reset">Pokaż wszystkie poradniki</button></div>
+
+      <div class="svc rv" id="svc">
+        <div class="svc-l">
+          <span class="svc-fox" aria-hidden="true"><svg viewBox="-5 -5 110 110"><path pathLength="1" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M6 6 50 94 94 6M6 6l22 11M94 6 72 17M50 6 19.6 33.3M50 6l30.4 27.3M15.5 38 3 50.5 50 94M84.5 38 97 50.5 50 94"/></svg></span>
+          <div><h2>Poradnik nie wystarczył? Naprawimy to.</h2><p>Serwis FoxFix, ul. Lubelska 21, Kurów. Pon 9-19, Wt-Czw 9-17.</p></div>
+        </div>
+        <a class="btn btn--fox" href="/">Zobacz usługi <i class="ph-bold ph-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot-site">
+  <div class="wrap">
+    <p class="foot-word" aria-hidden="true">FOXFIX</p>
+    <nav class="foot-soc" aria-label="FoxFix w sieci">
+      <a href="https://www.facebook.com/foxfixserwis" target="_blank" rel="noopener"><i class="ph ph-facebook-logo"></i>Facebook</a>
+      <a href="https://www.instagram.com/foxfixserwis/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i>Instagram</a>
+      <a href="https://www.tiktok.com/@foxfixserwis" target="_blank" rel="noopener"><i class="ph ph-tiktok-logo"></i>TikTok</a>
+      <a href="https://maps.app.goo.gl/vqJfizRezmTTjqvH7" target="_blank" rel="noopener"><i class="ph ph-map-pin"></i>Mapy Google</a>
+    </nav>
+    <div class="foot-row"><span>© 2026 FoxFix, Kurów</span><a href="/">Wróć na foxfix.it</a></div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   LISTA PORADNIKOW
+   Nowy poradnik = nowy folder /wiedza/<slug>/index.html
+   i jeden wpis ponizej. Pierwszy wpis z featured: true
+   pokazuje sie jako duzy kafel na gorze.
+   Ikony: nazwy z phosphoricons.com (np. device-mobile, laptop, desktop, wifi-high)
+   ========================================================= */
+const KATEGORIE = {
+  telefony:  { nazwa: 'Telefony',            ikona: 'device-mobile' },
+  komputery: { nazwa: 'Komputery i laptopy', ikona: 'laptop' },
+  internet:  { nazwa: 'Internet i Wi-Fi',    ikona: 'wifi-high' },
+  bezpieczenstwo: { nazwa: 'Bezpieczeństwo', ikona: 'shield-check' }
+};
+
+const PORADNIKI = [
+  {
+    slug: 'zgubiony-telefon',
+    tytul: 'Zgubiony telefon? Jak go znaleźć',
+    opis: '4 proste kroki z obrazkami. iPhone, Samsung i każdy inny Android. Co zrobić, gdy telefon zginął albo ktoś go ukradł.',
+    kategoria: 'telefony',
+    ikona: 'map-pin',
+    czas: 'ok. 10 minut',
+    kroki: '4 kroki',
+    nowy: true,
+    featured: true,
+    slowa: 'zgubiłem telefon kradzież skradziony lokalizacja znajdź iphone samsung android imei sim'
+  }
+  // , { slug: 'wolny-laptop', tytul: '...', opis: '...', kategoria: 'komputery', ikona: 'laptop', czas: 'ok. 5 minut', kroki: '5 kroków' }
+];
+
+(() => {
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
+  const $ = id => document.getElementById(id);
+  let kat = 'all', q = '';
+
+  // Kategorie: tylko te, w ktorych sa poradniki
+  const used = [...new Set(PORADNIKI.map(p => p.kategoria))];
+  $('chips').innerHTML = [`<button class="chip" type="button" data-k="all" aria-pressed="true">Wszystkie <small>${PORADNIKI.length}</small></button>`]
+    .concat(used.map(k => `<button class="chip" type="button" data-k="${esc(k)}" aria-pressed="false"><i class="ph ph-${esc(KATEGORIE[k]?.ikona || 'book-open')}"></i>${esc(KATEGORIE[k]?.nazwa || k)} <small>${PORADNIKI.filter(p => p.kategoria === k).length}</small></button>`)).join('');
+
+  const tag = p => `<span class="tag"><i class="ph-fill ph-${esc(KATEGORIE[p.kategoria]?.ikona || 'book-open')}"></i>${esc(KATEGORIE[p.kategoria]?.nazwa || p.kategoria)}</span>`;
+  const featHTML = p => `<a class="feat rv" href="${esc(p.slug)}/">
+      <div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">${tag(p)}${p.nowy ? '<span class="tag badge-new">Nowy</span>' : ''}</div>
+        <h2>${esc(p.tytul)}</h2><p>${esc(p.opis)}</p>
+        <div class="meta"><span><i class="ph-bold ph-list-numbers"></i>${esc(p.kroki)}</span><span><i class="ph-bold ph-clock"></i>${esc(p.czas)}</span><span><i class="ph-bold ph-image"></i>z animacjami</span></div>
+        <span class="read">Czytaj poradnik<span class="ic"><i class="ph-bold ph-arrow-right"></i></span></span>
+      </div>
+      <div class="radar" aria-hidden="true"><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="sweep"></div><div class="dot"></div><div class="center"><i class="ph ph-${esc(p.ikona)}"></i></div></div>
+    </a>`;
+  const cardHTML = p => `<a class="card" href="${esc(p.slug)}/">
+      <span class="ico"><i class="ph ph-${esc(p.ikona)}"></i></span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">${tag(p)}${p.nowy ? '<span class="tag badge-new">Nowy</span>' : ''}</div>
+      <h3>${esc(p.tytul)}</h3><p>${esc(p.opis)}</p>
+      <div class="foot"><span>${esc(p.kroki)}, ${esc(p.czas)}</span><i class="ph-bold ph-arrow-right go"></i></div>
+    </a>`;
+  const soonHTML = `<div class="card soon"><span class="ico"><i class="ph ph-pencil-simple-line"></i></span><h3>Kolejne poradniki w drodze</h3><p>Komputery, laptopy, internet. Masz pomysł na temat? Napisz do nas na Facebooku.</p><a class="btn" href="https://www.facebook.com/foxfixserwis" target="_blank" rel="noopener" style="margin-top:auto">Zaproponuj temat</a></div>`;
+
+  function render(){
+    const list = PORADNIKI.filter(p => (kat === 'all' || p.kategoria === kat) &&
+      (!q || norm(p.tytul + ' ' + p.opis + ' ' + (p.slowa || '')).includes(norm(q))));
+    const feat = (!q && kat === 'all') ? list.find(p => p.featured) : null;
+    $('featured').innerHTML = feat ? featHTML(feat) : '';
+    const rest = list.filter(p => p !== feat);
+    $('grid').innerHTML = rest.map(cardHTML).join('') + (!q ? soonHTML : '');
+    $('more-h').textContent = feat ? 'Pozostałe poradniki' : (q ? 'Wyniki wyszukiwania' : 'Poradniki');
+    $('empty').classList.toggle('on', list.length === 0);
+    observe();
+  }
+
+  $('chips').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    kat = b.dataset.k;
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === b)));
+    render();
+  });
+  $('q').addEventListener('input', e => { q = e.target.value.trim(); render(); });
+  $('reset').addEventListener('click', () => { q = ''; $('q').value = ''; kat = 'all'; document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.k === 'all'))); render(); });
+
+  const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target); } }), { threshold: .12 });
+  function observe(){ document.querySelectorAll('.rv:not(.in)').forEach(n => rv.observe(n)); }
+  render();
+})();
+</script>
+</body>
+</html>
