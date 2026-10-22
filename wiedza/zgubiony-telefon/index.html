@@ -478,6 +478,19 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
   .shot-thumb{right:0}
   .sms-gen{max-width:none}
 }
+
+/* Samsung: kompaktowo, zeby zmiesci sie w stalej wysokosci bez skakania */
+.lg>*{flex-shrink:0}
+.lg-sam{gap:9px;padding:20px 22px}
+.lg-sam .st{gap:9px}
+.lg-sam .s-h{font-size:20px}
+.lg-sam .s-field{min-height:40px;padding:8px 2px}
+.lg-sam .s-btn{padding:10px}
+.lg-sam .s-google{padding:9px}
+/* Telefon w stylu Androida/Samsunga: otwor na aparat zamiast wyspy */
+.phone.android{border-radius:24px;border-width:6px}
+.phone.android::before{width:11px;height:11px;margin-left:-5.5px;top:8px;border-radius:50%}
+.phone.android .p-screen{padding-top:26px}
 /* Generator SMS do lombardow */
 .sms-gen{display:grid;gap:14px;margin-top:18px;max-width:480px}
 .sms-gen .f{display:grid;gap:6px}
@@ -632,7 +645,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
       <div class="picker rv" role="radiogroup" aria-label="Wybierz swój telefon">
         <button class="pick" role="radio" aria-checked="false" data-dev="apple"><span class="ico-box"><i class="ph-fill ph-apple-logo"></i></span><div><b>iPhone</b><span>Apple</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
         <button class="pick" role="radio" aria-checked="false" data-dev="samsung"><span class="ico-box"><i class="ph-fill ph-device-mobile-camera"></i></span><div><b>Samsung</b><span>Galaxy</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
-        <button class="pick" role="radio" aria-checked="false" data-dev="android"><span class="ico-box"><i class="ph-fill ph-android-logo"></i></span><div><b>Inny Android</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
+        <button class="pick" role="radio" aria-checked="false" data-dev="android"><span class="ico-box"><i class="ph-fill ph-android-logo"></i></span><div><b>Inny telefon z Androidem</b><span>Xiaomi, Motorola, Oppo, Realme, Pixel i każdy inny, który nie jest iPhonem ani Samsungiem</span></div><span class="sel">Wybrany</span><span class="go">To mój telefon <i class="ph-bold ph-arrow-right"></i></span></button>
       </div>
       <div class="step-go"><a class="go-btn" href="#krok-3" id="go-3" aria-disabled="true"><span class="go-lbl">Najpierw kliknij swój telefon</span><span class="go-ic"><i class="ph-bold ph-arrow-down"></i></span></a></div>
     </div>
@@ -1151,6 +1164,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
   scenes.forEach(el => {
     const def = SCENES[el.dataset.scene], d = el.dataset;
     el.innerHTML = def.html(d);
+    if (!el.closest('#list-apple')) el.querySelectorAll('.phone').forEach(ph => ph.classList.add('android'));
     def.final(el, d);
     if (!el.hasAttribute('role')){ el.setAttribute('role', 'img'); el.setAttribute('aria-label', 'Animacja pokazująca ten punkt'); }
     let token = 0;
